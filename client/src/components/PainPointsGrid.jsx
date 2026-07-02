@@ -62,7 +62,7 @@ export default function PainPointsGrid() {
                   <span className="text-xs font-mono font-bold">System Log</span>
                 </div>
                 <code className="text-xs font-mono text-green-400 block mt-2">
-                  > {point.codeSnippet}
+                  &gt; {point.codeSnippet}
                   <span className="animate-pulse">_</span>
                 </code>
               </div>
