@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  algor-web:
+    image: ${DOCKERHUB_USERNAME}/algor-web:latest
+    container_name: algor-web
+    restart: unless-stopped
+    ports:
+      - "80:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      - ./data:/app/server/data # Para persistencia de SQLite (opcional)
