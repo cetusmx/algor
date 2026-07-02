@@ -1,5 +1,5 @@
 import React from 'react';
-import { Server, Database, Activity, Code2, TerminalSquare } from 'lucide-react';
+import { Server, Database, Activity, TerminalSquare } from 'lucide-react';
 
 const painPoints = [
   {
