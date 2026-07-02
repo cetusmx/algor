@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+    <polygon points="12,48 30,12 42,12 24,48" fill="#0f172a" />
+    <polygon points="38,12 50,12 68,48 56,48" fill="#FF5100" />
+    <text x="80" y="42" font-family="'Inter', sans-serif" font-weight="800" font-size="34" fill="#0f172a" letter-spacing="-1.5">algor</text>
+</svg>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>algor - Arquitectura de Sistema</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --accent: #38bdf8;
+            --card-bg: #1e293b;
+            --border: #334155;
+            --font-main: 'Inter', system-ui, sans-serif;
+        }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 { color: var(--accent); font-size: 2.5rem; margin-bottom: 10px; }
+        .subtitle { color: #94a3b8; font-size: 1.2rem; margin-bottom: 40px; }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        h2 { border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-top: 0; }
+        .reflection-box {
+            background-color: rgba(56, 189, 248, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 16px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .stack-list {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+        }
+        .stack-item {
+            background: #334155;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        .diagram {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            overflow-x: auto;
+        }
+    </style>
+    <!-- Carga Mermaid.js -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Arquitectura: algor B2B</h1>
+        <p class="subtitle">Diseño técnico para la plataforma de captación de leads estructurada bajo un Monolito de Contenedor Único.</p>
+
+        <div class="card">
+            <h2>1. El Paradigma de Diseño</h2>
+            <p>La aplicación está diseñada bajo el paradigma de <strong>Monolito de Contenedor Único (Single-Container Monolith)</strong>. Esto garantiza un 100% de portabilidad, permitiendo que la aplicación (frontend, backend y base de datos) se levante con un simple comando de Docker en cualquier entorno.</p>
+        </div>
+
+        <div class="card">
+            <h2>2. Reflexión Técnica: Un Contenedor, Un Puerto</h2>
+            <div class="reflection-box">
+                <p><strong>¿Por qué el contenedor expone solo el puerto 3030 en lugar de separar Front (8082) y Back (3030)?</strong></p>
+                <p>En el desarrollo local, es común tener dos servidores corriendo (Vite para React y Node para Express). Sin embargo, llevar eso a producción dentro de <em>un mismo contenedor Docker</em> fuerza el uso de gestores de procesos internos (como supervisord), lo cual es un anti-patrón de contenedores.</p>
+                <p>La solución elegante y de grado de producción es compilar React en archivos estáticos puros (HTML/JS/CSS). Luego, configuramos a Node.js (Express) para que escuche en un solo puerto (<strong>3030</strong>). Express se encarga de interceptar las llamadas a la API (<code>/api/*</code>) para interactuar con la base de datos, y para cualquier otra ruta, simplemente entrega los archivos estáticos de React.</p>
+                <p>El VPS host utiliza NGINX como Proxy Inverso para recibir el tráfico de los distintos dominios, y simplemente enruta el tráfico web de algor.com directamente a nuestro contenedor en el puerto 3030. Un flujo limpio y sin fricciones internas.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>3. Stack Tecnológico</h2>
+            <ul class="stack-list">
+                <li class="stack-item">React.js (Vite)</li>
+                <li class="stack-item">Node.js (Express)</li>
+                <li class="stack-item">SQLite (Raw SQL)</li>
+                <li class="stack-item">Docker</li>
+                <li class="stack-item">NGINX (Host)</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>4. Topología de Red y Componentes</h2>
+            <p>El siguiente diagrama ilustra cómo se comunican los componentes respetando las directivas del PRD:</p>
+            <div class="diagram">
+                <div class="mermaid">
+                    flowchart TD
+                        User([Usuario / Navegador]) -->|HTTPS| NGINX[NGINX Reverse Proxy\n(Servidor VPS Host)]
+                        
+                        subgraph Docker [Contenedor Docker algor]
+                            Express[Express.js\nPuerto 3030]
+                            React[Archivos Estáticos Vite\nCarpeta /dist]
+                            SQLite[(SQLite Embebido)]
+                        end
+                        
+                        subgraph HostOS [Disco del VPS Linux]
+                            Volume[(algor.sqlite)]
+                        end
+                    
+                        NGINX -->|Proxy Pass :3030| Express
+                        Express -.->|Sirve el Frontend| React
+                        Express -->|Queries Crudas| SQLite
+                        SQLite <==>|Mapeo de Volumen| Volume
+                </div>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #94a3b8;">
+                <em>Nota sobre persistencia:</em> Al usar Docker Volumes, el archivo SQLite sobrevive reinicios y actualizaciones del contenedor, manteniendo seguros los datos de agendamiento.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
