@@ -30,7 +30,8 @@
 | Scenario | Page | Name | Status | Date |
 |---|---|---|---|---|
 | 01-gerente-ti-bala-de-plata | 01.1 | Inicio / Home | built | 2026-07-02 |
-| 01-gerente-ti-bala-de-plata | 01.2 | Casos de Uso / Portafolio | specified | 2026-07-02 |
-| 01-gerente-ti-bala-de-plata | 01.3 | Detalle de Caso de Estudio | specified | 2026-07-02 |
-| 01-gerente-ti-bala-de-plata | 01.4 | Agendar Reunión | specified | 2026-07-02 |
+| 01-gerente-ti-bala-de-plata | 01.2 | Casos de Uso / Portafolio | specified | 2026-07-03 |
+| 01-gerente-ti-bala-de-plata | 01.3 | Detalle de Caso de Estudio | specified | 2026-07-03 |
+| 01-gerente-ti-bala-de-plata | 01.4 | Agendar Reunión | specified | 2026-07-03 |
+| 02-propietario-validacion | 02.1 | Servicios | specified | 2026-07-03 |
 
