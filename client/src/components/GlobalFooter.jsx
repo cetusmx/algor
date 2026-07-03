@@ -9,7 +9,7 @@ export default function GlobalFooter() {
           <div className="md:col-span-1">
             <Logo className="w-36 text-slate-900 mb-4" />
             <p className="text-sm text-slate-500 mt-4 leading-relaxed">
-              Ingeniería de software pragmática para problemas complejos. Escalamos sistemas sin romper tu operación actual.
+              Tu próximo gran salto empieza con una mejor base digital. Construimos los cimientos tecnológicos de tu empresa para un éxito futuro continuo y escalable.
             </p>
           </div>
           
