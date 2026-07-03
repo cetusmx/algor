@@ -1,38 +1,29 @@
-# Etapa 1: Build del Frontend (Vite)
-FROM node:20-alpine AS frontend-builder
-WORKDIR /app
-# Copiamos package.json general y el del cliente si es que tienes workspaces
-COPY package*.json ./
-# Instalamos dependencias
-RUN npm install
-# Copiamos el código fuente
-COPY . .
-# Construimos el frontend estático
+# Stage 1: Build the React client
+FROM node:20-alpine AS client-builder
+WORKDIR /app/client
+COPY client/package*.json ./
+RUN npm ci
+COPY client/ ./
 RUN npm run build
 
-
-# Etapa 2: Producción (Express + SQLite)
+# Stage 2: Setup the Express server
 FROM node:20-alpine
 WORKDIR /app
 
-# Instalar dependencias para compilación de SQLite si es necesario
-RUN apk add --no-cache python3 make g++ 
+# Copy server dependencies and install
+COPY server/package*.json ./server/
+WORKDIR /app/server
+RUN npm ci --production
 
-COPY package*.json ./
-# Instalamos solo las dependencias de producción
-RUN npm install --omit=dev
+# Copy server source code
+COPY server/ ./
 
-# Copiamos el código del backend
-COPY server/ ./server/
+# Copy built React files to the container
+# The Express app is configured to serve static files from ../client/dist
+WORKDIR /app
+COPY --from=client-builder /app/client/dist ./client/dist
 
-# Copiamos el frontend compilado desde la etapa anterior
-COPY --from=frontend-builder /app/dist ./dist
-
-# Crear directorio para la base de datos (se mapeará a un volumen)
-RUN mkdir -p /app/data
-ENV DB_PATH=/app/data/algor.sqlite
-
-EXPOSE 3030
-
-# Comando para iniciar el servidor de Express
-CMD ["npm", "start"]
+# Expose port and start the server
+EXPOSE 3000
+WORKDIR /app/server
+CMD ["node", "index.js"]

@@ -1,13 +1,41 @@
 const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const sqlite3 = require('sqlite3').verbose();
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 const app = express();
-const port = process.env.PORT || 3030;
+const PORT = process.env.PORT || 3000;
 
-app.use(express.static('dist'));
+// Middleware
+app.use(cors());
+app.use(express.json());
 
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', message: 'algor B2B API is running' });
+// Init SQLite DB (in-memory for now, can be changed to file)
+const db = new sqlite3.Database('./database.sqlite', (err) => {
+  if (err) {
+    console.error('Error connecting to SQLite DB:', err.message);
+  } else {
+    console.log('Connected to SQLite database.');
+  }
 });
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+// API Routes
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', message: 'algor API is running' });
+});
+
+// Serve static files from the React app
+const clientBuildPath = path.join(__dirname, '../client/dist');
+app.use(express.static(clientBuildPath));
+
+// Catch-all to route React Router requests to index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(clientBuildPath, 'index.html'));
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
