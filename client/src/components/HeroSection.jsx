@@ -89,7 +89,7 @@ export default function HeroSection({ hidePreTitle = false }) {
             </div>
           )}
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-            Tu próximo gran salto empresarial empieza con una mejor base digital.
+            Tu próximo gran salto empieza con una mejor base digital.
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-10 max-w-2xl">
             Actuamos como tu socio estratégico para dominar la era digital. Construimos los cimientos tecnológicos de tu empresa para un éxito futuro continuo y escalable.
