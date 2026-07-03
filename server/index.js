@@ -7,14 +7,14 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3030;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // Init SQLite DB (in-memory for now, can be changed to file)
-const db = new sqlite3.Database('./database.sqlite', (err) => {
+const db = new sqlite3.Database('/app/data/algor.sqlite', (err) => {
   if (err) {
     console.error('Error connecting to SQLite DB:', err.message);
   } else {

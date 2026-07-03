@@ -23,7 +23,10 @@ COPY server/ ./
 WORKDIR /app
 COPY --from=client-builder /app/client/dist ./client/dist
 
+# Create directory for SQLite volume
+RUN mkdir -p /app/data
+
 # Expose port and start the server
-EXPOSE 3000
+EXPOSE 3030
 WORKDIR /app/server
 CMD ["node", "index.js"]
