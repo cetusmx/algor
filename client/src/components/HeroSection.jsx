@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Button from './Button';
 
 export default function HeroSection() {
@@ -89,12 +90,16 @@ export default function HeroSection() {
             Destrabamos el crecimiento de tu empresa conectando, modernizando y escalando sistemas sin romper tu operación actual.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button variant="primary-dark" className="text-lg px-8 py-4">
-              Explorar Casos de Estudio
-            </Button>
-            <Button variant="secondary" className="text-lg px-8 py-4 !border-white !text-white hover:!bg-white/10 dark:border-white dark:text-white dark:hover:bg-white/10">
-              Nuestros Servicios
-            </Button>
+            <Link to="/casos-de-uso">
+              <Button variant="primary-dark" className="text-lg px-8 py-4 w-full sm:w-auto">
+                Explorar Casos de Estudio
+              </Button>
+            </Link>
+            <Link to="/servicios">
+              <Button variant="secondary" className="text-lg px-8 py-4 w-full sm:w-auto !border-white !text-white hover:!bg-white/10 dark:border-white dark:text-white dark:hover:bg-white/10">
+                Nuestros Servicios
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
