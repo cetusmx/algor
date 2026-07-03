@@ -85,8 +85,6 @@ export default function HeroSection({ hidePreTitle = false }) {
         <div className="max-w-3xl">
           {!hidePreTitle && (
             <div className="mb-6 inline-flex items-center border border-white/20 bg-white/5 backdrop-blur-sm rounded-full px-4 py-1.5">
-              <span className="text-sm font-semibold tracking-wide text-brand-orange">algor</span>
-              <span className="mx-2 text-white/40">|</span>
               <span className="text-xs uppercase tracking-widest text-slate-300 font-medium">Servicios de ingeniería de software</span>
             </div>
           )}
