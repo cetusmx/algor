@@ -1,78 +1,85 @@
-name: CI/CD Pipeline
+name: Deploy to VPS
 
 on:
   push:
-    branches: [ "main", "feature/*" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build-and-test:
+  build-and-push:
+    name: Build and Push Docker Image
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
     steps:
-      - name: Checkout Code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install Frontend Dependencies
-        working-directory: ./client
-        run: npm ci
-
-      - name: Lint Frontend
-        working-directory: ./client
-        run: npm run lint
-
-      - name: Build Frontend
-        working-directory: ./client
-        run: npm run build
-
-      - name: Install Backend Dependencies
-        working-directory: ./server
-        run: npm ci
-
-  docker-build:
-    needs: build-and-test
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Login to Docker Hub
+      - name: Log in to the Container registry
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and Push Docker Image
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/algor-web:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
-  deploy-to-vps:
-    needs: docker-build
+  deploy:
+    name: Deploy to VPS
+    needs: build-and-push
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    
     steps:
-      - name: Deploy to VPS via SSH
+      - name: Execute deployment via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
+          # Opcional: si usas puerto distinto al 22
+          # port: ${{ secrets.VPS_PORT }}
           script: |
-            # Pull latest image
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/algor-web:latest
-            # Stop existing container
+            # 1. Autenticar en GHCR desde el VPS para poder descargar la imagen privada
+            echo "${{ secrets.GHCR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            
+            # 2. Navegar al directorio de despliegue (asegúrate de crear esta carpeta en el VPS)
+            mkdir -p /opt/algor
+            cd /opt/algor
+            
+            # 3. Traer la última versión de la imagen
+            # (Convirtiendo el nombre del repo a minúsculas porque docker no acepta mayúsculas)
+            IMAGE_URL=$(echo "ghcr.io/${{ github.repository }}:main" | tr '[:upper:]' '[:lower:]')
+            docker pull $IMAGE_URL
+            
+            # 4. Detener y eliminar el contenedor anterior (Replace-in-place)
             docker stop algor-web || true
             docker rm algor-web || true
-            # Run new container
-            docker run -d --name algor-web -p 80:3000 --restart unless-stopped ${{ secrets.DOCKERHUB_USERNAME }}/algor-web:latest
-            # Clean up old images
+            
+            # 5. Levantar el nuevo contenedor mapeando el puerto 3030 y el volumen para SQLite
+            docker run -d \
+              --name algor-web \
+              --restart unless-stopped \
+              -p 3030:3030 \
+              -v algor-db-data:/app/data \
+              $IMAGE_URL
+              
+            # 6. Limpiar imágenes huérfanas para no llenar el disco del VPS
             docker image prune -f
