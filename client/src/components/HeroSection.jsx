@@ -89,10 +89,10 @@ export default function HeroSection({ hidePreTitle = false }) {
             </div>
           )}
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-            Ingeniería de software pragmática para problemas complejos.
+            Tu próximo gran salto empresarial empieza con una mejor base digital.
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-10 max-w-2xl">
-            Destrabamos el crecimiento de tu empresa conectando, modernizando y escalando sistemas sin romper tu operación actual.
+            Actuamos como tu socio estratégico para dominar la era digital. Construimos los cimientos tecnológicos de tu empresa para un éxito futuro continuo y escalable.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/casos-de-uso">
