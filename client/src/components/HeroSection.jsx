@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
 
-export default function HeroSection() {
+export default function HeroSection({ hidePreTitle = false }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -83,6 +83,13 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
         <div className="max-w-3xl">
+          {!hidePreTitle && (
+            <div className="mb-6 inline-flex items-center border border-white/20 bg-white/5 backdrop-blur-sm rounded-full px-4 py-1.5">
+              <span className="text-sm font-semibold tracking-wide text-brand-orange">algor</span>
+              <span className="mx-2 text-white/40">|</span>
+              <span className="text-xs uppercase tracking-widest text-slate-300 font-medium">Servicios de ingeniería de software</span>
+            </div>
+          )}
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
             Ingeniería de software pragmática para problemas complejos.
           </h1>
