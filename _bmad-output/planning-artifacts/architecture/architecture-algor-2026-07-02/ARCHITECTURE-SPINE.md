@@ -7,7 +7,7 @@ paradigm: 'Monolithic Single-Container (React SPA + Express Backend + SQLite)'
 scope: 'Entire algor B2B web application and lead capture system'
 status: final
 created: '2026-07-02'
-updated: '2026-07-02'
+updated: '2026-07-03'
 binds: ['algor-b2b']
 sources: ['prd-algor-2026-07-02']
 companions: []
@@ -40,6 +40,26 @@ companions: []
 - **Prevents:** Data loss when the ephemeral Docker container restarts or updates.
 - **Rule:** The SQLite database file must be saved in an internal directory that is mapped to a persistent volume on the host Linux VPS (e.g. `/var/lib/algor-db/`).
 
+### AD-5 — GitHub Actions Orchestration
+- **Binds:** CI/CD workflows, Build pipelines.
+- **Prevents:** Manual deployments or fragmented deployment scripts run locally.
+- **Rule:** All automated builds and deployments must be orchestrated exclusively via GitHub Actions workflows.
+
+### AD-6 — Delegated Build (GHCR)
+- **Binds:** Docker build process.
+- **Prevents:** Resource exhaustion (CPU/RAM spikes) on the target Linux VPS during image compilation.
+- **Rule:** Docker images must be built within the GitHub Actions runner environment and pushed to the GitHub Container Registry (GHCR). The VPS only pulls the pre-built image.
+
+### AD-7 — Secure Remote Deployment
+- **Binds:** Authentication for deployment.
+- **Prevents:** Hardcoded server credentials or insecure access to the VPS.
+- **Rule:** GitHub Actions must execute deployment commands on the target VPS via SSH. Authentication keys and credentials must be stored securely as GitHub Secrets.
+
+### AD-8 — Replace-in-Place Deployment
+- **Binds:** Container replacement strategy.
+- **Prevents:** Operational overhead of configuring zero-downtime mechanisms (Blue-Green/Canary) for a business case that tolerates brief interruptions.
+- **Rule:** Deployments are executed by stopping the current container, pulling the latest image, and starting the new container on the same port.
+
 ## Stack
 
 | Name | Version |
@@ -49,6 +69,7 @@ companions: []
 | Express | 4.x |
 | SQLite | 3.x (sqlite3 or better-sqlite3) |
 | Docker | Latest |
+| CI/CD | GitHub Actions |
 
 ## Structural Seed
 

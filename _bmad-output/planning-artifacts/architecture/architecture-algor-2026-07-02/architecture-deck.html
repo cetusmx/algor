@@ -98,6 +98,7 @@
                 <li class="stack-item">SQLite (Raw SQL)</li>
                 <li class="stack-item">Docker</li>
                 <li class="stack-item">NGINX (Host)</li>
+                <li class="stack-item">GitHub Actions (CI/CD)</li>
             </ul>
         </div>
 
@@ -127,6 +128,45 @@
             </div>
             <p style="margin-top: 20px; font-size: 0.9em; color: #94a3b8;">
                 <em>Nota sobre persistencia:</em> Al usar Docker Volumes, el archivo SQLite sobrevive reinicios y actualizaciones del contenedor, manteniendo seguros los datos de agendamiento.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>5. Flujo de Despliegue CI/CD</h2>
+            <p>Se ha implementado una estrategia de <strong>Replace-in-Place</strong> orquestada completamente por <strong>GitHub Actions</strong> para asegurar que el servidor de producción mantenga sus recursos intactos durante las construcciones.</p>
+            <div class="diagram">
+                <div class="mermaid">
+                    sequenceDiagram
+                        participant Dev as Desarrollador
+                        participant GH as GitHub
+                        participant GHA as GitHub Actions
+                        participant GHCR as GitHub Container Registry
+                        participant VPS as VPS (Producción)
+
+                        Dev->>GH: Push a la rama main
+                        GH->>GHA: Dispara Workflow (CI)
+                        
+                        rect rgb(234, 240, 246)
+                            Note right of GHA: Proceso Delegado (Evita CPU en VPS)
+                            GHA->>GHA: Construye imagen Docker (Build)
+                            GHA->>GHCR: Push nueva imagen (v1.x)
+                        end
+                        
+                        GHA->>VPS: Conexión SSH (usando GitHub Secrets)
+                        
+                        rect rgb(234, 240, 246)
+                            Note right of VPS: Despliegue Replace-in-Place
+                            VPS->>GHCR: Docker pull imagen actualizada
+                            VPS->>VPS: Detiene contenedor actual
+                            VPS->>VPS: Inicia nuevo contenedor (mismo puerto 3030)
+                        end
+                        
+                        VPS-->>GHA: Confirmación de Despliegue
+                        GHA-->>Dev: Notificación de Éxito
+                </div>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #94a3b8;">
+                <em>Nota:</em> Este flujo implica un tiempo de inactividad muy breve (unos segundos) durante el reinicio del contenedor, lo cual se determinó aceptable para el contexto del negocio, evitando la complejidad de configuraciones Blue-Green.
             </p>
         </div>
     </div>
