@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Cases from './pages/Cases';
 import CaseDetail from './pages/CaseDetail';
 import Booking from './pages/Booking';
+import Services from './pages/Services';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/casos-de-uso" element={<Cases />} />
         <Route path="/casos-de-uso/:slug" element={<CaseDetail />} />
         <Route path="/contacto/agendar" element={<Booking />} />
+        <Route path="/servicios" element={<Services />} />
       </Routes>
     </Router>
   );
