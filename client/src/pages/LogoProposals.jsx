@@ -109,6 +109,21 @@ export default function LogoProposals() {
             </p>
           </div>
 
+          {/* Propuesta 7 */}
+          <div className="bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-xl hover:-translate-y-1">
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeLinejoin="miter">
+                {/* Altura: 90, Ancho: 60. Gap reducido. 20 grados en punta (como V4). Alineación Y=54 y Y=46 */}
+                <path d="M 50 5 L 20 50 L 48 54 L 40 46 Z" fill="#3B82F6" className="drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
+                <path d="M 50 95 L 80 50 L 52 46 L 60 54 Z" fill="#F97316" className="drop-shadow-[0_0_12px_rgba(249,115,22,0.6)]" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-white">V7: Estilizado (20°)</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Recuperamos la elegancia. Mantenemos el formato alto y los elementos cercanos de la V6, pero regresamos el ángulo de las puntas verticales a exactamente 20° (como en la V4). El resultado es mucho más equilibrado y armónico en su centro.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
