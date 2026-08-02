@@ -1,0 +1,158 @@
+import React, { useState, useEffect } from 'react';
+
+const SLIDES = [
+  {
+    id: 1,
+    tag: "El Reto",
+    title: "El costo oculto de vender por WhatsApp.",
+    description: "Tus vendedores usan sus teléfonos personales. Si se van de la empresa, se llevan a tus clientes y todo el historial de conversaciones. Además, como dueño, tienes un 'punto ciego' total sobre lo que prometen o cuánto tardan en contestar.",
+    gradient: "from-slate-800 to-slate-900"
+  },
+  {
+    id: 2,
+    tag: "La Solución Centralizada",
+    title: "Un solo número, control total.",
+    description: "SalesFlow te da un único número de WhatsApp oficial corporativo. Tus clientes escriben ahí, pero tu equipo responde desde nuestra plataforma web o móvil. La información y los contactos siempre le pertenecen a tu empresa, blindando tu cartera.",
+    gradient: "from-blue-600 to-indigo-900"
+  },
+  {
+    id: 3,
+    tag: "Tu Mejor Vendedor Nunca Duerme",
+    title: "Asistente IA 24/7.",
+    description: "Un agente de Inteligencia Artificial entrenado con tus catálogos atiende al instante. Responde dudas, valida existencias, da precios con IVA e incluso toma pedidos a las 3 de la mañana o en fines de semana.",
+    gradient: "from-orange-500 to-red-600"
+  },
+  {
+    id: 4,
+    tag: "El Relevo Perfecto",
+    title: "De la Máquina al Humano sin fricción.",
+    description: "Cuando el cliente está listo para pagar o requiere ayuda compleja, la IA escala el chat automáticamente poniendo una etiqueta roja ('ESCALADO'). El sistema lo asigna inteligentemente al vendedor desocupado, quien entra a cerrar el trato con todo el contexto.",
+    gradient: "from-teal-500 to-emerald-700"
+  },
+  {
+    id: 5,
+    tag: "Súper Herramientas para el Vendedor",
+    title: "Catálogo, Carrito y Cotizaciones en el Chat.",
+    description: "El vendedor ya no necesita Excel ni Word. Tiene el catálogo junto a la conversación, puede inyectar sugerencias, armar el pedido y generar una cotización formal en PDF al instante, sin salir de la plataforma.",
+    gradient: "from-purple-500 to-fuchsia-700"
+  },
+  {
+    id: 6,
+    tag: "Visión de Rayos X para el Gerente",
+    title: "Supervisión y el 'Susurro' Privado.",
+    description: "El gerente puede ver múltiples chats en vivo y medir la productividad de cada asesor. Su mayor poder es el 'Susurro': puede dejar comentarios internos o enviar fichas técnicas al vendedor en tiempo real, sin que el cliente lo vea en WhatsApp.",
+    gradient: "from-slate-700 to-slate-800"
+  }
+];
+
+export default function SalesFlowPresentation() {
+  const [current, setCurrent] = useState(0);
+
+  const nextSlide = () => setCurrent((prev) => (prev === SLIDES.length - 1 ? 0 : prev + 1));
+  const prevSlide = () => setCurrent((prev) => (prev === 0 ? SLIDES.length - 1 : prev - 1));
+  const goToSlide = (index) => setCurrent(index);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  return (
+    <div className="w-full max-w-6xl mx-auto my-16">
+      <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden relative flex flex-col">
+        
+        {/* Slider Container */}
+        <div className="relative overflow-hidden w-full" style={{ minHeight: '500px' }}>
+          <div 
+            className="flex transition-transform duration-700 ease-in-out h-full"
+            style={{ transform: `translateX(-${current * 100}%)` }}
+          >
+            {SLIDES.map((slide) => (
+              <div key={slide.id} className="w-full flex-shrink-0 flex flex-col lg:flex-row h-full">
+                
+                {/* Text Content (Left Half) */}
+                <div className="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center bg-white">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-slate-100 text-brand-slate text-sm font-bold uppercase tracking-wider mb-6 w-max">
+                    {slide.tag}
+                  </span>
+                  <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 leading-tight">
+                    {slide.title}
+                  </h3>
+                  <p className="text-lg text-slate-600 leading-relaxed">
+                    {slide.description}
+                  </p>
+                </div>
+                
+                {/* Image Placeholder (Right Half) */}
+                <div className={`w-full lg:w-1/2 h-64 lg:h-auto bg-gradient-to-br ${slide.gradient} relative flex items-center justify-center p-12`}>
+                  {/* Decorative Elements for Placeholder */}
+                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+                  
+                  {/* You can replace this container with an <img src="..." /> later */}
+                  <div className="relative z-10 w-full h-full max-h-80 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl flex items-center justify-center text-center p-6">
+                    <div>
+                      <svg className="w-16 h-16 text-white/50 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <p className="text-white/80 font-medium text-lg">Espacio para Ilustración / Captura</p>
+                      <p className="text-white/50 text-sm mt-2">Slide {slide.id}</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Navigation Controls */}
+        <div className="bg-slate-50 border-t border-slate-100 p-6 flex items-center justify-between">
+          
+          {/* Prev Button */}
+          <button 
+            onClick={prevSlide}
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 hover:text-brand-orange transition-colors focus:outline-none focus:ring-2 focus:ring-brand-orange/50"
+            aria-label="Anterior"
+          >
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Indicators (Dots) */}
+          <div className="flex space-x-3">
+            {SLIDES.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => goToSlide(idx)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  current === idx 
+                    ? 'bg-brand-orange w-8' 
+                    : 'bg-slate-300 hover:bg-slate-400'
+                }`}
+                aria-label={`Ir a diapositiva ${idx + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Next Button */}
+          <button 
+            onClick={nextSlide}
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 hover:text-brand-orange transition-colors focus:outline-none focus:ring-2 focus:ring-brand-orange/50"
+            aria-label="Siguiente"
+          >
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  );
+}

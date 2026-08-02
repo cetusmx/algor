@@ -4,6 +4,8 @@ import GlobalHeader2 from '../components/GlobalHeader2';
 import GlobalFooter from '../components/GlobalFooter';
 import Button from '../components/Button';
 
+import SalesFlowPresentation from '../components/SalesFlowPresentation';
+
 export default function CaseSalesFlow() {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
@@ -80,6 +82,11 @@ export default function CaseSalesFlow() {
               </p>
             </div>
           </div>
+        </section>
+
+        {/* PRESENTATION CAROUSEL */}
+        <section className="bg-slate-50 py-10">
+          <SalesFlowPresentation />
         </section>
 
         {/* SECTION 3: CARACTERÍSTICAS (GRID) */}
