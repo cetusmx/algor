@@ -258,6 +258,35 @@ export default function LogoProposals() {
             </p>
           </div>
 
+          {/* Propuesta 14 */}
+          <div className="bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-xl hover:-translate-y-1">
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeLinejoin="miter">
+                <defs>
+                  {/* Reutilizamos los gradientes y el filtro 3D de la V13 */}
+                  <linearGradient id="gradBlueV14" gradientUnits="userSpaceOnUse" x1="50" y1="60" x2="50" y2="5">
+                    <stop offset="0%" stopColor="#0F2058" />
+                    <stop offset="100%" stopColor="#1E357A" />
+                  </linearGradient>
+                  <linearGradient id="gradRedV14" gradientUnits="userSpaceOnUse" x1="50" y1="40" x2="50" y2="95">
+                    <stop offset="0%" stopColor="#64181C" />
+                    <stop offset="100%" stopColor="#862329" />
+                  </linearGradient>
+                </defs>
+                <g className="drop-shadow-[0_12px_24px_rgba(15,32,88,0.7)]">
+                  <path d="M 50 5 L 12.5 50 L 55 60 L 42.2 34.4 Z" fill="url(#gradBlueV14)" filter="url(#volume3d)" />
+                </g>
+                <g className="drop-shadow-[0_12px_24px_rgba(100,24,28,0.7)]">
+                  <path d="M 50 95 L 87.5 50 L 45 40 L 57.8 65.6 Z" fill="url(#gradRedV14)" filter="url(#volume3d)" />
+                </g>
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-white">V14: Monolito (Masa Recuperada)</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Compensamos la ilusión de "adelgazamiento" aumentando la masa del diseño en un 25% (puntas ensanchadas a 25° y ancho total de 75). Además, cerramos la brecha por completo: ambas piezas se tocan matemáticamente, formando un bloque monolítico.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
