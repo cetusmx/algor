@@ -59,14 +59,6 @@ const SLIDES = [
   },
   {
     id: 8,
-    tag: "Supervisión",
-    title: "El Superpoder: Visibilidad Total.",
-    description: "Se acabaron los puntos ciegos. El coordinador vigila múltiples conversaciones en paralelo para garantizar la calidad sin interrumpir el flujo del cliente.",
-    gradient: "from-slate-700 to-slate-900",
-    image: "/slides/slide8.jpg?v=7"
-  },
-  {
-    id: 9,
     tag: "Herramientas del Vendedor",
     title: "El Catálogo Integrado: Cero Fricción.",
     description: "En lugar de abrir un ERP o un Excel, el vendedor llama al catálogo integrado en el chat, viendo precios y stock en tiempo real. Puede agregar al carrito y sugerir opciones con un solo clic.",
@@ -74,7 +66,7 @@ const SLIDES = [
     image: "/slides/slide9.jpg?v=8"
   },
   {
-    id: 10,
+    id: 9,
     tag: "Sugerencia Inteligente",
     title: "Inyección Directa al Chat.",
     description: "Con un solo clic en 'Sugerir', el producto exacto se inyecta en la conversación de WhatsApp del cliente, manteniendo el formato profesional, el código de artículo y la política de precios de la empresa.",
@@ -82,7 +74,7 @@ const SLIDES = [
     image: "/slides/slide10.jpg?v=9"
   },
   {
-    id: 11,
+    id: 10,
     tag: "El Cierre",
     title: "Carrito Integrado y Cotización Inmediata en PDF.",
     description: "El cliente acepta. El vendedor actualiza el carrito y, sin tocar Word o Excel, SalesFlow genera y envía instantáneamente una cotización formal en PDF con datos fiscales, instrucciones de pago y la identidad corporativa.",
@@ -90,12 +82,20 @@ const SLIDES = [
     image: "/slides/slide11.jpg?v=10"
   },
   {
-    id: 12,
+    id: 11,
     tag: "Visión de Rayos X para el Coordinador",
     title: "Supervisión y el 'Susurro' Privado.",
     description: "El coordinador puede ver múltiples chats en vivo y medir la productividad de cada asesor. Su mayor poder es el 'Susurro': puede dejar comentarios internos o enviar fichas técnicas al vendedor en tiempo real, sin que el cliente lo vea en WhatsApp.",
     gradient: "from-slate-800 to-black",
     image: "/slides/slide12.jpg?v=10"
+  },
+  {
+    id: 12,
+    tag: "Supervisión",
+    title: "El Superpoder: Visibilidad Total.",
+    description: "Se acabaron los puntos ciegos. El coordinador vigila múltiples conversaciones en paralelo para garantizar la calidad sin interrumpir el flujo del cliente.",
+    gradient: "from-slate-700 to-slate-900",
+    image: "/slides/slide8.jpg?v=7"
   }
 ];
 
