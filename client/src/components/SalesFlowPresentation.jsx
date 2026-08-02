@@ -59,19 +59,27 @@ const SLIDES = [
   },
   {
     id: 8,
+    tag: "Supervisión",
+    title: "El Superpoder: Visibilidad Total.",
+    description: "Se acabaron los puntos ciegos. El coordinador vigila múltiples conversaciones en paralelo para garantizar la calidad sin interrumpir el flujo del cliente.",
+    gradient: "from-slate-700 to-slate-900",
+    image: "/slides/slide8.jpg?v=7"
+  },
+  {
+    id: 9,
     tag: "Súper Herramientas para el Vendedor",
     title: "Catálogo, Carrito y Cotizaciones en el Chat.",
     description: "El vendedor ya no necesita Excel ni Word. Tiene el catálogo junto a la conversación, puede inyectar sugerencias, armar el pedido y generar una cotización formal en PDF al instante, sin salir de la plataforma.",
     gradient: "from-purple-500 to-fuchsia-700",
-    image: "/slides/slide8.jpg?v=5"
+    image: "/slides/slide9.jpg?v=7"
   },
   {
-    id: 9,
+    id: 10,
     tag: "Visión de Rayos X para el Coordinador",
     title: "Supervisión y el 'Susurro' Privado.",
     description: "El coordinador puede ver múltiples chats en vivo y medir la productividad de cada asesor. Su mayor poder es el 'Susurro': puede dejar comentarios internos o enviar fichas técnicas al vendedor en tiempo real, sin que el cliente lo vea en WhatsApp.",
-    gradient: "from-slate-700 to-slate-800",
-    image: "/slides/slide9.jpg?v=6"
+    gradient: "from-slate-800 to-black",
+    image: "/slides/slide10.jpg?v=7"
   }
 ];
 
