@@ -27,27 +27,35 @@ const SLIDES = [
   },
   {
     id: 4,
+    tag: "Precisión Técnica",
+    title: "Respuestas Precisas, No Solo Saludos.",
+    description: "El asistente de Inteligencia Artificial consulta tu catálogo en tiempo real, comprende dimensiones técnicas complejas e informa precios exactos (con IVA) y disponibilidad de inventario al instante, sin intervención humana.",
+    gradient: "from-green-600 to-emerald-900",
+    image: "/slides/slide4.jpg?v=3"
+  },
+  {
+    id: 5,
     tag: "El Relevo Perfecto",
     title: "De la Máquina al Humano sin fricción.",
     description: "Cuando el cliente está listo para pagar o requiere ayuda compleja, la IA escala el chat automáticamente poniendo una etiqueta roja ('ESCALADO'). El sistema lo asigna inteligentemente al vendedor desocupado, quien entra a cerrar el trato con todo el contexto.",
     gradient: "from-teal-500 to-emerald-700",
-    image: "/slides/slide4.jpg?v=2"
+    image: "/slides/slide5.jpg?v=3"
   },
   {
-    id: 5,
+    id: 6,
     tag: "Súper Herramientas para el Vendedor",
     title: "Catálogo, Carrito y Cotizaciones en el Chat.",
     description: "El vendedor ya no necesita Excel ni Word. Tiene el catálogo junto a la conversación, puede inyectar sugerencias, armar el pedido y generar una cotización formal en PDF al instante, sin salir de la plataforma.",
     gradient: "from-purple-500 to-fuchsia-700",
-    image: "/slides/slide5.jpg?v=2"
+    image: "/slides/slide6.jpg?v=3"
   },
   {
-    id: 6,
+    id: 7,
     tag: "Visión de Rayos X para el Gerente",
     title: "Supervisión y el 'Susurro' Privado.",
     description: "El gerente puede ver múltiples chats en vivo y medir la productividad de cada asesor. Su mayor poder es el 'Susurro': puede dejar comentarios internos o enviar fichas técnicas al vendedor en tiempo real, sin que el cliente lo vea en WhatsApp.",
     gradient: "from-slate-700 to-slate-800",
-    image: "/slides/slide6.jpg?v=2"
+    image: "/slides/slide7.jpg?v=3"
   }
 ];
 
