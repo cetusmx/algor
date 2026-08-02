@@ -14,7 +14,7 @@ export default function LogoProposals() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           
           {/* Propuesta 1 */}
           <div className="bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-xl hover:-translate-y-1">
@@ -61,6 +61,21 @@ export default function LogoProposals() {
             <h3 className="text-2xl font-bold mb-3 text-white">V3: Hiper-Afilado</h3>
             <p className="text-slate-400 leading-relaxed">
               Llevamos el concepto al límite. Vértices estirados para crear un diseño extremadamente fino y veloz, con un ángulo de ataque mucho más pronunciado y agresivo.
+            </p>
+          </div>
+
+          {/* Propuesta 4 */}
+          <div className="bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-xl hover:-translate-y-1">
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeLinejoin="miter">
+                {/* Y(C) = 57, alineado horizontalmente con Y(B_red) = 57 */}
+                <path d="M 50 12 L 12 50 L 49 57 L 35.5 43 Z" fill="#3B82F6" className="drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
+                <path d="M 50 88 L 88 50 L 51 43 L 64.5 57 Z" fill="#F97316" className="drop-shadow-[0_0_12px_rgba(249,115,22,0.6)]" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-white">V4: Alineación Matemática</h3>
+            <p className="text-slate-400 leading-relaxed">
+              El reto arquitectónico. El vértice interior (obtuso) de un elemento está perfectamente alineado de forma horizontal con la punta central del elemento opuesto, creando guías invisibles perfectas.
             </p>
           </div>
 
