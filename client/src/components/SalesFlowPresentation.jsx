@@ -67,11 +67,11 @@ const SLIDES = [
   },
   {
     id: 9,
-    tag: "Visión de Rayos X para el Gerente",
+    tag: "Visión de Rayos X para el Coordinador",
     title: "Supervisión y el 'Susurro' Privado.",
-    description: "El gerente puede ver múltiples chats en vivo y medir la productividad de cada asesor. Su mayor poder es el 'Susurro': puede dejar comentarios internos o enviar fichas técnicas al vendedor en tiempo real, sin que el cliente lo vea en WhatsApp.",
+    description: "El coordinador puede ver múltiples chats en vivo y medir la productividad de cada asesor. Su mayor poder es el 'Susurro': puede dejar comentarios internos o enviar fichas técnicas al vendedor en tiempo real, sin que el cliente lo vea en WhatsApp.",
     gradient: "from-slate-700 to-slate-800",
-    image: "/slides/slide9.jpg?v=5"
+    image: "/slides/slide9.jpg?v=6"
   }
 ];
 
