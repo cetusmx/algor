@@ -7,7 +7,7 @@ const SLIDES = [
     title: "El costo oculto de vender por WhatsApp.",
     description: "Tus vendedores usan sus teléfonos personales. Si se van de la empresa, se llevan a tus clientes y todo el historial de conversaciones. Además, como dueño, tienes un 'punto ciego' total sobre lo que prometen o cuánto tardan en contestar.",
     gradient: "from-slate-800 to-slate-900",
-    image: "/slides/slide1.jpg"
+    image: "/slides/slide1.jpg?v=2"
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ const SLIDES = [
     title: "Un solo número, control total.",
     description: "SalesFlow te da un único número de WhatsApp oficial corporativo. Tus clientes escriben ahí, pero tu equipo responde desde nuestra plataforma web o móvil. La información y los contactos siempre le pertenecen a tu empresa, blindando tu cartera.",
     gradient: "from-blue-600 to-indigo-900",
-    image: "/slides/slide2.jpg"
+    image: "/slides/slide2.jpg?v=2"
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ const SLIDES = [
     title: "Tu Negocio Nunca Duerme.",
     description: "Erradicamos los horarios de oficina en la era digital. Tu agente de Inteligencia Artificial atiende, perfila y retiene a tus clientes incluso en la madrugada, garantizando que ninguna oportunidad de venta se enfríe.",
     gradient: "from-orange-500 to-red-600",
-    image: "/slides/slide3.jpg"
+    image: "/slides/slide3.jpg?v=2"
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ const SLIDES = [
     title: "De la Máquina al Humano sin fricción.",
     description: "Cuando el cliente está listo para pagar o requiere ayuda compleja, la IA escala el chat automáticamente poniendo una etiqueta roja ('ESCALADO'). El sistema lo asigna inteligentemente al vendedor desocupado, quien entra a cerrar el trato con todo el contexto.",
     gradient: "from-teal-500 to-emerald-700",
-    image: "/slides/slide4.jpg"
+    image: "/slides/slide4.jpg?v=2"
   },
   {
     id: 5,
@@ -39,7 +39,7 @@ const SLIDES = [
     title: "Catálogo, Carrito y Cotizaciones en el Chat.",
     description: "El vendedor ya no necesita Excel ni Word. Tiene el catálogo junto a la conversación, puede inyectar sugerencias, armar el pedido y generar una cotización formal en PDF al instante, sin salir de la plataforma.",
     gradient: "from-purple-500 to-fuchsia-700",
-    image: "/slides/slide5.jpg"
+    image: "/slides/slide5.jpg?v=2"
   },
   {
     id: 6,
@@ -47,7 +47,7 @@ const SLIDES = [
     title: "Supervisión y el 'Susurro' Privado.",
     description: "El gerente puede ver múltiples chats en vivo y medir la productividad de cada asesor. Su mayor poder es el 'Susurro': puede dejar comentarios internos o enviar fichas técnicas al vendedor en tiempo real, sin que el cliente lo vea en WhatsApp.",
     gradient: "from-slate-700 to-slate-800",
-    image: "/slides/slide6.jpg"
+    image: "/slides/slide6.jpg?v=2"
   }
 ];
 
