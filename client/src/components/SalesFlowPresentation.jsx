@@ -36,8 +36,8 @@ const SLIDES = [
   {
     id: 5,
     tag: "Automatización",
-    title: "El Cierre Profesional: Automatización del Papeleo.",
-    description: "El agente IA procesa cotizaciones formales de manera autónoma en segundos",
+    title: "Venta en Serio: El agente IA gestiona la venta agregando productos a un carrito virtual.",
+    description: "Edita el carrito, brinda un resumen final del pedido, solicita información para el envío y genera cotizaciones en segundos. Deja todo preparado para que el relevo humano cuente con toda la información y solo se encargue de gestionar el pago.",
     gradient: "from-blue-700 to-indigo-900",
     image: "/slides/slide5.jpg?v=4"
   },
