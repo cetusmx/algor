@@ -184,6 +184,30 @@ export default function LogoProposals() {
             </p>
           </div>
 
+          {/* Propuesta 12 */}
+          <div className="bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-xl hover:-translate-y-1">
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeLinejoin="miter">
+                <defs>
+                  <linearGradient id="gradBlueV12" gradientUnits="userSpaceOnUse" x1="50" y1="60" x2="50" y2="5">
+                    <stop offset="0%" stopColor="#0F2058" />
+                    <stop offset="100%" stopColor="#1E357A" />
+                  </linearGradient>
+                  <linearGradient id="gradRedV12" gradientUnits="userSpaceOnUse" x1="50" y1="40" x2="50" y2="95">
+                    <stop offset="0%" stopColor="#64181C" />
+                    <stop offset="100%" stopColor="#862329" />
+                  </linearGradient>
+                </defs>
+                <path d="M 50 5 L 16.5 50 L 49 60 L 41.5 40 Z" fill="url(#gradBlueV12)" className="drop-shadow-[0_4px_12px_rgba(15,32,88,0.5)]" />
+                <path d="M 50 95 L 83.5 50 L 51 40 L 58.5 60 Z" fill="url(#gradRedV12)" className="drop-shadow-[0_4px_12px_rgba(100,24,28,0.5)]" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-white">V12: Identidad Corporativa</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Vestimos a la V11 con tus colores definitivos: Azul profundo (#0F2058) y Burdeos (#64181C). Aplicamos un sutil gradiente desde el corazón del interbloqueo hacia las puntas, aportando volumen y un acabado verdaderamente premium.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
