@@ -61,7 +61,12 @@ const SLIDES = [
     id: 8,
     tag: "Herramientas del Vendedor",
     title: "El Catálogo Integrado: Cero Fricción.",
-    description: "En lugar de abrir un ERP o un Excel, el vendedor llama al catálogo integrado en el chat, viendo precios y stock en tiempo real. Puede agregar al carrito y sugerir opciones con un solo clic.",
+    description: (
+      <>
+        <span className="block mb-2">¿El cliente desea agregar algo más?</span>
+        En lugar de abrir un ERP o un Excel, el vendedor llama al catálogo integrado en el chat, viendo precios y stock en tiempo real. Puede agregar al carrito y sugerir opciones con un solo clic.
+      </>
+    ),
     gradient: "from-purple-500 to-fuchsia-700",
     image: "/slides/slide9.jpg?v=8"
   },
