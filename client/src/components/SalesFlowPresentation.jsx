@@ -51,11 +51,11 @@ const SLIDES = [
   },
   {
     id: 7,
-    tag: "El Relevo Perfecto",
-    title: "De la Máquina al Humano sin fricción.",
-    description: "Cuando el cliente está listo para pagar o requiere ayuda compleja, la IA escala el chat automáticamente poniendo una etiqueta roja ('ESCALADO'). El sistema lo asigna inteligentemente al vendedor desocupado, quien entra a cerrar el trato con todo el contexto.",
+    tag: "Escalado",
+    title: "Escalamiento en la Atención.",
+    description: "El agente IA escala el chat después de concluir su parte en el proceso. El vendedor da seguimiento al proceso.",
     gradient: "from-teal-500 to-emerald-700",
-    image: "/slides/slide7.jpg?v=5"
+    image: "/slides/slide7.jpg?v=6"
   },
   {
     id: 8,
