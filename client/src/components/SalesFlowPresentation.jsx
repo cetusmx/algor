@@ -75,11 +75,19 @@ const SLIDES = [
   },
   {
     id: 10,
+    tag: "Sugerencia Inteligente",
+    title: "Inyección Directa al Chat.",
+    description: "Con un solo clic en 'Sugerir', el producto exacto se inyecta en la conversación de WhatsApp del cliente, manteniendo el formato profesional, el código de artículo y la política de precios de la empresa.",
+    gradient: "from-blue-800 to-indigo-900",
+    image: "/slides/slide10.jpg?v=9"
+  },
+  {
+    id: 11,
     tag: "Visión de Rayos X para el Coordinador",
     title: "Supervisión y el 'Susurro' Privado.",
     description: "El coordinador puede ver múltiples chats en vivo y medir la productividad de cada asesor. Su mayor poder es el 'Susurro': puede dejar comentarios internos o enviar fichas técnicas al vendedor en tiempo real, sin que el cliente lo vea en WhatsApp.",
     gradient: "from-slate-800 to-black",
-    image: "/slides/slide10.jpg?v=7"
+    image: "/slides/slide11.jpg?v=9"
   }
 ];
 
