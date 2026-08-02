@@ -8,6 +8,7 @@ import Booking from './pages/Booking';
 import Services from './pages/Services';
 
 import CaseSalesFlow from './pages/CaseSalesFlow';
+import LogoProposals from './pages/LogoProposals';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/casos-de-uso/:slug" element={<CaseDetail />} />
         <Route path="/contacto/agendar" element={<Booking />} />
         <Route path="/servicios" element={<Services />} />
+        <Route path="/logo-proposals" element={<LogoProposals />} />
       </Routes>
     </Router>
   );
