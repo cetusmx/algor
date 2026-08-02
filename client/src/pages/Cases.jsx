@@ -5,6 +5,12 @@ import CaseStudyCard from '../components/CaseStudyCard';
 
 const MOCK_CASES = [
   {
+    tag: 'Producto Exclusivo',
+    title: 'SalesFlow: Orquestación de Ventas y Retención de Clientes',
+    excerpt: 'Cómo protegemos el activo más valioso centralizando la comunicación y potenciando la conversión con Inteligencia Artificial (RAG).',
+    slug: 'salesflow'
+  },
+  {
     tag: 'Integración Legacy',
     title: 'Extracción en tiempo real de Aspel hacia ecosistema moderno sin downtime.',
     excerpt: 'Cómo logramos sincronización bidireccional superando las limitantes de una base de datos legacy para una empresa de logística.',

@@ -7,13 +7,16 @@ import CaseDetail from './pages/CaseDetail';
 import Booking from './pages/Booking';
 import Services from './pages/Services';
 
+import CaseSalesFlow from './pages/CaseSalesFlow';
+
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home2 />} />
         <Route path="/inicio2" element={<Home2 />} />
         <Route path="/casos-de-uso" element={<Cases />} />
+        <Route path="/casos-de-uso/salesflow" element={<CaseSalesFlow />} />
         <Route path="/casos-de-uso/:slug" element={<CaseDetail />} />
         <Route path="/contacto/agendar" element={<Booking />} />
         <Route path="/servicios" element={<Services />} />
