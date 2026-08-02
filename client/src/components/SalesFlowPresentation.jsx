@@ -103,7 +103,7 @@ const SLIDES = [
     title: "Control Total y Reasignación sin Fricción.",
     description: "Si un vendedor se ausenta o sale de la empresa, el coordinador puede reasignar el chat en segundos. El cliente mantiene una experiencia transparente y la empresa conserva el control absoluto de la relación y de cualquier proceso de venta en curso.",
     gradient: "from-slate-900 to-slate-800",
-    image: "/slides/slide13.jpg?v=11"
+    image: "/slides/slide13.jpg?v=12"
   }
 ];
 
