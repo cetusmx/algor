@@ -83,11 +83,19 @@ const SLIDES = [
   },
   {
     id: 11,
+    tag: "El Cierre",
+    title: "Carrito Integrado y Cotización Inmediata en PDF.",
+    description: "El cliente acepta. El vendedor actualiza el carrito y, sin tocar Word o Excel, SalesFlow genera y envía instantáneamente una cotización formal en PDF con datos fiscales, instrucciones de pago y la identidad corporativa.",
+    gradient: "from-orange-700 to-red-900",
+    image: "/slides/slide11.jpg?v=10"
+  },
+  {
+    id: 12,
     tag: "Visión de Rayos X para el Coordinador",
     title: "Supervisión y el 'Susurro' Privado.",
     description: "El coordinador puede ver múltiples chats en vivo y medir la productividad de cada asesor. Su mayor poder es el 'Susurro': puede dejar comentarios internos o enviar fichas técnicas al vendedor en tiempo real, sin que el cliente lo vea en WhatsApp.",
     gradient: "from-slate-800 to-black",
-    image: "/slides/slide11.jpg?v=9"
+    image: "/slides/slide12.jpg?v=10"
   }
 ];
 
