@@ -83,19 +83,19 @@ const SLIDES = [
   },
   {
     id: 11,
-    tag: "Visión de Rayos X para el Coordinador",
-    title: "Supervisión y el 'Susurro' Privado.",
-    description: "El coordinador puede ver múltiples chats en vivo y medir la productividad de cada asesor. Su mayor poder es el 'Susurro': puede dejar comentarios internos o enviar fichas técnicas al vendedor en tiempo real, sin que el cliente lo vea en WhatsApp.",
-    gradient: "from-slate-800 to-black",
-    image: "/slides/slide12.jpg?v=10"
-  },
-  {
-    id: 12,
     tag: "Supervisión",
     title: "El Superpoder: Visibilidad Total.",
     description: "Se acabaron los puntos ciegos. El coordinador vigila múltiples conversaciones en paralelo para garantizar la calidad sin interrumpir el flujo del cliente.",
     gradient: "from-slate-700 to-slate-900",
     image: "/slides/slide8.jpg?v=7"
+  },
+  {
+    id: 12,
+    tag: "Visión de Rayos X para el Coordinador",
+    title: "Supervisión y el 'Susurro' Privado.",
+    description: "El coordinador puede ver múltiples chats en vivo y medir la productividad de cada asesor. Su mayor poder es el 'Susurro': puede dejar comentarios internos o enviar fichas técnicas al vendedor en tiempo real, sin que el cliente lo vea en WhatsApp.",
+    gradient: "from-slate-800 to-black",
+    image: "/slides/slide12.jpg?v=10"
   }
 ];
 
