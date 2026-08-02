@@ -208,6 +208,56 @@ export default function LogoProposals() {
             </p>
           </div>
 
+          {/* Propuesta 13 */}
+          <div className="bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-xl hover:-translate-y-1">
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeLinejoin="miter">
+                <defs>
+                  <linearGradient id="gradBlueV13" gradientUnits="userSpaceOnUse" x1="50" y1="60" x2="50" y2="5">
+                    <stop offset="0%" stopColor="#0F2058" />
+                    <stop offset="100%" stopColor="#1E357A" />
+                  </linearGradient>
+                  <linearGradient id="gradRedV13" gradientUnits="userSpaceOnUse" x1="50" y1="40" x2="50" y2="95">
+                    <stop offset="0%" stopColor="#64181C" />
+                    <stop offset="100%" stopColor="#862329" />
+                  </linearGradient>
+                  
+                  {/* Filtro 3D de Volumen Frontal */}
+                  <filter id="volume3d" x="-20%" y="-20%" width="140%" height="140%">
+                    {/* Altura / Bisel */}
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="1.2" result="blur" />
+                    
+                    {/* Brillo especular (luz superior izquierda) */}
+                    <feSpecularLighting in="blur" surfaceScale="5" specularConstant="1.2" specularExponent="25" lighting-color="white" result="specular">
+                      <fePointLight x="0" y="0" z="60" />
+                    </feSpecularLighting>
+                    <feComposite in="specular" in2="SourceAlpha" operator="in" result="highlight" />
+                    
+                    {/* Sombra interna (abajo a la derecha) */}
+                    <feOffset dx="-1.5" dy="-1.5" in="SourceAlpha" result="offsetUp" />
+                    <feComposite in="SourceAlpha" in2="offsetUp" operator="out" result="shadowMask" />
+                    <feFlood floodColor="#000000" floodOpacity="0.7" result="shadowColor" />
+                    <feComposite in="shadowColor" in2="shadowMask" operator="in" result="innerShadow" />
+                    
+                    {/* Composición final: Original + Brillo + Sombra Interna */}
+                    <feComposite in="SourceGraphic" in2="highlight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litGraphic" />
+                    <feComposite in="innerShadow" in2="litGraphic" operator="over" result="final3d" />
+                  </filter>
+                </defs>
+                <g className="drop-shadow-[0_10px_20px_rgba(15,32,88,0.7)]">
+                  <path d="M 50 5 L 16.5 50 L 49 60 L 41.5 40 Z" fill="url(#gradBlueV13)" filter="url(#volume3d)" />
+                </g>
+                <g className="drop-shadow-[0_10px_20px_rgba(100,24,28,0.7)]">
+                  <path d="M 50 95 L 83.5 50 L 51 40 L 58.5 60 Z" fill="url(#gradRedV13)" filter="url(#volume3d)" />
+                </g>
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-white">V13: Efecto 3D (Volumen)</h3>
+            <p className="text-slate-400 leading-relaxed">
+              El rayo salta de la pantalla. Aplicamos un complejo filtro matemático de luz (brillo especular y sombra interior) que moldea los vectores planos en un objeto 3D esculpido, dándole relieve hacia el frente.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
