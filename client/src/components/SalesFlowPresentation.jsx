@@ -107,11 +107,29 @@ export default function SalesFlowPresentation() {
                   {/* Decorative Elements for Placeholder */}
                   <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
                   
-                  <img 
-                    src={slide.image} 
-                    alt={slide.title} 
-                    className="relative z-10 w-full h-full max-h-80 object-cover rounded-2xl shadow-2xl border border-white/20"
-                  />
+                  {/* Image with Fallback */}
+                  <div className="relative z-10 w-full h-full max-h-80 flex items-center justify-center">
+                    <img 
+                      src={slide.image} 
+                      alt={slide.title} 
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextElementSibling.style.display = 'flex';
+                      }}
+                      className="w-full h-full object-cover rounded-2xl shadow-2xl border border-white/20"
+                    />
+                    
+                    {/* Fallback Placeholder (hidden by default, shown via onError) */}
+                    <div style={{ display: 'none' }} className="w-full h-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl flex items-center justify-center text-center p-6">
+                      <div>
+                        <svg className="w-16 h-16 text-white/50 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <p className="text-white/80 font-medium text-lg">Esperando Ilustración</p>
+                        <p className="text-white/50 text-sm mt-2">{slide.image.split('?')[0]}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
               </div>
