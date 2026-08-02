@@ -154,6 +154,21 @@ export default function LogoProposals() {
             </p>
           </div>
 
+          {/* Propuesta 10 */}
+          <div className="bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-xl hover:-translate-y-1">
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeLinejoin="miter">
+                {/* Rodillas externas +10° (70.6°). Puntas a 20°. Ancho 67. Alineación Y=59.8 y Y=40.2 (Interlocking) */}
+                <path d="M 50 5 L 16.5 50 L 48 59.8 L 39.5 40.2 Z" fill="#3B82F6" className="drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
+                <path d="M 50 95 L 83.5 50 L 52 40.2 L 60.5 59.8 Z" fill="#F97316" className="drop-shadow-[0_0_12px_rgba(249,115,22,0.6)]" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-white">V10: El Interbloqueo (+10°)</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Un resultado matemático asombroso: para lograr ensanchar las rodillas 10° manteniendo las puntas a 20° exactos y el mismo ancho perimetral (67), la geometría obliga a los elementos a "entrelazarse" verticalmente en el centro.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
