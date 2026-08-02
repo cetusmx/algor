@@ -129,8 +129,8 @@ export default function SalesFlowPresentation() {
             {SLIDES.map((slide) => (
               <div key={slide.id} className="w-full flex-shrink-0 flex flex-col lg:flex-row h-full">
                 
-                {/* Text Content (Left Half) */}
-                <div className="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center bg-white">
+                {/* Text Content (Left Side - 40%) */}
+                <div className="w-full lg:w-2/5 p-8 lg:p-12 flex flex-col justify-center bg-white">
                   <span className="inline-block px-4 py-1.5 rounded-full bg-slate-100 text-brand-slate text-sm font-bold uppercase tracking-wider mb-6 w-max">
                     {slide.tag}
                   </span>
@@ -142,13 +142,13 @@ export default function SalesFlowPresentation() {
                   </p>
                 </div>
                 
-                {/* Image Placeholder (Right Half) */}
-                <div className={`w-full lg:w-1/2 h-64 lg:h-auto bg-gradient-to-br ${slide.gradient} relative flex items-center justify-center p-12`}>
-                  {/* Decorative Elements for Placeholder */}
+                {/* Image Area (Right Side - 60%) */}
+                <div className={`w-full lg:w-3/5 min-h-[300px] lg:min-h-[500px] bg-gradient-to-br ${slide.gradient} relative flex items-center justify-center p-6 lg:p-10`}>
+                  {/* Decorative Elements */}
                   <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
                   
                   {/* Image with Fallback */}
-                  <div className="relative z-10 w-full h-full max-h-80 flex items-center justify-center">
+                  <div className="relative z-10 w-full h-full flex items-center justify-center">
                     <img 
                       src={slide.image} 
                       alt={slide.title} 
@@ -156,11 +156,11 @@ export default function SalesFlowPresentation() {
                         e.target.style.display = 'none';
                         e.target.nextElementSibling.style.display = 'flex';
                       }}
-                      className="w-full h-full object-cover rounded-2xl shadow-2xl border border-white/20"
+                      className="w-full h-auto max-h-[600px] object-contain rounded-xl shadow-2xl ring-1 ring-white/20"
                     />
                     
-                    {/* Fallback Placeholder (hidden by default, shown via onError) */}
-                    <div style={{ display: 'none' }} className="w-full h-full bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl flex items-center justify-center text-center p-6">
+                    {/* Fallback Placeholder */}
+                    <div style={{ display: 'none' }} className="w-full h-full min-h-[300px] bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-2xl flex items-center justify-center text-center p-6">
                       <div>
                         <svg className="w-16 h-16 text-white/50 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
