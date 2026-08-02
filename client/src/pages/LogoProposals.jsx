@@ -20,8 +20,10 @@ export default function LogoProposals() {
           <div className="bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-xl hover:-translate-y-1">
             <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
               <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeWidth="2" strokeLinejoin="miter">
-                <path d="M 65 15 L 15 35 L 45 55 L 35 35 Z" fill="#3B82F6" className="drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
-                <path d="M 35 85 L 85 65 L 55 45 L 65 65 Z" fill="#F97316" className="drop-shadow-[0_0_12px_rgba(249,115,22,0.6)]" />
+                <g transform="rotate(-23.2 50 50)">
+                  <path d="M 65 15 L 15 35 L 45 55 L 35 35 Z" fill="#3B82F6" className="drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
+                  <path d="M 35 85 L 85 65 L 55 45 L 65 65 Z" fill="#F97316" className="drop-shadow-[0_0_12px_rgba(249,115,22,0.6)]" />
+                </g>
               </svg>
             </div>
             <h3 className="text-2xl font-bold mb-3 text-white">V1: Hojas Afiladas</h3>
@@ -41,7 +43,9 @@ export default function LogoProposals() {
                     <stop offset="100%" stopColor="#F97316" />
                   </linearGradient>
                 </defs>
-                <path d="M 65 15 L 15 35 L 65 65 L 35 85 L 85 65 L 35 35 Z" fill="url(#gradV2)" />
+                <g transform="rotate(-23.2 50 50)">
+                  <path d="M 65 15 L 15 35 L 65 65 L 35 85 L 85 65 L 35 35 Z" fill="url(#gradV2)" />
+                </g>
               </svg>
             </div>
             <h3 className="text-2xl font-bold mb-3 text-white z-10">V2: Rayo Continuo</h3>
@@ -54,8 +58,10 @@ export default function LogoProposals() {
           <div className="bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-xl hover:-translate-y-1">
             <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
               <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeLinejoin="miter">
-                <path d="M 75 10 L 10 35 L 50 60 L 30 35 Z" fill="#3B82F6" opacity="0.9" className="drop-shadow-lg" />
-                <path d="M 25 90 L 90 65 L 50 40 L 70 65 Z" fill="#F97316" opacity="0.9" className="drop-shadow-lg" />
+                <g transform="rotate(-23.2 50 50)">
+                  <path d="M 75 10 L 10 35 L 50 60 L 30 35 Z" fill="#3B82F6" opacity="0.9" className="drop-shadow-lg" />
+                  <path d="M 25 90 L 90 65 L 50 40 L 70 65 Z" fill="#F97316" opacity="0.9" className="drop-shadow-lg" />
+                </g>
               </svg>
             </div>
             <h3 className="text-2xl font-bold mb-3 text-white">V3: Hiper-Afilado</h3>
