@@ -21,8 +21,8 @@ export default function LogoProposals() {
             <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
               <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeWidth="2" strokeLinejoin="miter">
                 <g transform="rotate(-23.2 50 50)">
-                  <path d="M 65 15 L 12.6 35 L 45 55 L 37.4 35 Z" fill="#3B82F6" className="drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
-                  <path d="M 35 85 L 87.4 65 L 55 45 L 62.6 65 Z" fill="#F97316" className="drop-shadow-[0_0_12px_rgba(249,115,22,0.6)]" />
+                  <path d="M 65 15 L 9.1 35 L 45 55 L 40.9 35 Z" fill="#3B82F6" className="drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
+                  <path d="M 35 85 L 90.9 65 L 55 45 L 59.1 65 Z" fill="#F97316" className="drop-shadow-[0_0_12px_rgba(249,115,22,0.6)]" />
                 </g>
               </svg>
             </div>
@@ -44,7 +44,7 @@ export default function LogoProposals() {
                   </linearGradient>
                 </defs>
                 <g transform="rotate(-23.2 50 50)">
-                  <path d="M 65 15 L 12.6 35 L 62.6 65 L 35 85 L 87.4 65 L 37.4 35 Z" fill="url(#gradV2)" />
+                  <path d="M 65 15 L 9.1 35 L 59.1 65 L 35 85 L 90.9 65 L 40.9 35 Z" fill="url(#gradV2)" />
                 </g>
               </svg>
             </div>
