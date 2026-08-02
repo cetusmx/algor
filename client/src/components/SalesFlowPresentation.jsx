@@ -6,42 +6,48 @@ const SLIDES = [
     tag: "El Reto",
     title: "El costo oculto de vender por WhatsApp.",
     description: "Tus vendedores usan sus teléfonos personales. Si se van de la empresa, se llevan a tus clientes y todo el historial de conversaciones. Además, como dueño, tienes un 'punto ciego' total sobre lo que prometen o cuánto tardan en contestar.",
-    gradient: "from-slate-800 to-slate-900"
+    gradient: "from-slate-800 to-slate-900",
+    image: "/slides/slide1.jpg"
   },
   {
     id: 2,
     tag: "La Solución Centralizada",
     title: "Un solo número, control total.",
     description: "SalesFlow te da un único número de WhatsApp oficial corporativo. Tus clientes escriben ahí, pero tu equipo responde desde nuestra plataforma web o móvil. La información y los contactos siempre le pertenecen a tu empresa, blindando tu cartera.",
-    gradient: "from-blue-600 to-indigo-900"
+    gradient: "from-blue-600 to-indigo-900",
+    image: "/slides/slide2.jpg"
   },
   {
     id: 3,
     tag: "Tu Mejor Vendedor Nunca Duerme",
     title: "Asistente IA 24/7.",
     description: "Un agente de Inteligencia Artificial entrenado con tus catálogos atiende al instante. Responde dudas, valida existencias, da precios con IVA e incluso toma pedidos a las 3 de la mañana o en fines de semana.",
-    gradient: "from-orange-500 to-red-600"
+    gradient: "from-orange-500 to-red-600",
+    image: "/slides/slide3.jpg"
   },
   {
     id: 4,
     tag: "El Relevo Perfecto",
     title: "De la Máquina al Humano sin fricción.",
     description: "Cuando el cliente está listo para pagar o requiere ayuda compleja, la IA escala el chat automáticamente poniendo una etiqueta roja ('ESCALADO'). El sistema lo asigna inteligentemente al vendedor desocupado, quien entra a cerrar el trato con todo el contexto.",
-    gradient: "from-teal-500 to-emerald-700"
+    gradient: "from-teal-500 to-emerald-700",
+    image: "/slides/slide4.jpg"
   },
   {
     id: 5,
     tag: "Súper Herramientas para el Vendedor",
     title: "Catálogo, Carrito y Cotizaciones en el Chat.",
     description: "El vendedor ya no necesita Excel ni Word. Tiene el catálogo junto a la conversación, puede inyectar sugerencias, armar el pedido y generar una cotización formal en PDF al instante, sin salir de la plataforma.",
-    gradient: "from-purple-500 to-fuchsia-700"
+    gradient: "from-purple-500 to-fuchsia-700",
+    image: "/slides/slide5.jpg"
   },
   {
     id: 6,
     tag: "Visión de Rayos X para el Gerente",
     title: "Supervisión y el 'Susurro' Privado.",
     description: "El gerente puede ver múltiples chats en vivo y medir la productividad de cada asesor. Su mayor poder es el 'Susurro': puede dejar comentarios internos o enviar fichas técnicas al vendedor en tiempo real, sin que el cliente lo vea en WhatsApp.",
-    gradient: "from-slate-700 to-slate-800"
+    gradient: "from-slate-700 to-slate-800",
+    image: "/slides/slide6.jpg"
   }
 ];
 
@@ -93,16 +99,11 @@ export default function SalesFlowPresentation() {
                   {/* Decorative Elements for Placeholder */}
                   <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
                   
-                  {/* You can replace this container with an <img src="..." /> later */}
-                  <div className="relative z-10 w-full h-full max-h-80 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl flex items-center justify-center text-center p-6">
-                    <div>
-                      <svg className="w-16 h-16 text-white/50 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <p className="text-white/80 font-medium text-lg">Espacio para Ilustración / Captura</p>
-                      <p className="text-white/50 text-sm mt-2">Slide {slide.id}</p>
-                    </div>
-                  </div>
+                  <img 
+                    src={slide.image} 
+                    alt={slide.title} 
+                    className="relative z-10 w-full h-full max-h-80 object-cover rounded-2xl shadow-2xl border border-white/20"
+                  />
                 </div>
 
               </div>
