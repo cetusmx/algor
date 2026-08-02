@@ -125,7 +125,7 @@ export default function SalesFlowPresentation() {
   }, []);
 
   return (
-    <div className="w-full max-w-6xl mx-auto my-16">
+    <div className="w-full max-w-7xl mx-auto px-6 my-16">
       <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden relative flex flex-col">
         
         {/* Slider Container */}
