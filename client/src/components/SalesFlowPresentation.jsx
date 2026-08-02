@@ -45,7 +45,7 @@ const SLIDES = [
     id: 6,
     tag: "Cotización Formal",
     title: "El Documento Irrefutable.",
-    description: "Identidad de marca impecable, datos fiscales validados e instrucciones de pago claras. Listo para que el cliente deposite.",
+    description: "El agente IA utiliza el RFC para acceder a la información del cliente y generar el documento pdf en tiempo real.",
     gradient: "from-sky-700 to-indigo-900",
     image: "/slides/slide6.jpg?v=5"
   },
