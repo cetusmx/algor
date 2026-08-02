@@ -19,9 +19,9 @@ const SLIDES = [
   },
   {
     id: 3,
-    tag: "Tu Mejor Vendedor Nunca Duerme",
-    title: "Asistente IA 24/7.",
-    description: "Un agente de Inteligencia Artificial entrenado con tus catálogos atiende al instante. Responde dudas, valida existencias, da precios con IVA e incluso toma pedidos a las 3 de la mañana o en fines de semana.",
+    tag: "La Primera Línea",
+    title: "Tu Negocio Nunca Duerme.",
+    description: "Erradicamos los horarios de oficina en la era digital. Tu agente de Inteligencia Artificial atiende, perfila y retiene a tus clientes incluso en la madrugada, garantizando que ninguna oportunidad de venta se enfríe.",
     gradient: "from-orange-500 to-red-600",
     image: "/slides/slide3.jpg"
   },
