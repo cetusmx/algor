@@ -67,11 +67,11 @@ const SLIDES = [
   },
   {
     id: 9,
-    tag: "Súper Herramientas para el Vendedor",
-    title: "Catálogo, Carrito y Cotizaciones en el Chat.",
-    description: "El vendedor ya no necesita Excel ni Word. Tiene el catálogo junto a la conversación, puede inyectar sugerencias, armar el pedido y generar una cotización formal en PDF al instante, sin salir de la plataforma.",
+    tag: "Herramientas del Vendedor",
+    title: "El Catálogo Integrado: Cero Fricción.",
+    description: "En lugar de abrir un ERP o un Excel, el vendedor filtra el catálogo técnico de la empresa en milisegundos directamente desde la ventana de chat, viendo precios netos (con IVA) y stock real.",
     gradient: "from-purple-500 to-fuchsia-700",
-    image: "/slides/slide9.jpg?v=7"
+    image: "/slides/slide9.jpg?v=8"
   },
   {
     id: 10,
