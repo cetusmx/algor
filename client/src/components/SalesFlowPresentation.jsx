@@ -53,7 +53,7 @@ const SLIDES = [
     id: 7,
     tag: "Escalado",
     title: "Escalamiento en la Atención.",
-    description: "El agente IA escala el chat después de concluir su parte en el proceso. El vendedor da seguimiento al proceso.",
+    description: "El agente IA escala el chat de forma automática al terminar su intervención. Con el camino despejado, el vendedor toma el control para dar seguimiento y cerrar la venta.",
     gradient: "from-teal-500 to-emerald-700",
     image: "/slides/slide7.jpg?v=6"
   },
