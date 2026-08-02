@@ -37,7 +37,7 @@ const SLIDES = [
     id: 5,
     tag: "Automatización",
     title: "El Cierre Profesional: Automatización del Papeleo.",
-    description: "Olvida las plantillas de Word y los errores de dedo. A partir de la conversación, el sistema solicita los datos fiscales y genera una cotización corporativa formal en PDF en tan solo 3 segundos.",
+    description: "El agente IA procesa cotizaciones formales de manera autónoma en segundos",
     gradient: "from-blue-700 to-indigo-900",
     image: "/slides/slide5.jpg?v=4"
   },
