@@ -96,6 +96,14 @@ const SLIDES = [
     description: "El coordinador puede ver múltiples chats en vivo y medir la productividad de cada asesor. Su mayor poder es el 'Susurro': puede dejar comentarios internos o enviar fichas técnicas al vendedor en tiempo real, sin que el cliente lo vea en WhatsApp.",
     gradient: "from-slate-800 to-black",
     image: "/slides/slide12.jpg?v=10"
+  },
+  {
+    id: 13,
+    tag: "Continuidad del Negocio",
+    title: "Control Total y Reasignación sin Fricción.",
+    description: "Si un vendedor se ausenta o sale de la empresa, el coordinador puede reasignar el chat en segundos. El cliente mantiene una experiencia transparente y la empresa conserva el control absoluto de la relación y de cualquier proceso de venta en curso.",
+    gradient: "from-slate-900 to-slate-800",
+    image: "/slides/slide13.jpg?v=11"
   }
 ];
 
