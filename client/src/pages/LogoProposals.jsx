@@ -14,7 +14,7 @@ export default function LogoProposals() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           
           {/* Propuesta 1 */}
           <div className="bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-xl hover:-translate-y-1">
@@ -121,6 +121,21 @@ export default function LogoProposals() {
             <h3 className="text-2xl font-bold mb-3 text-white">V7: Estilizado (20°)</h3>
             <p className="text-slate-400 leading-relaxed">
               Recuperamos la elegancia. Mantenemos el formato alto y los elementos cercanos de la V6, pero regresamos el ángulo de las puntas verticales a exactamente 20° (como en la V4). El resultado es mucho más equilibrado y armónico en su centro.
+            </p>
+          </div>
+
+          {/* Propuesta 8 */}
+          <div className="bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-xl hover:-translate-y-1">
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeLinejoin="miter">
+                {/* Rodillas externas +5° (de 64.4° a 69.4°). Puntas a 20°. Alineación Y=54 y Y=46 */}
+                <path d="M 50 5 L 24 50 L 48 54 L 42.75 46 Z" fill="#3B82F6" className="drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
+                <path d="M 50 95 L 76 50 L 52 46 L 57.25 54 Z" fill="#F97316" className="drop-shadow-[0_0_12px_rgba(249,115,22,0.6)]" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-white">V8: Rodillas Abiertas (+5°)</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Mantuvimos intacta la magia de la V7 (puntas a 20° exactos y el grid invisible central), pero aumentamos la apertura de las 'rodillas' exteriores en exactamente 5°. El cuerpo se vuelve sutilmente más denso sin perder aerodinámica.
             </p>
           </div>
 
