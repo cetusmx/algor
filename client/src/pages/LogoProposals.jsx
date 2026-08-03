@@ -393,6 +393,50 @@ export default function LogoProposals() {
             </p>
           </div>
 
+          {/* Propuesta 17 */}
+          <div className="bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-xl hover:-translate-y-1">
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeLinejoin="miter">
+                <defs>
+                  {/* Gradientes originales vibrantes */}
+                  <linearGradient id="gradBlueV17" gradientUnits="userSpaceOnUse" x1="50" y1="60" x2="50" y2="5">
+                    <stop offset="0%" stopColor="#3B82F6" />
+                    <stop offset="100%" stopColor="#60A5FA" />
+                  </linearGradient>
+                  <linearGradient id="gradRedV17" gradientUnits="userSpaceOnUse" x1="50" y1="40" x2="50" y2="95">
+                    <stop offset="0%" stopColor="#F97316" />
+                    <stop offset="100%" stopColor="#FB923C" />
+                  </linearGradient>
+                  
+                  {/* Filtro 3D Redondeado (Cúpula Suave / Satinado) */}
+                  <filter id="rounded3dSoftV17" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="3.5" result="blur" />
+                    <feDiffuseLighting in="blur" surfaceScale="6" diffuseConstant="1.2" lighting-color="white" result="diffuse">
+                      <fePointLight x="0" y="0" z="50" />
+                    </feDiffuseLighting>
+                    <feComposite in="diffuse" in2="SourceAlpha" operator="in" result="diffuseMasked" />
+                    <feComposite in="diffuseMasked" in2="SourceGraphic" operator="arithmetic" k1="1" k2="0" k3="0" k4="0" result="base3d" />
+                    <feSpecularLighting in="blur" surfaceScale="6" specularConstant="0.4" specularExponent="15" lighting-color="#e2e8f0" result="specular">
+                      <fePointLight x="20" y="20" z="40" />
+                    </feSpecularLighting>
+                    <feComposite in="specular" in2="SourceAlpha" operator="in" result="specularMasked" />
+                    <feComposite in="specularMasked" in2="base3d" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="finalRounded" />
+                  </filter>
+                </defs>
+                <g className="drop-shadow-[0_10px_20px_rgba(59,130,246,0.7)]">
+                  <path d="M 50 5 L 16.5 50 L 49 60 L 41.5 40 Z" fill="url(#gradBlueV17)" filter="url(#rounded3dSoftV17)" />
+                </g>
+                <g className="drop-shadow-[0_10px_20px_rgba(249,115,22,0.7)]">
+                  <path d="M 50 95 L 83.5 50 L 51 40 L 58.5 60 Z" fill="url(#gradRedV17)" filter="url(#rounded3dSoftV17)" />
+                </g>
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-white">V17: Satinado Original</h3>
+            <p className="text-slate-400 leading-relaxed">
+              Conservamos el modelado 3D perfecto de la V16 (volumen redondeado y textura satinada) pero regresamos a la paleta de colores vibrantes original (#3B82F6 y #F97316). El resultado es mucho más eléctrico, tecnológico y fresco.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
