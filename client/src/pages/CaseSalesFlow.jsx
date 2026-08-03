@@ -155,64 +155,109 @@ export default function CaseSalesFlow() {
           <SalesFlowPresentation />
         </section>
 
-        {/* SECTION 3: CARACTERÍSTICAS (GRID PREMIUM) */}
-        <section className="py-24 bg-white relative overflow-hidden">
-          {/* Subtle grid pattern background */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40"></div>
-          
-          <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="text-center mb-16">
-              <h2 className="text-sm font-bold tracking-widest text-brand-orange uppercase mb-3">Diseñado para Escalar</h2>
-              <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Arquitectura del Producto</h3>
+        {/* SECTION 3: CARACTERÍSTICAS (TECH / TERMINAL GRID) */}
+        <section className="py-24 bg-slate-50 relative z-20">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="mb-16 md:w-2/3">
+              <h2 className="text-4xl font-extrabold text-brand-slate mb-4">Arquitectura del Producto</h2>
+              <p className="text-xl text-slate-500">SalesFlow no es un CRM disfrazado. Es una plataforma robusta, diseñada para alta concurrencia, enrutamiento en tiempo real y automatización profunda.</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8">
               {/* Feature 1 */}
-              <div className="group relative bg-white p-10 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl hover:border-brand-orange/30 transition-all duration-300 overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-                <div className="w-14 h-14 bg-gradient-to-br from-slate-800 to-slate-900 text-brand-orange flex items-center justify-center rounded-2xl mb-8 shadow-md">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              <div className="group relative bg-white border border-slate-200 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col">
+                <div className="w-12 h-12 bg-slate-50 text-brand-slate rounded-lg flex items-center justify-center mb-6 border border-slate-100 group-hover:bg-brand-slate group-hover:text-white transition-colors">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4 relative z-10">Agente IA de Primera Línea (RAG)</h3>
-                <p className="text-slate-600 leading-relaxed relative z-10">
-                  Configurado con tu propia base de conocimiento (Retrieval-Augmented Generation) y modelos LLM de vanguardia. Actúa como filtro inicial 24/7, resolviendo dudas técnicas y consultando catálogos reales antes de escalar a un humano.
+                <h3 className="text-2xl font-bold text-brand-slate mb-4">Agente IA de Primera Línea (RAG)</h3>
+                <p className="text-slate-600 mb-12 flex-grow">
+                  Configurado con tu base de conocimiento (Retrieval-Augmented Generation) y modelos LLM. Actúa como filtro 24/7, consultando catálogos reales antes de escalar a un humano.
                 </p>
+                
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-brand-slate p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 opacity-95">
+                  <div className="flex items-center text-brand-orange mb-2">
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M4 17h16a2 2 0 002-2V9a2 2 0 00-2-2H4a2 2 0 00-2 2v6a2 2 0 002 2z" /></svg>
+                    <span className="text-xs font-mono font-bold">Terminal Log</span>
+                  </div>
+                  <code className="text-xs font-mono text-green-400 block mt-2">
+                    &gt; [INFO] Init RAG pipeline...<br/>
+                    &gt; Query: "precio motor trifásico"<br/>
+                    &gt; Context retrieved. Stock: OK
+                    <span className="animate-pulse">_</span>
+                  </code>
+                </div>
               </div>
 
               {/* Feature 2 */}
-              <div className="group relative bg-white p-10 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-500/30 transition-all duration-300 overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-50 to-blue-100 text-blue-600 flex items-center justify-center rounded-2xl mb-8 shadow-md border border-blue-200/50">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+              <div className="group relative bg-white border border-slate-200 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col">
+                <div className="w-12 h-12 bg-slate-50 text-brand-slate rounded-lg flex items-center justify-center mb-6 border border-slate-100 group-hover:bg-brand-slate group-hover:text-white transition-colors">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4 relative z-10">Coordinación en Tiempo Real</h3>
-                <p className="text-slate-600 leading-relaxed relative z-10">
-                  El supervisor tiene una "vista de pájaro". Puede monitorear SLAs, intervenir directamente, o usar <strong>Subcanales Privados (Whisper)</strong> para asesorar al vendedor en vivo sin que el cliente lo note.
+                <h3 className="text-2xl font-bold text-brand-slate mb-4">Coordinación en Tiempo Real</h3>
+                <p className="text-slate-600 mb-12 flex-grow">
+                  El supervisor tiene una "vista de pájaro". Puede monitorear SLAs, intervenir directamente, o usar <strong>Subcanales Privados</strong> para asesorar al vendedor en vivo.
                 </p>
+                
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-brand-slate p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 opacity-95">
+                  <div className="flex items-center text-brand-orange mb-2">
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M4 17h16a2 2 0 002-2V9a2 2 0 00-2-2H4a2 2 0 00-2 2v6a2 2 0 002 2z" /></svg>
+                    <span className="text-xs font-mono font-bold">Terminal Log</span>
+                  </div>
+                  <code className="text-xs font-mono text-green-400 block mt-2">
+                    &gt; WS_CONNECT: wss://hub/stream<br/>
+                    &gt; [ALERT] SLA Timeout. Escalating...<br/>
+                    &gt; Whisper channel opened: Coord
+                    <span className="animate-pulse">_</span>
+                  </code>
+                </div>
               </div>
 
               {/* Feature 3 */}
-              <div className="group relative bg-white p-10 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl hover:border-emerald-500/30 transition-all duration-300 overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-                <div className="w-14 h-14 bg-gradient-to-br from-emerald-50 to-emerald-100 text-emerald-600 flex items-center justify-center rounded-2xl mb-8 shadow-md border border-emerald-200/50">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+              <div className="group relative bg-white border border-slate-200 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col">
+                <div className="w-12 h-12 bg-slate-50 text-brand-slate rounded-lg flex items-center justify-center mb-6 border border-slate-100 group-hover:bg-brand-slate group-hover:text-white transition-colors">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4 relative z-10">Enrutamiento Inteligente</h3>
-                <p className="text-slate-600 leading-relaxed relative z-10">
-                  Distribución automática de nuevos chats mediante algoritmos Round Robin para equilibrar cargas operativas, o asignación manual estratégica por parte del coordinador para atender cuentas VIP.
+                <h3 className="text-2xl font-bold text-brand-slate mb-4">Enrutamiento Inteligente</h3>
+                <p className="text-slate-600 mb-12 flex-grow">
+                  Distribución automática de chats mediante algoritmos Round Robin para equilibrar cargas operativas, o asignación manual estratégica para cuentas VIP.
                 </p>
+                
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-brand-slate p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 opacity-95">
+                  <div className="flex items-center text-brand-orange mb-2">
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M4 17h16a2 2 0 002-2V9a2 2 0 00-2-2H4a2 2 0 00-2 2v6a2 2 0 002 2z" /></svg>
+                    <span className="text-xs font-mono font-bold">Terminal Log</span>
+                  </div>
+                  <code className="text-xs font-mono text-green-400 block mt-2">
+                    &gt; INCOMING_LEAD: +52 555...<br/>
+                    &gt; Alg: ROUND_ROBIN. Pool: 3<br/>
+                    &gt; Assigned -&gt; agent_2 (load: 14%)
+                    <span className="animate-pulse">_</span>
+                  </code>
+                </div>
               </div>
 
               {/* Feature 4 */}
-              <div className="group relative bg-white p-10 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-500/30 transition-all duration-300 overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-                <div className="w-14 h-14 bg-gradient-to-br from-indigo-50 to-indigo-100 text-indigo-600 flex items-center justify-center rounded-2xl mb-8 shadow-md border border-indigo-200/50">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+              <div className="group relative bg-white border border-slate-200 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col">
+                <div className="w-12 h-12 bg-slate-50 text-brand-slate rounded-lg flex items-center justify-center mb-6 border border-slate-100 group-hover:bg-brand-slate group-hover:text-white transition-colors">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4 relative z-10">Continuidad Inquebrantable</h3>
-                <p className="text-slate-600 leading-relaxed relative z-10">
-                  Si un vendedor falta o renuncia, el coordinador reasigna sus chats activos en un solo clic. El nuevo vendedor absorbe el contexto histórico al instante; para el cliente, la transición es 100% transparente.
+                <h3 className="text-2xl font-bold text-brand-slate mb-4">Continuidad Inquebrantable</h3>
+                <p className="text-slate-600 mb-12 flex-grow">
+                  Si un vendedor falta, el coordinador reasigna sus chats activos. El nuevo vendedor absorbe el contexto al instante; para el cliente, la transición es transparente.
                 </p>
+                
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-brand-slate p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 opacity-95">
+                  <div className="flex items-center text-brand-orange mb-2">
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M4 17h16a2 2 0 002-2V9a2 2 0 00-2-2H4a2 2 0 00-2 2v6a2 2 0 002 2z" /></svg>
+                    <span className="text-xs font-mono font-bold">Terminal Log</span>
+                  </div>
+                  <code className="text-xs font-mono text-green-400 block mt-2">
+                    &gt; DETECTED: agent_05 disconnect<br/>
+                    &gt; Transferring 12 active sessions<br/>
+                    &gt; [SUCCESS] Context preserved.
+                    <span className="animate-pulse">_</span>
+                  </code>
+                </div>
               </div>
             </div>
           </div>
