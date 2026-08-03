@@ -308,23 +308,101 @@ export default function CaseSalesFlow() {
           </div>
         </section>
 
-        {/* SECTION 4: IMPACTO */}
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold text-slate-900 mb-12">El Impacto en el Negocio</h2>
+        {/* SECTION 4: IMPACTO (PREMIUM DASHBOARD STYLE) */}
+        <section className="py-24 bg-white relative overflow-hidden">
+          {/* Decorative background gradients */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-orange/5 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-sm font-bold tracking-widest text-brand-orange uppercase mb-3">Resultados Medibles</h2>
+              <h3 className="text-4xl md:text-5xl font-extrabold text-brand-slate tracking-tight">El Impacto en el Negocio</h3>
+            </div>
             
-            <div className="grid md:grid-cols-3 gap-6 text-left">
-              <div>
-                <h4 className="font-bold text-brand-slate text-lg mb-2">Blindaje de Cartera</h4>
-                <p className="text-slate-600 text-sm">La relación comercial pertenece a la empresa, no al dispositivo del empleado.</p>
+            <div className="grid md:grid-cols-12 gap-6">
+              
+              {/* Feature 1: Big Card (Escalabilidad 24/7) */}
+              <div className="md:col-span-7 bg-slate-50 rounded-3xl p-8 sm:p-10 border border-slate-200 overflow-hidden relative group">
+                <div className="absolute right-0 top-0 w-64 h-64 bg-emerald-400/10 rounded-bl-full transition-transform duration-700 group-hover:scale-110"></div>
+                <div className="relative z-10">
+                  <div className="w-12 h-12 bg-emerald-100 text-emerald-600 flex items-center justify-center rounded-xl mb-6">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  </div>
+                  <h4 className="text-2xl font-bold text-brand-slate mb-3">Escalabilidad 24/7</h4>
+                  <p className="text-slate-600 mb-8 max-w-md">Tu mejor vendedor (la IA) nunca duerme. Atiende, califica leads y avanza negociaciones durante la madrugada, entregando prospectos calientes antes de que inicie tu jornada.</p>
+                  
+                  {/* Mini UI Data visualization */}
+                  <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 flex items-end space-x-2 h-32 relative">
+                    <div className="absolute top-4 left-4 text-xs font-bold text-slate-400">Volumen de Atención</div>
+                    {/* Simulated Bar Chart */}
+                    <div className="w-1/6 bg-emerald-100 rounded-t-md h-[20%] group-hover:h-[30%] transition-all duration-500 relative"></div>
+                    <div className="w-1/6 bg-emerald-200 rounded-t-md h-[40%] group-hover:h-[50%] transition-all duration-500 delay-75"></div>
+                    <div className="w-1/6 bg-emerald-300 rounded-t-md h-[30%] group-hover:h-[40%] transition-all duration-500 delay-150"></div>
+                    <div className="w-1/6 bg-emerald-400 rounded-t-md h-[70%] group-hover:h-[80%] transition-all duration-500 delay-200"></div>
+                    <div className="w-1/6 bg-emerald-500 rounded-t-md h-[60%] group-hover:h-[90%] transition-all duration-500 delay-300"></div>
+                    <div className="w-1/6 bg-brand-slate rounded-t-md h-[95%] group-hover:h-[100%] transition-all duration-500 delay-500 relative">
+                       <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-brand-slate text-white text-[10px] font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">+300%</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-brand-slate text-lg mb-2">Escalabilidad 24/7</h4>
-                <p className="text-slate-600 text-sm">Tu mejor vendedor (la IA) nunca duerme y califica leads antes de que inicie la jornada.</p>
-              </div>
-              <div>
-                <h4 className="font-bold text-brand-slate text-lg mb-2">Decisiones con Data</h4>
-                <p className="text-slate-600 text-sm">Evalúa la calidad con métricas reales de SLA y elimina cuellos de botella en el embudo.</p>
+
+              {/* Stacked Cards for the right side */}
+              <div className="md:col-span-5 flex flex-col gap-6">
+                
+                {/* Feature 2: Blindaje de Cartera */}
+                <div className="flex-1 bg-brand-slate rounded-3xl p-8 border border-slate-800 relative overflow-hidden group hover:border-brand-slate transition-colors shadow-lg">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-brand-orange/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                  <div className="relative z-10 flex flex-col h-full justify-between">
+                    <div>
+                      <div className="w-12 h-12 bg-white/10 text-brand-orange flex items-center justify-center rounded-xl mb-6 backdrop-blur-sm border border-white/5">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                      </div>
+                      <h4 className="text-2xl font-bold text-white mb-3">Blindaje de Cartera</h4>
+                      <p className="text-slate-300 text-sm">La relación comercial y los contactos pertenecen 100% a la empresa, no al dispositivo del empleado.</p>
+                    </div>
+                    <div className="mt-6">
+                      <div className="inline-flex items-center text-xs font-mono text-emerald-400 bg-emerald-400/10 px-3 py-1.5 rounded-full border border-emerald-400/20">
+                        <span className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
+                        DATOS ASEGURADOS
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Feature 3: Decisiones con Data */}
+                <div className="flex-1 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300 group">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 bg-blue-50 text-blue-600 flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                    </div>
+                  </div>
+                  <h4 className="text-2xl font-bold text-brand-slate mb-2">Decisiones con Data</h4>
+                  <p className="text-slate-600 text-sm mb-6">Evalúa con métricas reales de SLA y elimina cuellos de botella en el embudo.</p>
+                  
+                  {/* Progress bar UI */}
+                  <div className="space-y-4">
+                    <div>
+                      <div className="flex justify-between text-xs font-bold text-slate-500 mb-1.5">
+                        <span>Tiempo de Respuesta (SLA)</span>
+                        <span className="text-blue-600">98%</span>
+                      </div>
+                      <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-blue-500 h-1.5 rounded-full w-0 group-hover:w-[98%] transition-all duration-1000 ease-out"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex justify-between text-xs font-bold text-slate-500 mb-1.5">
+                        <span>Tasa de Conversión</span>
+                        <span className="text-brand-orange">45%</span>
+                      </div>
+                      <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+                        <div className="bg-brand-orange h-1.5 rounded-full w-0 group-hover:w-[45%] transition-all duration-1000 delay-300 ease-out"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
