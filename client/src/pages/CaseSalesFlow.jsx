@@ -58,7 +58,7 @@ export default function CaseSalesFlow() {
                   El <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-amber-500">Costo Oculto</span> de WhatsApp
                 </h2>
                 <p className="text-lg text-slate-600 leading-relaxed">
-                  Las empresas enfrentan una paradoja mortal: WhatsApp es tu canal de ventas con mayor tasa de apertura, pero el más riesgoso para la corporación. <strong>Cuando la operación depende del celular personal de un empleado, el negocio está secuestrado.</strong>
+                  Las empresas enfrentan una paradoja: WhatsApp es el canal de ventas más rápido y con mayor tasa de apertura, pero el más riesgoso para la corporación. Cuando la operación depende del dispositivo personal del vendedor, el negocio pierde el control.
                 </p>
               </div>
               <div className="lg:w-1/2">
@@ -84,7 +84,7 @@ export default function CaseSalesFlow() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-red-600 transition-colors">Fuga de Activos</h3>
-                <p className="text-slate-600 leading-relaxed text-sm">Cuando un vendedor renuncia, se lleva el historial, el contexto y al cliente en su teléfono personal. <strong>La relación de años se evapora en un segundo.</strong></p>
+                <p className="text-slate-600 leading-relaxed text-sm">Cuando un vendedor renuncia, se lleva consigo el historial, el contexto y al cliente en su teléfono personal. La relación se pierde.</p>
               </div>
               
               {/* Card 2 */}
@@ -93,7 +93,7 @@ export default function CaseSalesFlow() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition-colors">Cuellos de Botella</h3>
-                <p className="text-slate-600 leading-relaxed text-sm">La falta de visibilidad corporativa te vuelve ciego. Los supervisores no pueden apoyar en tiempo real ni rescatar negociaciones críticas a punto de fracasar.</p>
+                <p className="text-slate-600 leading-relaxed text-sm">La falta de visibilidad corporativa impide que los supervisores apoyen en tiempo real o rescaten ventas a punto de perderse.</p>
               </div>
               
               {/* Card 3 */}
@@ -102,7 +102,7 @@ export default function CaseSalesFlow() {
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors">Ventanas Perdidas</h3>
-                <p className="text-slate-600 leading-relaxed text-sm">La paciencia del cliente B2B dura minutos. Fuera del horario laboral o en picos de demanda, las cotizaciones urgentes quedan ignoradas y el dinero se va a la competencia.</p>
+                <p className="text-slate-600 leading-relaxed text-sm">Los clientes fuera del horario laboral o en picos de alta demanda quedan en el olvido, perdiéndose cotizaciones críticas.</p>
               </div>
             </div>
           </div>
