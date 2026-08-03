@@ -160,7 +160,7 @@ export default function CaseSalesFlow() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="mb-16 md:w-2/3">
               <h2 className="text-4xl font-extrabold text-brand-slate mb-4">Arquitectura del Producto</h2>
-              <p className="text-xl text-slate-500">SalesFlow no es un CRM disfrazado. Es una plataforma robusta, diseñada para alta concurrencia, enrutamiento en tiempo real y automatización profunda.</p>
+              <p className="text-xl text-slate-500">SalesFlow es una plataforma robusta, diseñada para alta concurrencia, enrutamiento en tiempo real y automatización inteligente.</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-8">
