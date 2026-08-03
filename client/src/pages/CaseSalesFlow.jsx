@@ -66,7 +66,7 @@ export default function CaseSalesFlow() {
                 <div className="relative w-full aspect-video rounded-3xl shadow-2xl overflow-hidden border border-slate-200 group">
                   {/* Background Image */}
                   <img 
-                    src="/slides/atractivo.jpg" 
+                    src="/slides/atractivo.jpg?v=1" 
                     alt="Operación en WhatsApp" 
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
