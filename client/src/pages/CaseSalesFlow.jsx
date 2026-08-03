@@ -23,10 +23,10 @@ export default function CaseSalesFlow() {
             
             <div className="max-w-4xl">
               <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-                SalesFlow: El Sistema Operativo para tus Conversaciones de Venta
+                Transforma tu WhatsApp en un Centro de Ventas de Alto Rendimiento impulsado por IA.
               </h1>
               <p className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-8">
-                Transforma WhatsApp de un canal caótico en una máquina de ventas predecible, controlada y potenciada por Inteligencia Artificial.
+                SalesFlow es el Hub Tecnológico de vanguardia que automatiza tus conversaciones para cerrar ventas de manera rápida, efectiva y medible.
               </p>
               
               <div className="flex flex-wrap gap-3 mt-8">

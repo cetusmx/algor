@@ -17,10 +17,10 @@ export default function SalesFlowBanner() {
               <span className="text-xs font-bold tracking-widest uppercase text-brand-orange">Lanzamiento Exclusivo</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-              SalesFlow: Orquestación de Ventas y Retención
+              Centro de Ventas de Alto Rendimiento impulsado por IA
             </h2>
             <p className="text-slate-300 text-lg max-w-2xl">
-              Centraliza WhatsApp, evita la fuga de clientes y escala con IA. El sistema operativo para tus conversaciones B2B.
+              SalesFlow es el Hub Tecnológico que automatiza tus conversaciones para cerrar ventas de manera rápida, efectiva y medible.
             </p>
           </div>
           <div className="flex-shrink-0 w-full lg:w-auto">
