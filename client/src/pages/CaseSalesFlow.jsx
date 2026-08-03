@@ -113,7 +113,7 @@ export default function CaseSalesFlow() {
           <div className="max-w-6xl mx-auto px-6 text-center">
             <h2 className="text-3xl font-bold mb-6">La Solución: El Hub Inteligente</h2>
             <p className="text-lg text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-              SalesFlow no es solo un CRM de interfaz bonita; es un ecosistema tecnológico diseñado específicamente para erradicar las fallas de operar ventas en WhatsApp.
+              SalesFlow trasciende las funcionalidades de un CRM convencional; es un ecosistema tecnológico robusto, diseñado específicamente para erradicar las vulnerabilidades de operar ventas corporativas en WhatsApp.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 text-left">
