@@ -467,6 +467,36 @@ export default function LogoProposals() {
             </p>
           </div>
 
+          {/* Propuesta 20 */}
+          <div className="bg-white border border-slate-200 hover:border-slate-300 hover:shadow-2xl transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-lg hover:-translate-y-1">
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeLinejoin="miter">
+                {/* Silhouette test: Black on White, no shadows */}
+                <path d="M 50 5 L 16.5 50 L 49 60 L 41.5 40 Z" fill="#000000" />
+                <path d="M 50 95 L 83.5 50 L 51 40 L 58.5 60 Z" fill="#000000" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-slate-800">V20: Monocromo Positivo (Negro sobre Blanco)</h3>
+            <p className="text-slate-500 leading-relaxed">
+              La prueba de fuego de todo buen logotipo: funcionar a una sola tinta. Ambos elementos son negros puros sobre fondo blanco sin sombras. Aquí es donde el uso del espacio negativo (la brecha entre los rayos) brilla, definiendo perfectamente las dos partes.
+            </p>
+          </div>
+
+          {/* Propuesta 21 */}
+          <div className="bg-black border border-white/10 hover:border-white/20 transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-2xl hover:-translate-y-1">
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeLinejoin="miter">
+                {/* Silhouette test: White on Black, no shadows */}
+                <path d="M 50 5 L 16.5 50 L 49 60 L 41.5 40 Z" fill="#FFFFFF" />
+                <path d="M 50 95 L 83.5 50 L 51 40 L 58.5 60 Z" fill="#FFFFFF" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-white">V21: Monocromo Negativo (Blanco sobre Negro)</h3>
+            <p className="text-slate-400 leading-relaxed">
+              La versión inversa a una tinta. Ambos elementos en blanco puro sobre negro absoluto. El alto contraste demuestra que el isotipo mantiene su fuerza geométrica y agresividad incluso cuando es estampado en un medio plano que no permite color.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
