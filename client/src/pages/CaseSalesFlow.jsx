@@ -69,17 +69,42 @@ export default function CaseSalesFlow() {
 
         {/* SECTION 2: LA SOLUCIÓN (PROXY) */}
         <section className="py-20 bg-slate-900 text-white">
-          <div className="max-w-5xl mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold mb-6">La Solución: Control Total, Cero Fricción</h2>
+          <div className="max-w-6xl mx-auto px-6 text-center">
+            <h2 className="text-3xl font-bold mb-6">La Solución: El Hub Inteligente</h2>
             <p className="text-lg text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-              SalesFlow no es solo un CRM de interfaz bonita; es una <strong>arquitectura de enrutamiento (Proxy)</strong> construida a la medida que desacopla al cliente de los dispositivos personales de tus empleados.
+              SalesFlow no es solo un CRM de interfaz bonita; es un ecosistema tecnológico diseñado específicamente para erradicar las fallas de operar ventas en WhatsApp.
             </p>
             
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 text-left">
-              <h3 className="text-2xl font-bold text-brand-orange mb-4">Gobernanza y Soberanía de Datos</h3>
-              <p className="text-slate-300 leading-relaxed">
-                El cliente siempre interactúa con un único Número Corporativo a través de WhatsApp. Sin embargo, detrás de escena, SalesFlow orquesta la magia: los vendedores y supervisores utilizan exclusivamente nuestra interfaz nativa (Web y Móvil), garantizando que el 100% de la data, el historial, y la propiedad de la relación pertenezcan única y exclusivamente a la empresa (Compliance ISO 27001).
-              </p>
+            <div className="grid md:grid-cols-3 gap-6 text-left">
+              <div className="bg-white/5 border border-white/10 hover:border-white/20 transition-colors rounded-3xl p-8">
+                <div className="w-10 h-10 bg-brand-orange/20 text-brand-orange flex items-center justify-center rounded-lg mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Gobernanza de Datos</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Eliminamos la <strong>Fuga de Activos</strong>. Todo pasa por un número corporativo central. Tus vendedores interactúan, pero el 100% de la data y la propiedad del cliente se quedan en la empresa.
+                </p>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 hover:border-white/20 transition-colors rounded-3xl p-8">
+                <div className="w-10 h-10 bg-blue-500/20 text-blue-400 flex items-center justify-center rounded-lg mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Visibilidad y Control</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Destruimos los <strong>Cuellos de Botella</strong>. El supervisor tiene vista de pájaro en tiempo real. Puede medir tiempos de respuesta (SLAs) e intervenir directamente en las ventas críticas.
+                </p>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 hover:border-white/20 transition-colors rounded-3xl p-8">
+                <div className="w-10 h-10 bg-emerald-500/20 text-emerald-400 flex items-center justify-center rounded-lg mb-6">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">Respuesta Inmediata IA</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  Adiós a las <strong>Ventanas Perdidas</strong>. Tu IA atiende 24/7, responde objeciones y pre-califica a los interesados al instante, entregando prospectos calientes listos para el cierre humano.
+                </p>
+              </div>
             </div>
           </div>
         </section>
