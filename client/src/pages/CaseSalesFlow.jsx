@@ -413,8 +413,11 @@ export default function CaseSalesFlow() {
           <div className="max-w-3xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-white mb-6">¿Listo para tomar el control de tus conversaciones de venta?</h2>
             <p className="text-slate-300 text-lg mb-10">
-              Descubre cómo nuestra ingeniería de software puede integrar SalesFlow a la operación crítica de tu empresa.
+              Descubre cómo SalesFlow puede integrarse a la operación crítica de tu empresa.
             </p>
+            {/* <p className="text-slate-300 text-lg mb-10">
+              Descubre cómo nuestra ingeniería de software puede integrar SalesFlow a la operación crítica de tu empresa.
+            </p> */}
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link to="/contacto/agendar">
                 <Button variant="primary-dark" className="px-8 py-4 w-full sm:w-auto text-lg">
