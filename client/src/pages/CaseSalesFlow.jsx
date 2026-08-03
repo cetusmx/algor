@@ -62,17 +62,36 @@ export default function CaseSalesFlow() {
                 </p>
               </div>
               <div className="lg:w-1/2">
-                {/* Visual de peligro abstracto */}
-                <div className="relative w-full aspect-video rounded-3xl bg-slate-900 shadow-2xl overflow-hidden border border-slate-800 flex items-center justify-center">
-                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900 to-slate-900"></div>
-                  <div className="relative z-10 text-center">
-                    <div className="text-red-500 mb-2">
-                      <svg className="w-16 h-16 mx-auto animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                {/* Visual contrastante: Imagen atractiva + Advertencia superpuesta */}
+                <div className="relative w-full aspect-video rounded-3xl shadow-2xl overflow-hidden border border-slate-200 group">
+                  {/* Background Image */}
+                  <img 
+                    src="/slides/atractivo.jpg" 
+                    alt="Operación en WhatsApp" 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  />
+                  
+                  {/* Dramatic overlay (Vignette + Red tint on hover) */}
+                  <div className="absolute inset-0 bg-slate-900/20 transition-colors duration-500 group-hover:bg-red-900/40 mix-blend-multiply"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent opacity-90"></div>
+                  
+                  {/* Warning Glass Panel */}
+                  <div className="absolute inset-0 flex items-center justify-center p-6">
+                    <div className="bg-slate-900/50 backdrop-blur-md border border-red-500/50 px-8 py-6 rounded-2xl shadow-[0_0_40px_rgba(239,68,68,0.3)] text-center transition-all duration-500 group-hover:bg-red-950/80 group-hover:border-red-500 group-hover:shadow-[0_0_60px_rgba(239,68,68,0.5)] transform group-hover:scale-105">
+                      <div className="relative flex justify-center mb-3">
+                        {/* Ripple effect ring */}
+                        <div className="absolute inset-0 bg-red-500 rounded-full animate-ping opacity-30"></div>
+                        <div className="text-red-500 relative z-10">
+                          <svg className="w-14 h-14 drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-white font-mono text-sm tracking-widest uppercase font-bold mb-2">Riesgo Operativo</p>
+                      <div className="h-0.5 w-12 bg-red-500 mx-auto rounded-full mb-3"></div>
+                      <p className="text-red-300 font-mono text-xs tracking-wider opacity-90">PROCESO NO CONTROLADO</p>
                     </div>
-                    <p className="text-white font-mono text-sm tracking-widest uppercase opacity-80">Riesgo Operativo Detectado</p>
                   </div>
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-red-900/40 to-transparent"></div>
                 </div>
               </div>
             </div>
