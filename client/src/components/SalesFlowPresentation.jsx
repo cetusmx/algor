@@ -27,9 +27,9 @@ const SLIDES = [
   },
   {
     id: 4,
-    tag: "Precisión Técnica",
+    tag: "Cerebro IA (RAG)",
     title: "Respuestas Precisas, No Solo Saludos.",
-    description: "El asistente de Inteligencia Artificial consulta tu catálogo en tiempo real, comprende dimensiones técnicas complejas e informa precios exactos (con IVA) y disponibilidad de inventario al instante, sin intervención humana.",
+    description: "Utilizando tecnología RAG (Retrieval-Augmented Generation), el agente absorbe toda tu Base de Conocimiento (manuales, PDFs). Así, no solo 'charla': comprende dimensiones técnicas complejas y da precios o stock exactos al instante.",
     gradient: "from-green-600 to-emerald-900",
     image: "/slides/slide4.jpg?v=3"
   },
