@@ -437,6 +437,36 @@ export default function LogoProposals() {
             </p>
           </div>
 
+          {/* Propuesta 18 */}
+          <div className="bg-white border border-slate-200 hover:border-slate-300 hover:shadow-2xl transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-lg hover:-translate-y-1">
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeLinejoin="miter">
+                {/* Geometría exacta de V11 sin filtros 3D, optimizada para fondo blanco */}
+                <path d="M 50 5 L 16.5 50 L 49 60 L 41.5 40 Z" fill="#3B82F6" className="drop-shadow-[0_8px_16px_rgba(59,130,246,0.3)]" />
+                <path d="M 50 95 L 83.5 50 L 51 40 L 58.5 60 Z" fill="#F97316" className="drop-shadow-[0_8px_16px_rgba(249,115,22,0.3)]" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-slate-800">V18: V11 (Fondo Blanco)</h3>
+            <p className="text-slate-500 leading-relaxed">
+              Rescatamos la estructura plana exacta de la V11 (el interbloqueo puro con puntas de 23° y colores vibrantes), pero la presentamos sobre un fondo blanco puro. Las sombras se ajustaron sutilmente hacia abajo para dar profundidad limpia sin ensuciar el lienzo claro.
+            </p>
+          </div>
+
+          {/* Propuesta 19 */}
+          <div className="bg-black border border-white/10 hover:border-white/20 transition-all duration-300 rounded-3xl p-10 flex flex-col items-center text-center shadow-2xl hover:-translate-y-1">
+            <div className="w-48 h-48 mb-8 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" strokeLinejoin="miter">
+                {/* Geometría exacta de V11, optimizada para fondo negro con resplandor intenso */}
+                <path d="M 50 5 L 16.5 50 L 49 60 L 41.5 40 Z" fill="#3B82F6" className="drop-shadow-[0_0_24px_rgba(59,130,246,0.6)]" />
+                <path d="M 50 95 L 83.5 50 L 51 40 L 58.5 60 Z" fill="#F97316" className="drop-shadow-[0_0_24px_rgba(249,115,22,0.6)]" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-white">V19: V11 (Fondo Negro)</h3>
+            <p className="text-slate-400 leading-relaxed">
+              La misma estructura pura de la V11 contrastada contra el negro absoluto. Aquí, las sombras proyectadas actúan como un resplandor (glow) de neón que interactúa orgánicamente con el fondo oscuro, resaltando el poder visual de la geometría plana.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
