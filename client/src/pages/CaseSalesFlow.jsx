@@ -309,14 +309,14 @@ export default function CaseSalesFlow() {
         </section>
 
         {/* SECTION 4: IMPACTO (PREMIUM DASHBOARD STYLE) */}
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="py-24 bg-brand-slate relative overflow-hidden">
           {/* Decorative background gradients */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-orange/5 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
 
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-sm font-bold tracking-widest text-brand-orange uppercase mb-3">Resultados Medibles</h2>
-              <h3 className="text-4xl md:text-5xl font-extrabold text-brand-slate tracking-tight">El Impacto en el Negocio</h3>
+              <h3 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">El Impacto en el Negocio</h3>
             </div>
             
             <div className="grid md:grid-cols-12 gap-6">
@@ -351,7 +351,7 @@ export default function CaseSalesFlow() {
               <div className="md:col-span-5 flex flex-col gap-6">
                 
                 {/* Feature 2: Blindaje de Cartera */}
-                <div className="flex-1 bg-brand-slate rounded-3xl p-8 border border-slate-800 relative overflow-hidden group hover:border-brand-slate transition-colors shadow-lg">
+                <div className="flex-1 bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 relative overflow-hidden group hover:border-white/20 transition-colors shadow-lg">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-brand-orange/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
                   <div className="relative z-10 flex flex-col h-full justify-between">
                     <div>
