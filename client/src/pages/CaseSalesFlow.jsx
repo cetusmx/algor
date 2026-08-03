@@ -62,34 +62,34 @@ export default function CaseSalesFlow() {
                 </p>
               </div>
               <div className="lg:w-1/2">
-                {/* Visual contrastante: Imagen atractiva + Advertencia superpuesta */}
-                <div className="relative w-full aspect-video rounded-3xl shadow-2xl overflow-hidden border border-slate-200 group">
-                  {/* Background Image */}
+                {/* Visual de contexto: Imagen real + Notificación de sistema */}
+                <div className="relative w-full aspect-video rounded-3xl shadow-xl overflow-hidden border border-slate-200 group">
+                  {/* Imagen Atractiva sin oscurecer tanto */}
                   <img 
-                    src="/slides/atractivo.jpg?v=1" 
+                    src="/slides/atractivo.jpg?v=2" 
                     alt="Operación en WhatsApp" 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
                   
-                  {/* Dramatic overlay (Vignette + Red tint on hover) */}
-                  <div className="absolute inset-0 bg-slate-900/20 transition-colors duration-500 group-hover:bg-red-900/40 mix-blend-multiply"></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent opacity-90"></div>
+                  {/* Gradiente muy sutil en la parte inferior solo para contraste de la alerta */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
                   
-                  {/* Warning Glass Panel */}
-                  <div className="absolute inset-0 flex items-center justify-center p-6">
-                    <div className="bg-slate-900/50 backdrop-blur-md border border-red-500/50 px-8 py-6 rounded-2xl shadow-[0_0_40px_rgba(239,68,68,0.3)] text-center transition-all duration-500 group-hover:bg-red-950/80 group-hover:border-red-500 group-hover:shadow-[0_0_60px_rgba(239,68,68,0.5)] transform group-hover:scale-105">
-                      <div className="relative flex justify-center mb-3">
-                        {/* Ripple effect ring */}
-                        <div className="absolute inset-0 bg-red-500 rounded-full animate-ping opacity-30"></div>
-                        <div className="text-red-500 relative z-10">
-                          <svg className="w-14 h-14 drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  {/* Alerta flotante estilo notificación / widget */}
+                  <div className="absolute bottom-6 right-6 left-6 sm:left-auto">
+                    <div className="bg-slate-900/70 backdrop-blur-md border border-red-500/50 p-4 rounded-2xl shadow-2xl flex items-center space-x-4 transition-all duration-300 group-hover:bg-slate-900/90 group-hover:border-red-500 group-hover:-translate-y-1">
+                      <div className="relative flex-shrink-0">
+                        {/* Ripple effect */}
+                        <div className="absolute inset-0 bg-red-500 rounded-full animate-ping opacity-40"></div>
+                        <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center text-red-500 relative z-10 border border-red-500/30">
+                          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                           </svg>
                         </div>
                       </div>
-                      <p className="text-white font-mono text-sm tracking-widest uppercase font-bold mb-2">Riesgo Operativo</p>
-                      <div className="h-0.5 w-12 bg-red-500 mx-auto rounded-full mb-3"></div>
-                      <p className="text-red-300 font-mono text-xs tracking-wider opacity-90">PROCESO NO CONTROLADO</p>
+                      <div>
+                        <p className="text-white font-mono text-sm font-bold tracking-wide">Riesgo Operativo</p>
+                        <p className="text-red-300 font-mono text-xs tracking-wide opacity-90 mt-0.5">Visibilidad del proceso: NULA</p>
+                      </div>
                     </div>
                   </div>
                 </div>
