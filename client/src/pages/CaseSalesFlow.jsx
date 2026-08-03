@@ -62,21 +62,47 @@ export default function CaseSalesFlow() {
                 </p>
               </div>
               <div className="lg:w-1/2">
-                {/* Visual de contexto: Imagen real + Notificación de sistema */}
-                <div className="relative w-full aspect-video rounded-3xl shadow-xl overflow-hidden border border-slate-200 group">
-                  {/* Imagen Atractiva sin oscurecer tanto */}
-                  <img 
-                    src="/slides/atractivo.jpg?v=3" 
-                    alt="Operación en WhatsApp" 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                  />
+                {/* Visual de contexto: UI Mockup nativo (Resolución infinita) + Notificación */}
+                <div className="relative w-full aspect-video rounded-3xl shadow-xl overflow-hidden border border-slate-200 bg-[#E5DDD5] flex flex-col group">
+                  {/* WhatsApp-like Header */}
+                  <div className="bg-[#075E54] px-4 py-3 flex items-center shadow-md relative z-20">
+                    <div className="w-9 h-9 bg-slate-300 rounded-full flex items-center justify-center mr-3 overflow-hidden">
+                      <svg className="w-6 h-6 text-slate-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" /></svg>
+                    </div>
+                    <div>
+                      <p className="text-white font-semibold text-sm leading-tight">Cliente VIP - AceroCorp</p>
+                      <p className="text-emerald-100 text-[11px] opacity-90">Vendedor: Roberto (Teléfono personal)</p>
+                    </div>
+                  </div>
                   
-                  {/* Gradiente muy sutil en la parte inferior solo para contraste de la alerta */}
-                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                  {/* WhatsApp-like Body */}
+                  <div className="flex-grow p-4 flex flex-col space-y-3 relative overflow-hidden">
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:12px_12px] z-0"></div>
+                    
+                    {/* Chat Bubbles */}
+                    <div className="relative z-10 bg-white text-slate-800 p-3 rounded-xl rounded-tl-none max-w-[85%] shadow-sm self-start text-sm">
+                      <p className="leading-snug">Hola Roberto, urge cotización para 500 válvulas. ¿Hay stock?</p>
+                      <p className="text-[10px] text-slate-400 text-right mt-1">10:42 AM</p>
+                    </div>
+                    
+                    <div className="relative z-10 bg-[#DCF8C6] text-slate-800 p-3 rounded-xl rounded-tr-none max-w-[85%] shadow-sm self-end text-sm">
+                      <p className="leading-snug">Hola, claro. Deja reviso el almacén y te aviso.</p>
+                      <p className="text-[10px] text-slate-500 text-right mt-1">11:15 AM</p>
+                    </div>
+                    
+                    <div className="relative z-10 bg-white text-slate-800 p-3 rounded-xl rounded-tl-none max-w-[85%] shadow-sm self-start text-sm transform transition-all duration-700 group-hover:-translate-y-1">
+                      <p className="leading-snug">¿Hola? Pasaron 4 horas. Cancela la solicitud, ya cerré con su competencia.</p>
+                      <p className="text-[10px] text-slate-400 text-right mt-1">03:20 PM</p>
+                    </div>
+                  </div>
+
+                  {/* Darkening overlay that intensifies on hover */}
+                  <div className="absolute inset-0 bg-slate-900/10 transition-colors duration-500 group-hover:bg-slate-900/30 z-20 pointer-events-none"></div>
                   
                   {/* Alerta flotante estilo notificación / widget */}
-                  <div className="absolute bottom-6 right-6 left-6 sm:left-auto">
-                    <div className="bg-slate-900/70 backdrop-blur-md border border-red-500/50 p-4 rounded-2xl shadow-2xl flex items-center space-x-4 transition-all duration-300 group-hover:bg-slate-900/90 group-hover:border-red-500 group-hover:-translate-y-1">
+                  <div className="absolute bottom-6 right-6 left-6 sm:left-auto z-30">
+                    <div className="bg-slate-900/80 backdrop-blur-md border border-red-500/50 p-4 rounded-2xl shadow-2xl flex items-center space-x-4 transition-all duration-300 group-hover:bg-slate-900 group-hover:border-red-500 group-hover:-translate-y-1">
                       <div className="relative flex-shrink-0">
                         {/* Ripple effect */}
                         <div className="absolute inset-0 bg-red-500 rounded-full animate-ping opacity-40"></div>
@@ -87,7 +113,7 @@ export default function CaseSalesFlow() {
                         </div>
                       </div>
                       <div>
-                        <p className="text-white font-mono text-sm font-bold tracking-wide">Riesgo Operativo</p>
+                        <p className="text-white font-mono text-sm font-bold tracking-wide">Venta Perdida</p>
                         <p className="text-red-300 font-mono text-xs tracking-wide opacity-90 mt-0.5">Visibilidad del proceso: NULA</p>
                       </div>
                     </div>
