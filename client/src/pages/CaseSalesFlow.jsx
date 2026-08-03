@@ -40,28 +40,69 @@ export default function CaseSalesFlow() {
         </section>
 
         {/* SECTION 1: EL RETO */}
-        <section className="py-20 bg-white">
-          <div className="max-w-5xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8">El "Costo Oculto" de WhatsApp en las Ventas</h2>
-            <p className="text-lg text-slate-600 mb-10 leading-relaxed">
-              Las empresas enfrentan una paradoja: WhatsApp es el canal de ventas más rápido y con mayor tasa de apertura, pero el más riesgoso para la corporación. Cuando la operación depende del dispositivo personal del vendedor, el negocio pierde el control.
-            </p>
+        <section className="py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
+          {/* Fondo decorativo (peligro sutil) */}
+          <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none">
+            <div className="absolute -top-40 -right-40 w-96 h-96 bg-red-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-40 -left-20 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl"></div>
+          </div>
+          
+          <div className="max-w-6xl mx-auto px-6 relative z-10">
+            <div className="flex flex-col lg:flex-row gap-12 items-center mb-16">
+              <div className="lg:w-1/2">
+                <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-red-100 border border-red-200 text-red-600 text-xs font-bold tracking-widest uppercase">
+                  <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+                  Alerta Crítica
+                </div>
+                <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-6">
+                  El <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-amber-500">Costo Oculto</span> de WhatsApp
+                </h2>
+                <p className="text-lg text-slate-600 leading-relaxed">
+                  Las empresas enfrentan una paradoja mortal: WhatsApp es tu canal de ventas con mayor tasa de apertura, pero el más riesgoso para la corporación. <strong>Cuando la operación depende del celular personal de un empleado, el negocio está secuestrado.</strong>
+                </p>
+              </div>
+              <div className="lg:w-1/2">
+                {/* Visual de peligro abstracto */}
+                <div className="relative w-full aspect-video rounded-3xl bg-slate-900 shadow-2xl overflow-hidden border border-slate-800 flex items-center justify-center">
+                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900 to-slate-900"></div>
+                  <div className="relative z-10 text-center">
+                    <div className="text-red-500 mb-2">
+                      <svg className="w-16 h-16 mx-auto animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                    </div>
+                    <p className="text-white font-mono text-sm tracking-widest uppercase opacity-80">Riesgo Operativo Detectado</p>
+                  </div>
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-red-900/40 to-transparent"></div>
+                </div>
+              </div>
+            </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                <div className="w-12 h-12 bg-red-100 text-red-600 flex items-center justify-center rounded-xl mb-4 font-bold text-xl">1</div>
-                <h3 className="font-bold text-slate-900 mb-2">Fuga de Activos</h3>
-                <p className="text-slate-600 text-sm">Cuando un vendedor renuncia, se lleva consigo el historial, el contexto y al cliente en su teléfono personal. La relación se pierde.</p>
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Card 1 */}
+              <div className="group bg-white p-8 rounded-3xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:border-red-200 hover:shadow-red-100/50 transition-all duration-300 hover:-translate-y-1">
+                <div className="w-14 h-14 bg-gradient-to-br from-red-50 to-red-100 text-red-600 flex items-center justify-center rounded-2xl mb-6 shadow-inner">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-red-600 transition-colors">Fuga de Activos</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">Cuando un vendedor renuncia, se lleva el historial, el contexto y al cliente en su teléfono personal. <strong>La relación de años se evapora en un segundo.</strong></p>
               </div>
-              <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                <div className="w-12 h-12 bg-amber-100 text-amber-600 flex items-center justify-center rounded-xl mb-4 font-bold text-xl">2</div>
-                <h3 className="font-bold text-slate-900 mb-2">Cuellos de Botella</h3>
-                <p className="text-slate-600 text-sm">La falta de visibilidad corporativa impide que los supervisores apoyen en tiempo real o rescaten ventas a punto de perderse.</p>
+              
+              {/* Card 2 */}
+              <div className="group bg-white p-8 rounded-3xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:border-amber-200 hover:shadow-amber-100/50 transition-all duration-300 hover:-translate-y-1">
+                <div className="w-14 h-14 bg-gradient-to-br from-amber-50 to-amber-100 text-amber-600 flex items-center justify-center rounded-2xl mb-6 shadow-inner">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition-colors">Cuellos de Botella</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">La falta de visibilidad corporativa te vuelve ciego. Los supervisores no pueden apoyar en tiempo real ni rescatar negociaciones críticas a punto de fracasar.</p>
               </div>
-              <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                <div className="w-12 h-12 bg-blue-100 text-blue-600 flex items-center justify-center rounded-xl mb-4 font-bold text-xl">3</div>
-                <h3 className="font-bold text-slate-900 mb-2">Ventanas Perdidas</h3>
-                <p className="text-slate-600 text-sm">Los clientes fuera del horario laboral o en picos de alta demanda quedan en el olvido, perdiéndose cotizaciones críticas.</p>
+              
+              {/* Card 3 */}
+              <div className="group bg-white p-8 rounded-3xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:border-orange-200 hover:shadow-orange-100/50 transition-all duration-300 hover:-translate-y-1">
+                <div className="w-14 h-14 bg-gradient-to-br from-orange-50 to-orange-100 text-orange-600 flex items-center justify-center rounded-2xl mb-6 shadow-inner">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors">Ventanas Perdidas</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">La paciencia del cliente B2B dura minutos. Fuera del horario laboral o en picos de demanda, las cotizaciones urgentes quedan ignoradas y el dinero se va a la competencia.</p>
               </div>
             </div>
           </div>
