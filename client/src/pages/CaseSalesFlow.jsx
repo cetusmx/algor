@@ -205,7 +205,81 @@ export default function CaseSalesFlow() {
             ========================================= */}
 {/* SECTION 3: CARACTERÍSTICAS (TECH / TERMINAL GRID) */}
         <section className="py-24 bg-slate-100 relative z-20 overflow-hidden">
-          <div className="absolute inset-0 opacity-40 bg-[linear-gradient(to_right,#80808020_1px,transparent_1px),linear-gradient(to_bottom,#80808020_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+          {/* Software Architecture Background SVG */}
+          <div className="absolute inset-0 z-0 opacity-40 pointer-events-none overflow-hidden">
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="arch-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                  <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" className="text-slate-200" strokeWidth="1" />
+                </pattern>
+                <style>
+                  {`
+                    @keyframes flowPacket {
+                      from { stroke-dashoffset: 24; }
+                      to { stroke-dashoffset: 0; }
+                    }
+                    .animate-flow {
+                      animation: flowPacket 1s linear infinite;
+                    }
+                  `}
+                </style>
+              </defs>
+              
+              {/* Subtle Base Grid */}
+              <rect width="100%" height="100%" fill="url(#arch-grid)" />
+
+              {/* Main Architecture Diagram - Left to Right Flow */}
+              {/* Responsive scaling via svg viewBox or just hardcoded positions for a huge background */}
+              <g transform="translate(-50, 100) scale(1.2)">
+                {/* Users / Incoming traffic */}
+                <circle cx="50" cy="50" r="8" fill="#94a3b8" />
+                <circle cx="50" cy="150" r="8" fill="#94a3b8" />
+                <circle cx="50" cy="250" r="8" fill="#94a3b8" />
+                
+                {/* Lines from users to load balancer / proxy */}
+                <path d="M 58 50 C 150 50, 150 150, 250 150" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+                <path d="M 58 150 C 150 150, 150 150, 250 150" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+                <path d="M 58 250 C 150 250, 150 150, 250 150" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+
+                {/* Animated Packets (Users to Proxy) */}
+                <path d="M 58 50 C 150 50, 150 150, 250 150" fill="none" stroke="#f97316" strokeWidth="3" strokeDasharray="6 18" className="animate-flow opacity-60" />
+                <path d="M 58 150 C 150 150, 150 150, 250 150" fill="none" stroke="#f97316" strokeWidth="3" strokeDasharray="6 18" className="animate-flow opacity-60" />
+                <path d="M 58 250 C 150 250, 150 150, 250 150" fill="none" stroke="#f97316" strokeWidth="3" strokeDasharray="6 18" className="animate-flow opacity-60" />
+
+                {/* Main Proxy / Gateway */}
+                <rect x="250" y="100" width="60" height="100" rx="8" fill="#f8fafc" stroke="#94a3b8" strokeWidth="2" />
+                <circle cx="280" cy="150" r="15" fill="none" stroke="#f97316" strokeWidth="3" strokeDasharray="4 4" className="animate-[spin_4s_linear_infinite]" />
+
+                {/* Lines from Proxy to Microservices */}
+                <path d="M 310 150 C 400 150, 400 50, 500 50" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+                <path d="M 310 150 C 400 150, 400 150, 500 150" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+                <path d="M 310 150 C 400 150, 400 250, 500 250" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+
+                {/* Animated Packets (Proxy to Services) */}
+                <path d="M 310 150 C 400 150, 400 50, 500 50" fill="none" stroke="#3b82f6" strokeWidth="3" strokeDasharray="6 18" className="animate-flow opacity-60" />
+                <path d="M 310 150 C 400 150, 400 150, 500 150" fill="none" stroke="#10b981" strokeWidth="3" strokeDasharray="6 18" className="animate-flow opacity-60" />
+                <path d="M 310 150 C 400 150, 400 250, 500 250" fill="none" stroke="#8b5cf6" strokeWidth="3" strokeDasharray="6 18" className="animate-flow opacity-60" />
+
+                {/* Microservices Nodes */}
+                <rect x="500" y="20" width="80" height="60" rx="8" fill="#f8fafc" stroke="#94a3b8" strokeWidth="2" />
+                <rect x="500" y="120" width="80" height="60" rx="8" fill="#f8fafc" stroke="#94a3b8" strokeWidth="2" />
+                <rect x="500" y="220" width="80" height="60" rx="8" fill="#f8fafc" stroke="#94a3b8" strokeWidth="2" />
+                
+                {/* Tiny processing pulses inside services */}
+                <circle cx="540" cy="50" r="4" fill="#3b82f6" className="animate-ping" />
+                <circle cx="540" cy="150" r="4" fill="#10b981" className="animate-ping" />
+                <circle cx="540" cy="250" r="4" fill="#8b5cf6" className="animate-ping" />
+              </g>
+
+              {/* Second abstract cluster on the right side */}
+              <g transform="translate(1100, 300) scale(1.5)">
+                 <circle cx="0" cy="0" r="120" fill="none" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="10 10" className="animate-[spin_40s_linear_infinite]" />
+                 <circle cx="0" cy="0" r="80" fill="none" stroke="#94a3b8" strokeWidth="1" strokeDasharray="5 5" className="animate-[spin_20s_linear_infinite_reverse]" />
+                 <path d="M -80 0 L 80 0 M 0 -80 L 0 80" stroke="#cbd5e1" strokeWidth="1" />
+                 <circle cx="0" cy="0" r="10" fill="#f97316" className="opacity-50 animate-pulse" />
+              </g>
+            </svg>
+          </div>
           <div className="max-w-7xl mx-auto px-6">
             <div className="mb-16 md:w-2/3">
               <h2 className="text-4xl font-extrabold text-brand-slate mb-4">Arquitectura del Producto</h2>
