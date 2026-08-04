@@ -458,7 +458,7 @@ export default function CaseSalesFlow() {
                   </Button>
                 </Link>
                 <Link to="/contacto" className="w-full sm:w-auto">
-                  <Button variant="secondary" className="px-8 py-4 w-full text-center text-lg bg-slate-100 border border-slate-200 text-brand-slate hover:bg-slate-200 shadow-sm transition-colors font-semibold">
+                  <Button variant="outline" className="px-8 py-4 w-full text-center text-lg !bg-slate-100 !border-slate-300 !text-slate-800 hover:!bg-slate-200 shadow-sm transition-colors font-semibold">
                     Contactar ingeniero
                   </Button>
                 </Link>
@@ -487,43 +487,6 @@ export default function CaseSalesFlow() {
         <div className="h-32 bg-slate-200 w-full flex items-center justify-center text-slate-500 font-mono text-sm tracking-widest font-bold">--- FIN OPCIÓN 2 ---</div>
 
 
-        {/* =========================================
-            OPTION 3: Gradiente Inmersivo 
-            ========================================= */}
-        <section className="py-32 relative overflow-hidden bg-slate-900">
-          {/* Complex Animated Gradients */}
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-slate via-slate-900 to-[#1a1025] z-0"></div>
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand-orange/20 rounded-full blur-[100px] pointer-events-none z-0"></div>
-          <div className="absolute bottom-0 left-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
-          
-          {/* Subtle noise/grid texture */}
-          <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxyZWN0IHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNCIvPjwvc3ZnPg==')] z-0"></div>
-
-          <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
-            {/* Glassmorphism Container */}
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-12 md:p-24 shadow-2xl">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">¿Listo para tomar el control?</h2>
-              <p className="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
-                Descubre cómo SalesFlow se integra en tu operación crítica para erradicar puntos ciegos y maximizar la conversión.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link to="/contacto/agendar">
-                  <Button variant="primary" className="px-8 py-4 w-full sm:w-auto text-lg bg-white text-brand-slate hover:bg-slate-200 border-none shadow-lg transition-transform hover:-translate-y-1">
-                    Agendar demostración
-                  </Button>
-                </Link>
-                <Link to="/contacto">
-                  <Button variant="secondary" className="px-8 py-4 w-full sm:w-auto text-lg !bg-transparent !border-white/30 !text-white hover:!bg-white/10 transition-colors">
-                    Hablar con un ingeniero
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* Separador Final */}
-        <div className="h-32 bg-slate-200 w-full flex items-center justify-center text-slate-500 font-mono text-sm tracking-widest font-bold">--- FIN OPCIÓN 3 ---</div>
 
       </main>
 
