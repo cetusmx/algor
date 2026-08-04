@@ -207,7 +207,7 @@ export default function CaseSalesFlow() {
         <section className="py-24 bg-slate-100 relative z-20 overflow-hidden">
           {/* Software Architecture Background SVG */}
           <div className="absolute inset-0 z-0 opacity-40 pointer-events-none overflow-hidden">
-            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <pattern id="arch-grid" width="60" height="60" patternUnits="userSpaceOnUse">
                   <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" className="text-slate-200" strokeWidth="1" />
@@ -229,8 +229,7 @@ export default function CaseSalesFlow() {
               <rect width="100%" height="100%" fill="url(#arch-grid)" />
 
               {/* Main Architecture Diagram - Left to Right Flow */}
-              {/* Responsive scaling via svg viewBox or just hardcoded positions for a huge background */}
-              <g transform="translate(-50, 100) scale(1.2)">
+              <g transform="translate(100, 240) scale(1.2)">
                 {/* Users / Incoming traffic */}
                 <circle cx="50" cy="50" r="8" fill="#94a3b8" />
                 <circle cx="50" cy="150" r="8" fill="#94a3b8" />
@@ -272,7 +271,7 @@ export default function CaseSalesFlow() {
               </g>
 
               {/* Second abstract cluster on the right side */}
-              <g transform="translate(1100, 300) scale(1.5)">
+              <g transform="translate(1200, 400) scale(1.5)">
                  <circle cx="0" cy="0" r="120" fill="none" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="10 10" className="animate-[spin_40s_linear_infinite]" />
                  <circle cx="0" cy="0" r="80" fill="none" stroke="#94a3b8" strokeWidth="1" strokeDasharray="5 5" className="animate-[spin_20s_linear_infinite_reverse]" />
                  <path d="M -80 0 L 80 0 M 0 -80 L 0 80" stroke="#cbd5e1" strokeWidth="1" />
