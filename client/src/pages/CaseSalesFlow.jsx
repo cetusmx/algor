@@ -442,19 +442,23 @@ export default function CaseSalesFlow() {
         <section className="bg-white">
           <div className="flex flex-col lg:flex-row min-h-[60vh]">
             {/* Left Side: Content */}
-            <div className="w-full lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center">
+            <div className="w-full lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center items-start">
+              <div className="inline-flex items-center text-xs font-mono text-brand-orange bg-brand-orange/10 px-4 py-2 rounded-full border border-brand-orange/20 mb-6">
+                <span className="w-2 h-2 bg-brand-orange rounded-full mr-2 animate-ping"></span>
+                SISTEMA LISTO
+              </div>
               <h2 className="text-4xl lg:text-5xl font-extrabold text-brand-slate mb-6">Toma el control de tus ventas.</h2>
               <p className="text-slate-500 text-lg mb-10">
                 Descubre cómo SalesFlow se integra en tu operación crítica para erradicar puntos ciegos y maximizar la conversión.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/contacto/agendar">
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <Link to="/contacto/agendar" className="w-full sm:w-auto">
                   <Button variant="primary" className="px-8 py-4 w-full text-center text-lg bg-brand-orange text-white hover:bg-[#d95d18] border-none shadow-lg shadow-brand-orange/20">
                     Agendar demo
                   </Button>
                 </Link>
-                <Link to="/contacto">
-                  <Button variant="secondary" className="px-8 py-4 w-full text-center text-lg border-slate-300 text-slate-600 hover:bg-slate-50">
+                <Link to="/contacto" className="w-full sm:w-auto">
+                  <Button variant="secondary" className="px-8 py-4 w-full text-center text-lg bg-slate-100 border border-slate-200 text-brand-slate hover:bg-slate-200 shadow-sm transition-colors font-semibold">
                     Contactar ingeniero
                   </Button>
                 </Link>
@@ -498,10 +502,6 @@ export default function CaseSalesFlow() {
           <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
             {/* Glassmorphism Container */}
             <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-12 md:p-24 shadow-2xl">
-              <div className="inline-flex items-center text-xs font-mono text-brand-orange bg-brand-orange/10 px-4 py-2 rounded-full border border-brand-orange/20 mb-8">
-                <span className="w-2 h-2 bg-brand-orange rounded-full mr-2 animate-ping"></span>
-                SISTEMA LISTO
-              </div>
               <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">¿Listo para tomar el control?</h2>
               <p className="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
                 Descubre cómo SalesFlow se integra en tu operación crítica para erradicar puntos ciegos y maximizar la conversión.
