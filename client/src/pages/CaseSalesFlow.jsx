@@ -589,24 +589,61 @@ export default function CaseSalesFlow() {
                 <path d="M 300 200 C 450 200, 450 200, 500 200" fill="none" stroke="#10b981" strokeWidth="3" strokeDasharray="10 200" strokeDashoffset="200" style={{ animation: 'flowOut 3s linear infinite 2s' }} />
                 <path d="M 300 200 C 450 200, 450 320, 500 320" fill="none" stroke="#8b5cf6" strokeWidth="3" strokeDasharray="10 200" strokeDashoffset="200" style={{ animation: 'flowOut 3s linear infinite 3s' }} />
 
-                {/* Outer Agent Nodes */}
-                <circle cx="500" cy="80" r="16" fill="#1e293b" stroke="#475569" strokeWidth="2" />
-                <circle cx="500" cy="200" r="16" fill="#1e293b" stroke="#475569" strokeWidth="2" />
-                <circle cx="500" cy="320" r="16" fill="#1e293b" stroke="#475569" strokeWidth="2" />
+                
+                {/* Agent Cards (From Option C) via foreignObject */}
+                <foreignObject x="430" y="45" width="130" height="70">
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-2.5 relative overflow-hidden h-full flex flex-col justify-center">
+                    <div className="text-white font-bold text-[10px] mb-0.5">Agente: Roberto</div>
+                    <div className="text-slate-400 text-[8px] mb-2">Chat entrante...</div>
+                    <div className="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                      <div className="h-full bg-blue-500 rounded-full" style={{ animation: 'slaProgress 3s infinite 1s' }}></div>
+                    </div>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ animation: 'slaFlash 3s infinite 1s' }}>
+                      <div className="bg-emerald-500/20 text-emerald-400 rounded-full p-1.5 backdrop-blur-md border border-emerald-500/30">
+                        <div className="flex">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                          <svg className="w-4 h-4 -ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
 
-                {/* Double Checks (Animated) */}
-                <g style={{ animation: 'checkPulse 3s infinite 2.5s' }} transform="translate(490, 70)">
-                  <path d="M2 10L6 14L14 4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M8 14L16 4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
-                <g style={{ animation: 'checkPulse 3s infinite 0.5s' }} transform="translate(490, 190)">
-                  <path d="M2 10L6 14L14 4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M8 14L16 4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
-                <g style={{ animation: 'checkPulse 3s infinite 1.5s' }} transform="translate(490, 310)">
-                  <path d="M2 10L6 14L14 4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M8 14L16 4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </g>
+                <foreignObject x="430" y="165" width="130" height="70">
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-2.5 relative overflow-hidden h-full flex flex-col justify-center">
+                    <div className="text-white font-bold text-[10px] mb-0.5">Agente: Sofía</div>
+                    <div className="text-slate-400 text-[8px] mb-2">Chat VIP...</div>
+                    <div className="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                      <div className="h-full bg-blue-500 rounded-full" style={{ animation: 'slaProgress 3s infinite 2s' }}></div>
+                    </div>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ animation: 'slaFlash 3s infinite 2s' }}>
+                      <div className="bg-emerald-500/20 text-emerald-400 rounded-full p-1.5 backdrop-blur-md border border-emerald-500/30">
+                        <div className="flex">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                          <svg className="w-4 h-4 -ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
+
+                <foreignObject x="430" y="285" width="130" height="70">
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-2.5 relative overflow-hidden h-full flex flex-col justify-center">
+                    <div className="text-white font-bold text-[10px] mb-0.5">Agente: Carlos</div>
+                    <div className="text-slate-400 text-[8px] mb-2">Soporte T.</div>
+                    <div className="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                      <div className="h-full bg-blue-500 rounded-full" style={{ animation: 'slaProgress 3s infinite 3s' }}></div>
+                    </div>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ animation: 'slaFlash 3s infinite 3s' }}>
+                      <div className="bg-emerald-500/20 text-emerald-400 rounded-full p-1.5 backdrop-blur-md border border-emerald-500/30">
+                        <div className="flex">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                          <svg className="w-4 h-4 -ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </foreignObject>
 
                 {/* Central Hub Node (SalesFlow) */}
                 <circle cx="300" cy="200" r="30" fill="#0f172a" stroke="#f97316" strokeWidth="3" />
