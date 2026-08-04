@@ -447,9 +447,9 @@ export default function CaseSalesFlow() {
                 <span className="w-2 h-2 bg-brand-orange rounded-full mr-2 animate-ping"></span>
                 SISTEMA LISTO
               </div>
-              <h2 className="text-4xl lg:text-5xl font-extrabold text-brand-slate mb-6">Toma el control de tus ventas.</h2>
+              <h2 className="text-4xl lg:text-5xl font-extrabold text-brand-slate mb-6">¿Listo para tomar el control?</h2>
               <p className="text-slate-500 text-lg mb-10">
-                Descubre cómo SalesFlow se integra en tu operación crítica para erradicar puntos ciegos y maximizar la conversión.
+                Descubre cómo SalesFlow puede integrarse en tu operación crítica para erradicar puntos ciegos y maximizar tu productividad.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                 <Link to="/contacto/agendar" className="w-full sm:w-auto">
