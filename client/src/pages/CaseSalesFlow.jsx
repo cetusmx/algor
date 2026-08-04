@@ -206,7 +206,7 @@ export default function CaseSalesFlow() {
 {/* SECTION 3: CARACTERÍSTICAS (TECH / TERMINAL GRID) */}
         <section className="py-24 bg-slate-100 relative z-20 overflow-hidden">
           {/* Software Architecture Background SVG */}
-          <div className="absolute inset-0 z-0 opacity-40 pointer-events-none overflow-hidden">
+          <div className="absolute inset-0 z-0 opacity-100 pointer-events-none overflow-hidden">
             <svg className="w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <pattern id="arch-grid" width="60" height="60" patternUnits="userSpaceOnUse">
@@ -287,7 +287,7 @@ export default function CaseSalesFlow() {
             
             <div className="grid md:grid-cols-2 gap-8">
               {/* Feature 1 */}
-              <div className="group relative bg-white/80 backdrop-blur-md hover:bg-white border border-slate-200 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col">
+              <div className="group relative bg-white/40 backdrop-blur-md hover:bg-white border border-slate-200 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col">
                 <div className="w-12 h-12 bg-slate-50 text-brand-slate rounded-lg flex items-center justify-center mb-6 border border-slate-100 group-hover:bg-brand-slate group-hover:text-white transition-colors">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                 </div>
@@ -311,7 +311,7 @@ export default function CaseSalesFlow() {
               </div>
 
               {/* Feature 2 */}
-              <div className="group relative bg-white/80 backdrop-blur-md hover:bg-white border border-slate-200 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col">
+              <div className="group relative bg-white/40 backdrop-blur-md hover:bg-white border border-slate-200 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col">
                 <div className="w-12 h-12 bg-slate-50 text-brand-slate rounded-lg flex items-center justify-center mb-6 border border-slate-100 group-hover:bg-brand-slate group-hover:text-white transition-colors">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
                 </div>
@@ -335,7 +335,7 @@ export default function CaseSalesFlow() {
               </div>
 
               {/* Feature 3 */}
-              <div className="group relative bg-white/80 backdrop-blur-md hover:bg-white border border-slate-200 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col">
+              <div className="group relative bg-white/40 backdrop-blur-md hover:bg-white border border-slate-200 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col">
                 <div className="w-12 h-12 bg-slate-50 text-brand-slate rounded-lg flex items-center justify-center mb-6 border border-slate-100 group-hover:bg-brand-slate group-hover:text-white transition-colors">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
                 </div>
@@ -359,7 +359,7 @@ export default function CaseSalesFlow() {
               </div>
 
               {/* Feature 4 */}
-              <div className="group relative bg-white/80 backdrop-blur-md hover:bg-white border border-slate-200 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col">
+              <div className="group relative bg-white/40 backdrop-blur-md hover:bg-white border border-slate-200 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden flex flex-col">
                 <div className="w-12 h-12 bg-slate-50 text-brand-slate rounded-lg flex items-center justify-center mb-6 border border-slate-100 group-hover:bg-brand-slate group-hover:text-white transition-colors">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                 </div>
