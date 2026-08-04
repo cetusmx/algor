@@ -408,27 +408,32 @@ export default function CaseSalesFlow() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 bg-brand-orange text-center">
-          <div className="max-w-3xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-white mb-6">¿Listo para tomar el control de tus conversaciones de venta?</h2>
-            <p className="text-orange-50 text-lg mb-10">
-              Descubre cómo SalesFlow puede integrarse a la operación crítica de tu empresa.
-            </p>
-            {/* <p className="text-slate-300 text-lg mb-10">
-              Descubre cómo nuestra ingeniería de software puede integrar SalesFlow a la operación crítica de tu empresa.
-            </p> */}
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link to="/contacto/agendar">
-                <Button variant="primary-dark" className="px-8 py-4 w-full sm:w-auto text-lg bg-brand-slate text-white hover:bg-slate-900 border-none">
-                  Agendar demostración técnica
-                </Button>
-              </Link>
-              <Link to="/contacto">
-                <Button variant="secondary" className="px-8 py-4 w-full sm:w-auto text-lg !border-white !text-white hover:!bg-white/10">
-                  Hablar con un ingeniero
-                </Button>
-              </Link>
+        {/* CTA (PREMIUM FLOATING CARD) */}
+        <section className="py-24 bg-slate-50">
+          <div className="max-w-5xl mx-auto px-6">
+            <div className="bg-brand-slate rounded-[2.5rem] relative overflow-hidden shadow-2xl border border-white/5">
+              {/* Premium Background Effects */}
+              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/20 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+              <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
+              
+              <div className="relative z-10 px-8 py-16 md:py-20 md:px-16 text-center">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight">¿Listo para tomar el control de tus ventas?</h2>
+                <p className="text-slate-300 text-lg md:text-xl mb-12 max-w-2xl mx-auto">
+                  Descubre cómo SalesFlow se integra en tu operación crítica para erradicar puntos ciegos y maximizar la conversión.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center gap-5">
+                  <Link to="/contacto/agendar">
+                    <Button variant="primary" className="px-8 py-4 w-full sm:w-auto text-lg bg-brand-orange text-white hover:bg-[#d95d18] border-none shadow-lg shadow-brand-orange/20 transition-all hover:shadow-brand-orange/40 hover:-translate-y-1 rounded-xl">
+                      Agendar demostración
+                    </Button>
+                  </Link>
+                  <Link to="/contacto">
+                    <Button variant="secondary" className="px-8 py-4 w-full sm:w-auto text-lg !border-white/20 !text-white hover:!bg-white/5 hover:!border-white/40 transition-all hover:-translate-y-1 rounded-xl">
+                      Hablar con un ingeniero
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
