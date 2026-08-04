@@ -517,20 +517,52 @@ export default function CaseSalesFlow() {
               </div>
             </div>
             
-            {/* Right Side: Abstract Tech Pattern */}
-            <div className="w-full lg:w-1/2 bg-brand-slate relative overflow-hidden min-h-[400px]">
-              <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                 {/* Decorative elements representing flow/nodes */}
-                 <div className="relative w-72 h-72">
-                   <div className="absolute inset-0 border border-brand-orange/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
-                   <div className="absolute inset-8 border border-dashed border-emerald-400/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-                   <div className="absolute inset-16 border border-blue-400/20 rounded-full animate-[spin_20s_linear_infinite]"></div>
+            {/* Right Side: Animated Data Matrix */}
+            <div className="w-full lg:w-1/2 bg-[#0a0a0c] relative overflow-hidden min-h-[400px] lg:border-t-0 border-t border-white/5">
+              {/* Glowing separator at the top to prevent fusion with the previous dark section */}
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-orange/50 to-transparent"></div>
+              
+              {/* Subtle Grid */}
+              <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:30px_30px]"></div>
+              
+              {/* Scanning Laser Line (Animation) */}
+              <style>
+                {`
+                  @keyframes scanLine {
+                    0% { top: 0%; opacity: 0; }
+                    10% { opacity: 1; }
+                    90% { opacity: 1; }
+                    100% { top: 100%; opacity: 0; }
+                  }
+                `}
+              </style>
+              <div className="absolute left-0 right-0 h-[2px] bg-brand-orange/40 shadow-[0_0_15px_rgba(249,115,22,0.8)] animate-[scanLine_4s_ease-in-out_infinite_alternate] z-10 pointer-events-none"></div>
+
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                 {/* Central Animated Node */}
+                 <div className="relative w-64 h-64">
+                   {/* Expanding pulse rings */}
+                   <div className="absolute inset-0 rounded-full border border-brand-orange/40 animate-ping opacity-20"></div>
+                   
+                   {/* Rotating Tech Rings */}
+                   <div className="absolute inset-4 border-2 border-transparent border-t-brand-orange/60 border-b-brand-orange/60 rounded-full animate-[spin_8s_linear_infinite]"></div>
+                   <div className="absolute inset-10 border border-dashed border-emerald-400/40 rounded-full animate-[spin_12s_linear_infinite_reverse]"></div>
+                   <div className="absolute inset-16 border-2 border-transparent border-l-blue-400/50 border-r-blue-400/50 rounded-full animate-[spin_6s_linear_infinite]"></div>
+                   
+                   {/* Core glowing orb */}
                    <div className="absolute inset-0 flex items-center justify-center">
-                     <svg className="w-12 h-12 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                     <div className="w-16 h-16 bg-brand-slate rounded-full border border-white/20 flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.1)] relative">
+                       <div className="absolute inset-0 bg-brand-orange/20 rounded-full animate-pulse"></div>
+                       <svg className="w-6 h-6 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                     </div>
                    </div>
                  </div>
               </div>
+              
+              {/* Floating Data Points */}
+              <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-emerald-400 rounded-full animate-ping"></div>
+              <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute top-2/3 left-1/3 w-1 h-1 bg-white rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
             </div>
           </div>
         </section>
