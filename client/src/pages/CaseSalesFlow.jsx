@@ -591,7 +591,8 @@ export default function CaseSalesFlow() {
 
                 
                 {/* Agent Cards (From Option C) via foreignObject */}
-                <foreignObject x="430" y="45" width="130" height="70">
+                <g transform="translate(500, 80) scale(0.7) translate(-500, -80)">
+                  <foreignObject x="430" y="45" width="130" height="70">
                   <div className="bg-white/5 border border-white/10 rounded-lg p-2.5 relative overflow-hidden h-full flex flex-col justify-center">
                     <div className="text-white font-bold text-[10px] mb-0.5">Agente: Roberto</div>
                     <div className="text-slate-400 text-[8px] mb-2">Chat entrante...</div>
@@ -608,8 +609,10 @@ export default function CaseSalesFlow() {
                     </div>
                   </div>
                 </foreignObject>
+                </g>
 
-                <foreignObject x="430" y="165" width="130" height="70">
+                <g transform="translate(500, 200) scale(0.7) translate(-500, -200)">
+                  <foreignObject x="430" y="165" width="130" height="70">
                   <div className="bg-white/5 border border-white/10 rounded-lg p-2.5 relative overflow-hidden h-full flex flex-col justify-center">
                     <div className="text-white font-bold text-[10px] mb-0.5">Agente: Sofía</div>
                     <div className="text-slate-400 text-[8px] mb-2">Chat VIP...</div>
@@ -626,8 +629,10 @@ export default function CaseSalesFlow() {
                     </div>
                   </div>
                 </foreignObject>
+                </g>
 
-                <foreignObject x="430" y="285" width="130" height="70">
+                <g transform="translate(500, 320) scale(0.7) translate(-500, -320)">
+                  <foreignObject x="430" y="285" width="130" height="70">
                   <div className="bg-white/5 border border-white/10 rounded-lg p-2.5 relative overflow-hidden h-full flex flex-col justify-center">
                     <div className="text-white font-bold text-[10px] mb-0.5">Agente: Carlos</div>
                     <div className="text-slate-400 text-[8px] mb-2">Soporte T.</div>
@@ -644,8 +649,10 @@ export default function CaseSalesFlow() {
                     </div>
                   </div>
                 </foreignObject>
+                </g>
 
                 {/* Central Hub Node (SalesFlow - Rectangular) */}
+                <g transform="translate(300, 200) scale(0.7) translate(-300, -200)">
                 <rect x="230" y="150" width="140" height="100" rx="8" fill="#0a0a0c" stroke="#f97316" strokeWidth="2" />
                 <rect x="226" y="146" width="148" height="108" rx="10" fill="none" stroke="#f97316" strokeWidth="1" strokeDasharray="4 4" className="animate-pulse" />
                 
@@ -658,6 +665,7 @@ export default function CaseSalesFlow() {
                 <rect x="240" y="195" width="120" height="45" rx="4" fill="#1e293b" />
                 <text x="300" y="218" fill="#f97316" fontSize="14" fontWeight="bold" textAnchor="middle" fontFamily="monospace">SALESFLOW</text>
                 <text x="300" y="230" fill="#64748b" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="monospace">ROUTER ENGINE</text>
+                </g>
               </svg>
             </div>
 
