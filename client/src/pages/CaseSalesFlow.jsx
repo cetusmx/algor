@@ -408,35 +408,122 @@ export default function CaseSalesFlow() {
           </div>
         </section>
 
-        {/* CTA (PREMIUM FLOATING CARD) */}
-        <section className="py-24 bg-slate-50">
-          <div className="max-w-5xl mx-auto px-6">
-            <div className="bg-brand-slate rounded-[2.5rem] relative overflow-hidden shadow-2xl border border-white/5">
-              {/* Premium Background Effects */}
-              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/20 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
-              <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
-              
-              <div className="relative z-10 px-8 py-16 md:py-20 md:px-16 text-center">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight">¿Listo para tomar el control de tus ventas?</h2>
-                <p className="text-slate-300 text-lg md:text-xl mb-12 max-w-2xl mx-auto">
-                  Descubre cómo SalesFlow se integra en tu operación crítica para erradicar puntos ciegos y maximizar la conversión.
-                </p>
-                <div className="flex flex-col sm:flex-row justify-center gap-5">
-                  <Link to="/contacto/agendar">
-                    <Button variant="primary" className="px-8 py-4 w-full sm:w-auto text-lg bg-brand-orange text-white hover:bg-[#d95d18] border-none shadow-lg shadow-brand-orange/20 transition-all hover:shadow-brand-orange/40 hover:-translate-y-1 rounded-xl">
-                      Agendar demostración
-                    </Button>
-                  </Link>
-                  <Link to="/contacto">
-                    <Button variant="secondary" className="px-8 py-4 w-full sm:w-auto text-lg !border-white/20 !text-white hover:!bg-white/5 hover:!border-white/40 transition-all hover:-translate-y-1 rounded-xl">
-                      Hablar con un ingeniero
-                    </Button>
-                  </Link>
-                </div>
+        {/* =========================================
+            OPTION 1: Minimalista Absoluto 
+            ========================================= */}
+        <section className="py-32 bg-white text-center border-t border-slate-100">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 tracking-tighter">¿Listo para tomar el control?</h2>
+            <p className="text-slate-500 text-xl mb-12 max-w-2xl mx-auto font-light">
+              Descubre cómo SalesFlow se integra en tu operación crítica para erradicar puntos ciegos y maximizar la conversión. Sin fricción.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <Link to="/contacto/agendar">
+                <Button variant="primary-dark" className="px-10 py-5 w-full sm:w-auto text-lg rounded-full bg-slate-900 text-white shadow-2xl shadow-slate-900/20 hover:scale-105 transition-transform border-none">
+                  Agendar demostración
+                </Button>
+              </Link>
+              <Link to="/contacto">
+                <Button variant="secondary" className="px-10 py-5 w-full sm:w-auto text-lg rounded-full bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100 transition-colors">
+                  Hablar con un ingeniero
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+        
+        {/* Separador */}
+        <div className="h-32 bg-slate-200 w-full flex items-center justify-center text-slate-500 font-mono text-sm tracking-widest font-bold">--- FIN OPCIÓN 1 ---</div>
+
+
+        {/* =========================================
+            OPTION 2: Split View 
+            ========================================= */}
+        <section className="bg-white">
+          <div className="flex flex-col lg:flex-row min-h-[60vh]">
+            {/* Left Side: Content */}
+            <div className="w-full lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center">
+              <h2 className="text-4xl lg:text-5xl font-extrabold text-brand-slate mb-6">Toma el control de tus ventas.</h2>
+              <p className="text-slate-500 text-lg mb-10">
+                Descubre cómo SalesFlow se integra en tu operación crítica para erradicar puntos ciegos y maximizar la conversión.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/contacto/agendar">
+                  <Button variant="primary" className="px-8 py-4 w-full text-center text-lg bg-brand-orange text-white hover:bg-[#d95d18] border-none shadow-lg shadow-brand-orange/20">
+                    Agendar demo
+                  </Button>
+                </Link>
+                <Link to="/contacto">
+                  <Button variant="secondary" className="px-8 py-4 w-full text-center text-lg border-slate-300 text-slate-600 hover:bg-slate-50">
+                    Contactar ingeniero
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            
+            {/* Right Side: Abstract Tech Pattern */}
+            <div className="w-full lg:w-1/2 bg-brand-slate relative overflow-hidden min-h-[400px]">
+              <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                 {/* Decorative elements representing flow/nodes */}
+                 <div className="relative w-72 h-72">
+                   <div className="absolute inset-0 border border-brand-orange/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                   <div className="absolute inset-8 border border-dashed border-emerald-400/30 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                   <div className="absolute inset-16 border border-blue-400/20 rounded-full animate-[spin_20s_linear_infinite]"></div>
+                   <div className="absolute inset-0 flex items-center justify-center">
+                     <svg className="w-12 h-12 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                   </div>
+                 </div>
               </div>
             </div>
           </div>
         </section>
+
+        {/* Separador */}
+        <div className="h-32 bg-slate-200 w-full flex items-center justify-center text-slate-500 font-mono text-sm tracking-widest font-bold">--- FIN OPCIÓN 2 ---</div>
+
+
+        {/* =========================================
+            OPTION 3: Gradiente Inmersivo 
+            ========================================= */}
+        <section className="py-32 relative overflow-hidden bg-slate-900">
+          {/* Complex Animated Gradients */}
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-slate via-slate-900 to-[#1a1025] z-0"></div>
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand-orange/20 rounded-full blur-[100px] pointer-events-none z-0"></div>
+          <div className="absolute bottom-0 left-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+          
+          {/* Subtle noise/grid texture */}
+          <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPjxyZWN0IHdpZHRoPSI4IiBoZWlnaHQ9IjgiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNCIvPjwvc3ZnPg==')] z-0"></div>
+
+          <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
+            {/* Glassmorphism Container */}
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-12 md:p-24 shadow-2xl">
+              <div className="inline-flex items-center text-xs font-mono text-brand-orange bg-brand-orange/10 px-4 py-2 rounded-full border border-brand-orange/20 mb-8">
+                <span className="w-2 h-2 bg-brand-orange rounded-full mr-2 animate-ping"></span>
+                SISTEMA LISTO
+              </div>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">¿Listo para tomar el control?</h2>
+              <p className="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
+                Descubre cómo SalesFlow se integra en tu operación crítica para erradicar puntos ciegos y maximizar la conversión.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Link to="/contacto/agendar">
+                  <Button variant="primary" className="px-8 py-4 w-full sm:w-auto text-lg bg-white text-brand-slate hover:bg-slate-200 border-none shadow-lg transition-transform hover:-translate-y-1">
+                    Agendar demostración
+                  </Button>
+                </Link>
+                <Link to="/contacto">
+                  <Button variant="secondary" className="px-8 py-4 w-full sm:w-auto text-lg !bg-transparent !border-white/30 !text-white hover:!bg-white/10 transition-colors">
+                    Hablar con un ingeniero
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Separador Final */}
+        <div className="h-32 bg-slate-200 w-full flex items-center justify-center text-slate-500 font-mono text-sm tracking-widest font-bold">--- FIN OPCIÓN 3 ---</div>
 
       </main>
 
