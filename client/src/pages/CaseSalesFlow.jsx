@@ -580,19 +580,19 @@ export default function CaseSalesFlow() {
                 <path d="M 0 350 C 150 350, 150 200, 300 200" fill="none" stroke="#f97316" strokeWidth="4" strokeDasharray="10 200" strokeDashoffset="200" style={{ animation: 'flowIn 3s linear infinite 1.5s' }} />
 
                 {/* Lines OUT */}
-                <path d="M 300 200 C 450 200, 450 80, 500 80" fill="none" stroke="#334155" strokeWidth="2" />
-                <path d="M 300 200 C 450 200, 450 200, 500 200" fill="none" stroke="#334155" strokeWidth="2" />
-                <path d="M 300 200 C 450 200, 450 320, 500 320" fill="none" stroke="#334155" strokeWidth="2" />
+                <path d="M 300 200 C 450 200, 515 80, 565 80" fill="none" stroke="#334155" strokeWidth="2" />
+                <path d="M 300 200 C 450 200, 515 200, 565 200" fill="none" stroke="#334155" strokeWidth="2" />
+                <path d="M 300 200 C 450 200, 515 320, 565 320" fill="none" stroke="#334155" strokeWidth="2" />
 
                 {/* Animated Packets OUT */}
-                <path d="M 300 200 C 450 200, 450 80, 500 80" fill="none" stroke="#3b82f6" strokeWidth="3" strokeDasharray="10 200" strokeDashoffset="200" style={{ animation: 'flowOut 3s linear infinite 1s' }} />
-                <path d="M 300 200 C 450 200, 450 200, 500 200" fill="none" stroke="#10b981" strokeWidth="3" strokeDasharray="10 200" strokeDashoffset="200" style={{ animation: 'flowOut 3s linear infinite 2s' }} />
-                <path d="M 300 200 C 450 200, 450 320, 500 320" fill="none" stroke="#8b5cf6" strokeWidth="3" strokeDasharray="10 200" strokeDashoffset="200" style={{ animation: 'flowOut 3s linear infinite 3s' }} />
+                <path d="M 300 200 C 450 200, 515 80, 565 80" fill="none" stroke="#3b82f6" strokeWidth="3" strokeDasharray="10 200" strokeDashoffset="200" style={{ animation: 'flowOut 3s linear infinite 1s' }} />
+                <path d="M 300 200 C 450 200, 515 200, 565 200" fill="none" stroke="#10b981" strokeWidth="3" strokeDasharray="10 200" strokeDashoffset="200" style={{ animation: 'flowOut 3s linear infinite 2s' }} />
+                <path d="M 300 200 C 450 200, 515 320, 565 320" fill="none" stroke="#8b5cf6" strokeWidth="3" strokeDasharray="10 200" strokeDashoffset="200" style={{ animation: 'flowOut 3s linear infinite 3s' }} />
 
                 
                 {/* Agent Cards (From Option C) via foreignObject */}
-                <g transform="translate(500, 80) scale(0.7) translate(-500, -80)">
-                  <foreignObject x="430" y="45" width="130" height="70">
+                <g transform="translate(565, 80) scale(0.7) translate(-565, -80)">
+                  <foreignObject x="495" y="45" width="130" height="70">
                   <div className="bg-white/5 border border-white/10 rounded-lg p-2.5 relative overflow-hidden h-full flex flex-col justify-center">
                     <div className="text-white font-bold text-[10px] mb-0.5">Agente: Roberto</div>
                     <div className="text-slate-400 text-[8px] mb-2">Chat entrante...</div>
@@ -611,8 +611,8 @@ export default function CaseSalesFlow() {
                 </foreignObject>
                 </g>
 
-                <g transform="translate(500, 200) scale(0.7) translate(-500, -200)">
-                  <foreignObject x="430" y="165" width="130" height="70">
+                <g transform="translate(565, 200) scale(0.7) translate(-565, -200)">
+                  <foreignObject x="495" y="165" width="130" height="70">
                   <div className="bg-white/5 border border-white/10 rounded-lg p-2.5 relative overflow-hidden h-full flex flex-col justify-center">
                     <div className="text-white font-bold text-[10px] mb-0.5">Agente: Sofía</div>
                     <div className="text-slate-400 text-[8px] mb-2">Chat VIP...</div>
@@ -631,8 +631,8 @@ export default function CaseSalesFlow() {
                 </foreignObject>
                 </g>
 
-                <g transform="translate(500, 320) scale(0.7) translate(-500, -320)">
-                  <foreignObject x="430" y="285" width="130" height="70">
+                <g transform="translate(565, 320) scale(0.7) translate(-565, -320)">
+                  <foreignObject x="495" y="285" width="130" height="70">
                   <div className="bg-white/5 border border-white/10 rounded-lg p-2.5 relative overflow-hidden h-full flex flex-col justify-center">
                     <div className="text-white font-bold text-[10px] mb-0.5">Agente: Carlos</div>
                     <div className="text-slate-400 text-[8px] mb-2">Soporte T.</div>
