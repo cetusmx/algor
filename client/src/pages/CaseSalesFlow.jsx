@@ -201,7 +201,7 @@ export default function CaseSalesFlow() {
         </section>
 
         {/* SECTION 3: CARACTERÍSTICAS (TECH / TERMINAL GRID) */}
-        <section className="py-24 bg-slate-50 relative z-20">
+        <section className="py-24 bg-white relative z-20">
           <div className="max-w-7xl mx-auto px-6">
             <div className="mb-16 md:w-2/3">
               <h2 className="text-4xl font-extrabold text-brand-slate mb-4">Arquitectura del Producto</h2>
@@ -408,37 +408,7 @@ export default function CaseSalesFlow() {
           </div>
         </section>
 
-        {/* =========================================
-            OPTION 1: Minimalista Absoluto 
-            ========================================= */}
-        <section className="py-32 bg-white text-center border-t border-slate-100">
-          <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 tracking-tighter">¿Listo para tomar el control?</h2>
-            <p className="text-slate-500 text-xl mb-12 max-w-2xl mx-auto font-light">
-              Descubre cómo SalesFlow se integra en tu operación crítica para erradicar puntos ciegos y maximizar la conversión. Sin fricción.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <Link to="/contacto/agendar">
-                <Button variant="primary-dark" className="px-10 py-5 w-full sm:w-auto text-lg rounded-full bg-slate-900 text-white shadow-2xl shadow-slate-900/20 hover:scale-105 transition-transform border-none">
-                  Agendar demostración
-                </Button>
-              </Link>
-              <Link to="/contacto">
-                <Button variant="secondary" className="px-10 py-5 w-full sm:w-auto text-lg rounded-full bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100 transition-colors">
-                  Hablar con un ingeniero
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-        
-        {/* Separador */}
-        <div className="h-32 bg-slate-200 w-full flex items-center justify-center text-slate-500 font-mono text-sm tracking-widest font-bold">--- FIN OPCIÓN 1 ---</div>
-
-
-        {/* =========================================
-            OPTION 2: Split View 
-            ========================================= */}
+        {/* CTA */}
         <section className="bg-white">
           <div className="flex flex-col lg:flex-row min-h-[60vh]">
             {/* Left Side: Content */}
@@ -482,9 +452,6 @@ export default function CaseSalesFlow() {
             </div>
           </div>
         </section>
-
-        {/* Separador */}
-        <div className="h-32 bg-slate-200 w-full flex items-center justify-center text-slate-500 font-mono text-sm tracking-widest font-bold">--- FIN OPCIÓN 2 ---</div>
 
 
 
