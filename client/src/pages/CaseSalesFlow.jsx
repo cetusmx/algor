@@ -492,9 +492,9 @@ export default function CaseSalesFlow() {
 
         {/* CTA */}
         <section className="bg-white">
-          <div className="flex flex-col lg:flex-row min-h-[60vh]">
+          <div className="flex flex-col lg:flex-row min-h-[45vh]">
             {/* Left Side: Content */}
-            <div className="w-full lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center items-start">
+            <div className="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center items-start">
               <div className="inline-flex items-center text-xs font-mono text-brand-orange bg-brand-orange/10 px-4 py-2 rounded-full border border-brand-orange/20 mb-6">
                 <span className="w-2 h-2 bg-brand-orange rounded-full mr-2 animate-ping"></span>
                 SISTEMA LISTO
@@ -519,7 +519,7 @@ export default function CaseSalesFlow() {
             
             
             {/* Right Side: IDEA A (Abstract Neon Flow) */}
-            <div className="w-full lg:w-1/2 bg-[#0a0a0c] relative overflow-hidden min-h-[400px] lg:border-t-0 border-t border-white/5 flex items-center justify-center">
+            <div className="w-full lg:w-1/2 bg-[#0a0a0c] relative overflow-hidden min-h-[300px] lg:border-t-0 border-t border-white/5 flex items-center justify-center">
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-orange/50 to-transparent"></div>
               
               <style>
@@ -645,10 +645,19 @@ export default function CaseSalesFlow() {
                   </div>
                 </foreignObject>
 
-                {/* Central Hub Node (SalesFlow) */}
-                <circle cx="300" cy="200" r="30" fill="#0f172a" stroke="#f97316" strokeWidth="3" />
-                <circle cx="300" cy="200" r="40" fill="none" stroke="#f97316" strokeWidth="1" strokeDasharray="4 4" className="animate-[spin_4s_linear_infinite]" />
-                <text x="300" y="205" fill="#f97316" fontSize="12" fontWeight="bold" textAnchor="middle" fontFamily="monospace">HUB</text>
+                {/* Central Hub Node (SalesFlow - Rectangular) */}
+                <rect x="230" y="150" width="140" height="100" rx="8" fill="#0a0a0c" stroke="#f97316" strokeWidth="2" />
+                <rect x="226" y="146" width="148" height="108" rx="10" fill="none" stroke="#f97316" strokeWidth="1" strokeDasharray="4 4" className="animate-pulse" />
+                
+                {/* Hub UI Details */}
+                <rect x="240" y="160" width="120" height="24" rx="4" fill="#1e293b" />
+                <circle cx="250" cy="172" r="4" fill="#10b981" className="animate-ping" />
+                <circle cx="250" cy="172" r="4" fill="#10b981" />
+                <rect x="265" y="170" width="40" height="4" rx="2" fill="#475569" />
+                
+                <rect x="240" y="195" width="120" height="45" rx="4" fill="#1e293b" />
+                <text x="300" y="218" fill="#f97316" fontSize="14" fontWeight="bold" textAnchor="middle" fontFamily="monospace">SALESFLOW</text>
+                <text x="300" y="230" fill="#64748b" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="monospace">ROUTER ENGINE</text>
               </svg>
             </div>
 
