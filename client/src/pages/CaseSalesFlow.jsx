@@ -409,10 +409,10 @@ export default function CaseSalesFlow() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-brand-slate text-center">
+        <section className="py-20 bg-brand-orange text-center">
           <div className="max-w-3xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-white mb-6">¿Listo para tomar el control de tus conversaciones de venta?</h2>
-            <p className="text-slate-300 text-lg mb-10">
+            <p className="text-orange-50 text-lg mb-10">
               Descubre cómo SalesFlow puede integrarse a la operación crítica de tu empresa.
             </p>
             {/* <p className="text-slate-300 text-lg mb-10">
@@ -420,7 +420,7 @@ export default function CaseSalesFlow() {
             </p> */}
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link to="/contacto/agendar">
-                <Button variant="primary-dark" className="px-8 py-4 w-full sm:w-auto text-lg">
+                <Button variant="primary-dark" className="px-8 py-4 w-full sm:w-auto text-lg bg-brand-slate text-white hover:bg-slate-900 border-none">
                   Agendar demostración técnica
                 </Button>
               </Link>
