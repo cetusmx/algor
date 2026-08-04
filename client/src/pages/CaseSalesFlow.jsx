@@ -517,55 +517,354 @@ export default function CaseSalesFlow() {
               </div>
             </div>
             
-            {/* Right Side: Animated Data Matrix */}
-            <div className="w-full lg:w-1/2 bg-[#0a0a0c] relative overflow-hidden min-h-[400px] lg:border-t-0 border-t border-white/5">
-              {/* Glowing separator at the top to prevent fusion with the previous dark section */}
+            
+            {/* Right Side: IDEA A (Abstract Neon Flow) */}
+            <div className="w-full lg:w-1/2 bg-[#0a0a0c] relative overflow-hidden min-h-[400px] lg:border-t-0 border-t border-white/5 flex items-center justify-center">
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-orange/50 to-transparent"></div>
               
-              {/* Subtle Grid */}
-              <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:30px_30px]"></div>
-              
-              {/* Scanning Laser Line (Animation) */}
               <style>
                 {`
-                  @keyframes scanLine {
-                    0% { top: 0%; opacity: 0; }
-                    10% { opacity: 1; }
-                    90% { opacity: 1; }
-                    100% { top: 100%; opacity: 0; }
+                  @keyframes flowIn {
+                    0% { stroke-dashoffset: 200; opacity: 0; }
+                    20% { opacity: 1; }
+                    100% { stroke-dashoffset: 0; opacity: 0; }
+                  }
+                  @keyframes flowOut {
+                    0% { stroke-dashoffset: 200; opacity: 0; }
+                    20% { opacity: 1; }
+                    100% { stroke-dashoffset: 0; opacity: 0; }
+                  }
+                  @keyframes checkPulse {
+                    0%, 70% { opacity: 0; transform: scale(0.5); }
+                    80% { opacity: 1; transform: scale(1.2); color: #10b981; }
+                    100% { opacity: 0; transform: scale(1); }
+                  }
+                  @keyframes slideInChat {
+                    0% { transform: translateX(-50px); opacity: 0; }
+                    20% { transform: translateX(0); opacity: 1; }
+                    80% { transform: translateX(0); opacity: 1; }
+                    100% { transform: translateX(50px); opacity: 0; }
+                  }
+                  @keyframes doubleCheckReveal {
+                    0%, 40% { opacity: 0; }
+                    50%, 90% { opacity: 1; }
+                    100% { opacity: 0; }
+                  }
+                  @keyframes slaProgress {
+                    0% { width: 0%; background-color: #3b82f6; }
+                    50% { width: 50%; background-color: #10b981; }
+                    100% { width: 100%; background-color: #10b981; }
+                  }
+                  @keyframes slaFlash {
+                    0%, 90% { opacity: 0; }
+                    95% { opacity: 1; }
+                    100% { opacity: 0; }
                   }
                 `}
               </style>
-              <div className="absolute left-0 right-0 h-[2px] bg-brand-orange/40 shadow-[0_0_15px_rgba(249,115,22,0.8)] animate-[scanLine_4s_ease-in-out_infinite_alternate] z-10 pointer-events-none"></div>
 
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                 {/* Central Animated Node */}
-                 <div className="relative w-64 h-64">
-                   {/* Expanding pulse rings */}
-                   <div className="absolute inset-0 rounded-full border border-brand-orange/40 animate-ping opacity-20"></div>
-                   
-                   {/* Rotating Tech Rings */}
-                   <div className="absolute inset-4 border-2 border-transparent border-t-brand-orange/60 border-b-brand-orange/60 rounded-full animate-[spin_8s_linear_infinite]"></div>
-                   <div className="absolute inset-10 border border-dashed border-emerald-400/40 rounded-full animate-[spin_12s_linear_infinite_reverse]"></div>
-                   <div className="absolute inset-16 border-2 border-transparent border-l-blue-400/50 border-r-blue-400/50 rounded-full animate-[spin_6s_linear_infinite]"></div>
-                   
-                   {/* Core glowing orb */}
-                   <div className="absolute inset-0 flex items-center justify-center">
-                     <div className="w-16 h-16 bg-brand-slate rounded-full border border-white/20 flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.1)] relative">
-                       <div className="absolute inset-0 bg-brand-orange/20 rounded-full animate-pulse"></div>
-                       <svg className="w-6 h-6 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                     </div>
-                   </div>
-                 </div>
-              </div>
               
-              {/* Floating Data Points */}
-              <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-emerald-400 rounded-full animate-ping"></div>
-              <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
-              <div className="absolute top-2/3 left-1/3 w-1 h-1 bg-white rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
+              <svg className="w-full h-full absolute inset-0" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                {/* Background Grid */}
+                <pattern id="grid-a" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff10" strokeWidth="1" />
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#grid-a)" />
+                
+                {/* Lines IN */}
+                <path d="M 0 50 C 150 50, 150 200, 300 200" fill="none" stroke="#334155" strokeWidth="2" />
+                <path d="M 0 350 C 150 350, 150 200, 300 200" fill="none" stroke="#334155" strokeWidth="2" />
+                
+                {/* Animated Packets IN */}
+                <path d="M 0 50 C 150 50, 150 200, 300 200" fill="none" stroke="#f97316" strokeWidth="4" strokeDasharray="10 200" strokeDashoffset="200" style={{ animation: 'flowIn 3s linear infinite' }} />
+                <path d="M 0 350 C 150 350, 150 200, 300 200" fill="none" stroke="#f97316" strokeWidth="4" strokeDasharray="10 200" strokeDashoffset="200" style={{ animation: 'flowIn 3s linear infinite 1.5s' }} />
+
+                {/* Lines OUT */}
+                <path d="M 300 200 C 450 200, 450 80, 500 80" fill="none" stroke="#334155" strokeWidth="2" />
+                <path d="M 300 200 C 450 200, 450 200, 500 200" fill="none" stroke="#334155" strokeWidth="2" />
+                <path d="M 300 200 C 450 200, 450 320, 500 320" fill="none" stroke="#334155" strokeWidth="2" />
+
+                {/* Animated Packets OUT */}
+                <path d="M 300 200 C 450 200, 450 80, 500 80" fill="none" stroke="#3b82f6" strokeWidth="3" strokeDasharray="10 200" strokeDashoffset="200" style={{ animation: 'flowOut 3s linear infinite 1s' }} />
+                <path d="M 300 200 C 450 200, 450 200, 500 200" fill="none" stroke="#10b981" strokeWidth="3" strokeDasharray="10 200" strokeDashoffset="200" style={{ animation: 'flowOut 3s linear infinite 2s' }} />
+                <path d="M 300 200 C 450 200, 450 320, 500 320" fill="none" stroke="#8b5cf6" strokeWidth="3" strokeDasharray="10 200" strokeDashoffset="200" style={{ animation: 'flowOut 3s linear infinite 3s' }} />
+
+                {/* Outer Agent Nodes */}
+                <circle cx="500" cy="80" r="16" fill="#1e293b" stroke="#475569" strokeWidth="2" />
+                <circle cx="500" cy="200" r="16" fill="#1e293b" stroke="#475569" strokeWidth="2" />
+                <circle cx="500" cy="320" r="16" fill="#1e293b" stroke="#475569" strokeWidth="2" />
+
+                {/* Double Checks (Animated) */}
+                <g style={{ animation: 'checkPulse 3s infinite 2.5s' }} transform="translate(490, 70)">
+                  <path d="M2 10L6 14L14 4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M8 14L16 4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                </g>
+                <g style={{ animation: 'checkPulse 3s infinite 0.5s' }} transform="translate(490, 190)">
+                  <path d="M2 10L6 14L14 4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M8 14L16 4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                </g>
+                <g style={{ animation: 'checkPulse 3s infinite 1.5s' }} transform="translate(490, 310)">
+                  <path d="M2 10L6 14L14 4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M8 14L16 4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                </g>
+
+                {/* Central Hub Node (SalesFlow) */}
+                <circle cx="300" cy="200" r="30" fill="#0f172a" stroke="#f97316" strokeWidth="3" />
+                <circle cx="300" cy="200" r="40" fill="none" stroke="#f97316" strokeWidth="1" strokeDasharray="4 4" className="animate-[spin_4s_linear_infinite]" />
+                <text x="300" y="205" fill="#f97316" fontSize="12" fontWeight="bold" textAnchor="middle" fontFamily="monospace">HUB</text>
+              </svg>
             </div>
+
           </div>
         </section>
+<div className="h-24 bg-white w-full flex items-center justify-center text-slate-400 font-mono text-sm tracking-widest font-bold">--- FIN OPCION A ---</div>
+
+{/* CTA */}
+        <section className="bg-white">
+          <div className="flex flex-col lg:flex-row min-h-[60vh]">
+            {/* Left Side: Content */}
+            <div className="w-full lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center items-start">
+              <div className="inline-flex items-center text-xs font-mono text-brand-orange bg-brand-orange/10 px-4 py-2 rounded-full border border-brand-orange/20 mb-6">
+                <span className="w-2 h-2 bg-brand-orange rounded-full mr-2 animate-ping"></span>
+                SISTEMA LISTO
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-extrabold text-brand-slate mb-6">¿Listo para tomar el control?</h2>
+              <p className="text-slate-500 text-lg mb-10">
+                Descubre cómo SalesFlow puede integrarse en tu operación crítica para erradicar puntos ciegos y maximizar tu productividad.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <Link to="/contacto/agendar" className="w-full sm:w-auto">
+                  <Button variant="primary" className="px-8 py-4 w-full text-center text-lg bg-brand-orange text-white hover:bg-[#d95d18] border-none shadow-lg shadow-brand-orange/20">
+                    Agendar demo
+                  </Button>
+                </Link>
+                <Link to="/contacto" className="w-full sm:w-auto">
+                  <Button variant="outline" className="px-8 py-4 w-full text-center text-lg !bg-slate-100 !border-slate-300 !text-slate-800 hover:!bg-slate-200 shadow-sm transition-colors font-semibold">
+                    Contactar ingeniero
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            
+            
+            {/* Right Side: IDEA B (Realistic Chat UI) */}
+            <div className="w-full lg:w-1/2 bg-[#0a0a0c] relative overflow-hidden min-h-[400px] lg:border-t-0 border-t border-white/5 flex items-center justify-center p-8">
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-orange/50 to-transparent"></div>
+              
+              <style>
+                {`
+                  @keyframes flowIn {
+                    0% { stroke-dashoffset: 200; opacity: 0; }
+                    20% { opacity: 1; }
+                    100% { stroke-dashoffset: 0; opacity: 0; }
+                  }
+                  @keyframes flowOut {
+                    0% { stroke-dashoffset: 200; opacity: 0; }
+                    20% { opacity: 1; }
+                    100% { stroke-dashoffset: 0; opacity: 0; }
+                  }
+                  @keyframes checkPulse {
+                    0%, 70% { opacity: 0; transform: scale(0.5); }
+                    80% { opacity: 1; transform: scale(1.2); color: #10b981; }
+                    100% { opacity: 0; transform: scale(1); }
+                  }
+                  @keyframes slideInChat {
+                    0% { transform: translateX(-50px); opacity: 0; }
+                    20% { transform: translateX(0); opacity: 1; }
+                    80% { transform: translateX(0); opacity: 1; }
+                    100% { transform: translateX(50px); opacity: 0; }
+                  }
+                  @keyframes doubleCheckReveal {
+                    0%, 40% { opacity: 0; }
+                    50%, 90% { opacity: 1; }
+                    100% { opacity: 0; }
+                  }
+                  @keyframes slaProgress {
+                    0% { width: 0%; background-color: #3b82f6; }
+                    50% { width: 50%; background-color: #10b981; }
+                    100% { width: 100%; background-color: #10b981; }
+                  }
+                  @keyframes slaFlash {
+                    0%, 90% { opacity: 0; }
+                    95% { opacity: 1; }
+                    100% { opacity: 0; }
+                  }
+                `}
+              </style>
+
+              
+              <div className="w-full max-w-md bg-brand-slate border border-white/10 rounded-2xl p-6 shadow-2xl relative">
+                <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
+                  <div className="flex items-center text-brand-orange font-bold text-sm">
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    SalesFlow Router
+                  </div>
+                  <div className="flex space-x-1">
+                    <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                    <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse delay-75"></div>
+                    <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse delay-150"></div>
+                  </div>
+                </div>
+
+                <div className="space-y-6 relative h-48">
+                  {/* Chat Message 1 */}
+                  <div className="absolute top-0 left-0 w-full flex justify-end" style={{ animation: 'slideInChat 4s infinite' }}>
+                    <div className="bg-emerald-900/40 border border-emerald-500/30 rounded-t-xl rounded-bl-xl p-3 max-w-[80%] flex items-end space-x-3">
+                      <p className="text-white text-sm">¡Hola! Quisiera informes del producto.</p>
+                      <div className="flex text-emerald-400" style={{ animation: 'doubleCheckReveal 4s infinite' }}>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                        <svg className="w-4 h-4 -ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Chat Message 2 */}
+                  <div className="absolute top-16 left-0 w-full flex justify-end" style={{ animation: 'slideInChat 4s infinite 2s' }}>
+                    <div className="bg-blue-900/40 border border-blue-500/30 rounded-t-xl rounded-bl-xl p-3 max-w-[80%] flex items-end space-x-3">
+                      <p className="text-white text-sm">Me interesa el plan enterprise.</p>
+                      <div className="flex text-blue-400" style={{ animation: 'doubleCheckReveal 4s infinite 2s' }}>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                        <svg className="w-4 h-4 -ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-4 pt-4 border-t border-white/10 flex justify-between text-xs text-slate-500 font-mono">
+                  <span>AGENTES ACTIVOS: 12</span>
+                  <span className="text-emerald-400">ENRUTAMIENTO OK</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+<div className="h-24 bg-white w-full flex items-center justify-center text-slate-400 font-mono text-sm tracking-widest font-bold">--- FIN OPCION B ---</div>
+
+{/* CTA */}
+        <section className="bg-white">
+          <div className="flex flex-col lg:flex-row min-h-[60vh]">
+            {/* Left Side: Content */}
+            <div className="w-full lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center items-start">
+              <div className="inline-flex items-center text-xs font-mono text-brand-orange bg-brand-orange/10 px-4 py-2 rounded-full border border-brand-orange/20 mb-6">
+                <span className="w-2 h-2 bg-brand-orange rounded-full mr-2 animate-ping"></span>
+                SISTEMA LISTO
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-extrabold text-brand-slate mb-6">¿Listo para tomar el control?</h2>
+              <p className="text-slate-500 text-lg mb-10">
+                Descubre cómo SalesFlow puede integrarse en tu operación crítica para erradicar puntos ciegos y maximizar tu productividad.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <Link to="/contacto/agendar" className="w-full sm:w-auto">
+                  <Button variant="primary" className="px-8 py-4 w-full text-center text-lg bg-brand-orange text-white hover:bg-[#d95d18] border-none shadow-lg shadow-brand-orange/20">
+                    Agendar demo
+                  </Button>
+                </Link>
+                <Link to="/contacto" className="w-full sm:w-auto">
+                  <Button variant="outline" className="px-8 py-4 w-full text-center text-lg !bg-slate-100 !border-slate-300 !text-slate-800 hover:!bg-slate-200 shadow-sm transition-colors font-semibold">
+                    Contactar ingeniero
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            
+            
+            {/* Right Side: IDEA C (SLA Radar) */}
+            <div className="w-full lg:w-1/2 bg-[#0a0a0c] relative overflow-hidden min-h-[400px] lg:border-t-0 border-t border-white/5 flex items-center justify-center">
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-orange/50 to-transparent"></div>
+              
+              <style>
+                {`
+                  @keyframes flowIn {
+                    0% { stroke-dashoffset: 200; opacity: 0; }
+                    20% { opacity: 1; }
+                    100% { stroke-dashoffset: 0; opacity: 0; }
+                  }
+                  @keyframes flowOut {
+                    0% { stroke-dashoffset: 200; opacity: 0; }
+                    20% { opacity: 1; }
+                    100% { stroke-dashoffset: 0; opacity: 0; }
+                  }
+                  @keyframes checkPulse {
+                    0%, 70% { opacity: 0; transform: scale(0.5); }
+                    80% { opacity: 1; transform: scale(1.2); color: #10b981; }
+                    100% { opacity: 0; transform: scale(1); }
+                  }
+                  @keyframes slideInChat {
+                    0% { transform: translateX(-50px); opacity: 0; }
+                    20% { transform: translateX(0); opacity: 1; }
+                    80% { transform: translateX(0); opacity: 1; }
+                    100% { transform: translateX(50px); opacity: 0; }
+                  }
+                  @keyframes doubleCheckReveal {
+                    0%, 40% { opacity: 0; }
+                    50%, 90% { opacity: 1; }
+                    100% { opacity: 0; }
+                  }
+                  @keyframes slaProgress {
+                    0% { width: 0%; background-color: #3b82f6; }
+                    50% { width: 50%; background-color: #10b981; }
+                    100% { width: 100%; background-color: #10b981; }
+                  }
+                  @keyframes slaFlash {
+                    0%, 90% { opacity: 0; }
+                    95% { opacity: 1; }
+                    100% { opacity: 0; }
+                  }
+                `}
+              </style>
+
+              
+              <div className="w-full max-w-lg grid grid-cols-2 gap-4 p-8">
+                {/* Agent Card 1 */}
+                <div className="bg-white/5 border border-white/10 rounded-xl p-5 relative overflow-hidden">
+                  <div className="text-white font-bold mb-1">Agente: Roberto</div>
+                  <div className="text-slate-400 text-xs mb-4">Chat entrante detectado...</div>
+                  
+                  {/* SLA Bar */}
+                  <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                    <div className="h-full bg-blue-500 rounded-full" style={{ animation: 'slaProgress 4s infinite' }}></div>
+                  </div>
+                  
+                  {/* Flashing Double Check */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ animation: 'slaFlash 4s infinite' }}>
+                    <div className="bg-emerald-500/20 text-emerald-400 rounded-full p-3 backdrop-blur-md border border-emerald-500/30 shadow-[0_0_20px_rgba(16,185,129,0.5)]">
+                      <div className="flex">
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                        <svg className="w-8 h-8 -ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Agent Card 2 */}
+                <div className="bg-white/5 border border-white/10 rounded-xl p-5 relative overflow-hidden">
+                  <div className="text-white font-bold mb-1">Agente: Sofía</div>
+                  <div className="text-slate-400 text-xs mb-4">Chat VIP entrante...</div>
+                  
+                  {/* SLA Bar */}
+                  <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                    <div className="h-full bg-blue-500 rounded-full" style={{ animation: 'slaProgress 4s infinite 2s' }}></div>
+                  </div>
+                  
+                  {/* Flashing Double Check */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ animation: 'slaFlash 4s infinite 2s' }}>
+                    <div className="bg-emerald-500/20 text-emerald-400 rounded-full p-3 backdrop-blur-md border border-emerald-500/30 shadow-[0_0_20px_rgba(16,185,129,0.5)]">
+                      <div className="flex">
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                        <svg className="w-8 h-8 -ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+<div className="h-24 bg-white w-full flex items-center justify-center text-slate-400 font-mono text-sm tracking-widest font-bold">--- FIN OPCION C ---</div>
+
+
 
 
 
