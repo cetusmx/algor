@@ -4,6 +4,7 @@ import GlobalHeader2 from '../components/GlobalHeader2';
 import GlobalFooter from '../components/GlobalFooter';
 import Button from '../components/Button';
 
+import WhatsAppSimulator from '../components/WhatsAppSimulator';
 import SalesFlowPresentation from '../components/SalesFlowPresentation';
 
 export default function CaseSalesFlow() {
@@ -21,19 +22,25 @@ export default function CaseSalesFlow() {
               &larr; Volver a casos de estudio
             </Link>
             
-            <div className="max-w-4xl">
-              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
-                Transforma tu WhatsApp en un Centro de Ventas de Alto Rendimiento impulsado por IA.
-              </h1>
-              <p className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-8">
-                SalesFlow es el Hub Tecnológico de vanguardia que automatiza tus conversaciones para cerrar ventas de manera rápida, efectiva y medible.
-              </p>
-              
-              <div className="flex flex-wrap gap-3 mt-8">
-                <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-semibold tracking-wider uppercase">Gestión de Relaciones</span>
-                <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-semibold tracking-wider uppercase">Inteligencia Artificial (RAG)</span>
-                <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-semibold tracking-wider uppercase">Optimización de SLAs</span>
-                <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-semibold tracking-wider uppercase">Arquitectura Proxy</span>
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+              <div className="lg:w-1/2">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                  Transforma tu WhatsApp en un Centro de Ventas impulsado por IA.
+                </h1>
+                <p className="text-xl text-slate-300 font-light leading-relaxed mb-8">
+                  SalesFlow es el Hub Tecnológico de vanguardia que automatiza tus conversaciones para cerrar ventas de manera rápida, efectiva y medible.
+                </p>
+                
+                <div className="flex flex-wrap gap-3 mt-8">
+                  <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-semibold tracking-wider uppercase">Gestión de Relaciones</span>
+                  <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-semibold tracking-wider uppercase">Inteligencia Artificial (RAG)</span>
+                  <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-semibold tracking-wider uppercase">Optimización de SLAs</span>
+                  <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-semibold tracking-wider uppercase">Arquitectura Proxy</span>
+                </div>
+              </div>
+
+              <div className="lg:w-1/2 flex justify-center w-full">
+                <WhatsAppSimulator />
               </div>
             </div>
           </div>
