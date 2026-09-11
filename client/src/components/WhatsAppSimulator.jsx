@@ -3,12 +3,8 @@ import React, { useState, useEffect, useRef } from 'react';
 const conversation = [
   { role: 'user', text: 'Buenas tardes' },
   { role: 'ai', text: '¡Buenas tardes! 👋 Soy tu Asistente de Ventas de SalesFlow. ¿En qué te puedo ayudar hoy?' },
-  { role: 'user', text: 'Necesito una cotización rápida para 50 licencias de la plataforma.' },
-  { role: 'ai', text: 'Claro que sí. Revisando las opciones para 50 usuarios... ⏳' },
-  { role: 'ai', text: 'Para ese volumen, te recomiendo el plan Enterprise. El costo sería de $4,500 USD anuales (ya incluye el descuento por volumen). ✅' },
-  { role: 'ai', text: '¿Te genero la proforma oficial y el enlace para pago seguro?' },
-  { role: 'user', text: 'Me parece bien. Adelante, factura a nombre de Grupo Inversor.' },
-  { role: 'ai', text: 'Proforma generada ✅\n\nAquí la puedes descargar: https://salesflow.com/doc/4921\n\nPara completar la compra, usa este enlace seguro: https://pago.salesflow.com/4921' }
+  { role: 'user', text: 'Busco un sello de 50 x 60mm' },
+  { role: 'ai', text: 'Con gusto te ayudo a encontrarlo, ¿me podrías indicar en qué parte del cilindro está instalado? Por ejemplo, en el estopero sellando al vástago/barra; o va en el pistón sellando contra la camisa del cilindro.\nCon este dato podré buscar la familia correcta.' }
 ];
 
 export default function WhatsAppSimulator() {
