@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const conversation = [
-  { role: 'user', text: 'Hola, urge cotización para 500 válvulas de seguridad. ¿Tienen stock en Monterrey?' },
-  { role: 'ai', text: 'Hola 👋 Soy Alex de SalesFlow. Revisando inventario...' },
-  { role: 'ai', text: 'Sí, tenemos 650 válvulas de seguridad mod. V-500 en la bodega de Monterrey. ✅' },
-  { role: 'ai', text: 'El precio unitario es de $120 MXN. Si confirmas hoy, salen mañana a primera hora. ¿Te preparo el pedido?' },
-  { role: 'user', text: 'Excelente. Sí, adelante con el pedido. Facturan a AceroCorp, por favor.' },
-  { role: 'ai', text: 'Pedido armado ✅ 500 válvulas, entrega mañana.\n\nFactura emitida a AceroCorp. Te comparto la liga de pago seguro: https://pago.salesflow.com/1234' }
+  { role: 'user', text: 'Buenas tardes' },
+  { role: 'ai', text: '¡Buenas tardes! 👋 Soy tu Asistente de Ventas de SalesFlow. ¿En qué te puedo ayudar hoy?' },
+  { role: 'user', text: 'Necesito una cotización rápida para 50 licencias de la plataforma.' },
+  { role: 'ai', text: 'Claro que sí. Revisando las opciones para 50 usuarios... ⏳' },
+  { role: 'ai', text: 'Para ese volumen, te recomiendo el plan Enterprise. El costo sería de $4,500 USD anuales (ya incluye el descuento por volumen). ✅' },
+  { role: 'ai', text: '¿Te genero la proforma oficial y el enlace para pago seguro?' },
+  { role: 'user', text: 'Me parece bien. Adelante, factura a nombre de Grupo Inversor.' },
+  { role: 'ai', text: 'Proforma generada ✅\n\nAquí la puedes descargar: https://salesflow.com/doc/4921\n\nPara completar la compra, usa este enlace seguro: https://pago.salesflow.com/4921' }
 ];
 
 export default function WhatsAppSimulator() {
@@ -16,7 +18,7 @@ export default function WhatsAppSimulator() {
 
   useEffect(() => {
     let timeouts = [];
-    let currentTime = 0;
+    let currentTime = 1000;
 
     const startSimulation = () => {
       setMessages([]);
@@ -25,20 +27,22 @@ export default function WhatsAppSimulator() {
 
       conversation.forEach((msg, i) => {
         if (msg.role === 'ai') {
+          // AI message (appears on the left)
           timeouts.push(setTimeout(() => setIsTyping(true), currentTime));
-          currentTime += 1500;
+          currentTime += 1200; // AI takes time to type
           timeouts.push(setTimeout(() => {
             setIsTyping(false);
             setMessages(prev => [...prev, msg]);
             scrollToBottom();
           }, currentTime));
-          currentTime += 500; // pause after ai message
+          currentTime += 800; // pause after ai message before next one
         } else {
+          // User message (appears on the right)
           timeouts.push(setTimeout(() => {
             setMessages(prev => [...prev, msg]);
             scrollToBottom();
           }, currentTime));
-          currentTime += 1500; // wait before ai replies
+          currentTime += 1000; // wait before ai replies
         }
       });
     };
@@ -71,10 +75,10 @@ export default function WhatsAppSimulator() {
       {/* WhatsApp Header */}
       <div className="bg-[#202c33] p-4 border-b border-[#374045] flex items-center gap-3 z-10">
         <div className="w-10 h-10 rounded-full bg-brand-orange flex items-center justify-center text-white font-bold text-sm shadow-md">
-          A
+          SF
         </div>
         <div>
-          <h3 className="text-slate-100 text-sm font-bold">Alex (Ventas Automáticas)</h3>
+          <h3 className="text-slate-100 text-sm font-bold">Ventas SalesFlow</h3>
           <p className="text-emerald-400 text-[10px] flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> En línea
           </p>
@@ -88,23 +92,23 @@ export default function WhatsAppSimulator() {
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {messages.map((msg, idx) => (
-          <div key={idx} className={`flex ${msg.role === 'ai' ? 'justify-end' : 'justify-start'} mb-2`}>
+          <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} mb-2`}>
             <div className={`max-w-[85%] p-3 px-4 rounded-xl text-sm shadow-sm leading-snug whitespace-pre-line ${
-              msg.role === 'ai' 
+              msg.role === 'user' 
                 ? 'rounded-tr-none bg-[#005c4b] text-[#e9edef]' 
                 : 'rounded-tl-none bg-[#202c33] text-[#e9edef]'
             }`}>
               {msg.text}
               <span className="text-[10px] text-slate-400 block text-right mt-1">
-                {formatTime()} {msg.role === 'ai' ? '✓✓' : ''}
+                {formatTime()} {msg.role === 'user' ? '✓✓' : ''}
               </span>
             </div>
           </div>
         ))}
 
         {isTyping && (
-          <div className="flex justify-end mb-2">
-            <div className="p-3 px-4 rounded-xl rounded-tr-none bg-[#005c4b] text-sm shadow-sm">
+          <div className="flex justify-start mb-2">
+            <div className="p-3 px-4 rounded-xl rounded-tl-none bg-[#202c33] text-sm shadow-sm">
               <span className="flex gap-1 items-center h-4">
                 <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></span>
                 <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.15s' }}></span>
