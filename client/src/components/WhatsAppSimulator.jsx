@@ -26,7 +26,10 @@ const conversation = [
       imgSrc: '/chatsim/seal.jpeg'
     },
     text: 'Me interesa'
-  }
+  },
+  { role: 'ai', text: '¡Excelente! ¿Cuántas piezas vas a requerir de este producto?' },
+  { role: 'user', text: '2 por favor' },
+  { role: 'ai', text: '¡Listo! He agregado 2 piezas a tu carrito:\n\n- *Producto:* SELLO VASTAGO-PISTON PTB 50x60x6 SKF (Clave: PS-PTB05006060P)\n- *Cantidad:* 2 piezas\n- *Precio unitario neto (IVA incluido):* $229.00 MXN\n- *Total neto (IVA incluido):* $458.00 MXN\n\n¿Deseas consultar o agregar algún otro producto, o te gustaría proceder con la cotización / compra?' }
 ];
 
 export default function WhatsAppSimulator() {
@@ -82,7 +85,15 @@ export default function WhatsAppSimulator() {
 
   const formatTime = () => {
     const now = new Date();
-    return `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
+    return \`\${now.getHours()}:\${now.getMinutes().toString().padStart(2, '0')}\`;
+  };
+
+  const renderTextWithBold = (text) => {
+    if (!text) return null;
+    const parts = text.split(/\*(.*?)\*/g);
+    return parts.map((part, i) => 
+      i % 2 !== 0 ? <strong key={i}>{part}</strong> : part
+    );
   };
 
   return (
@@ -162,7 +173,7 @@ export default function WhatsAppSimulator() {
                   </div>
                   {/* Main Text */}
                   <div className="px-1.5 pb-0.5 flex justify-between items-end gap-3 text-sm">
-                    <span>{msg.text}</span>
+                    <span>{renderTextWithBold(msg.text)}</span>
                     <span className="text-[10px] text-[#8696a0] flex-shrink-0 mb-0.5">
                       {formatTime()} <span className="text-[#53bdeb] font-bold">✓✓</span>
                     </span>
@@ -179,7 +190,7 @@ export default function WhatsAppSimulator() {
                   ? 'rounded-tr-none bg-[#005c4b] text-[#e9edef]' 
                   : 'rounded-tl-none bg-[#202c33] text-[#e9edef]'
               }`}>
-                {msg.text}
+                {renderTextWithBold(msg.text)}
                 <span className="text-[10px] text-slate-400 block text-right mt-1">
                   {formatTime()} {msg.role === 'user' ? <span className="text-[#53bdeb] font-bold">✓✓</span> : ''}
                 </span>
