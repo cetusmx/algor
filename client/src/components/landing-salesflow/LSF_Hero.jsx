@@ -23,8 +23,8 @@ export default function LSF_Hero() {
             </div>
           </div>
 
-          <div className="lg:w-1/2 flex flex-col items-center justify-center w-full transform -translate-y-8">
-            <p className="text-sm font-semibold text-brand-orange uppercase tracking-wider mb-6">Interacción real del Agente IA</p>
+          <div className="lg:w-1/2 flex flex-col items-center justify-center w-full transform -translate-y-[52px]">
+            <p className="text-sm font-semibold text-brand-orange uppercase tracking-wider mb-3">Interacción real del Agente IA</p>
             <LSF_WhatsAppSimulator />
           </div>
         </div>
