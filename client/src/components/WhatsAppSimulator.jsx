@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 const conversation = [
   { role: 'user', text: 'Buenas tardes' },
   { role: 'ai', text: '¡Buenas tardes! 👋 Soy tu Asistente de Ventas de SalesFlow. ¿En qué te puedo ayudar hoy?' },
-  { role: 'user', text: 'Busco un sello de 50 x 60mm' },
+  { role: 'user', text: 'Busco un sello de 50 x 60 x 6mm' },
   { role: 'ai', text: 'Con gusto te ayudo a encontrarlo, ¿me podrías indicar en qué parte del cilindro está instalado? Por ejemplo, en el estopero sellando al vástago/barra; o va en el pistón sellando contra la camisa del cilindro.\nCon este dato podré buscar la familia correcta.' },
   { role: 'user', text: 'Va en el vástago' },
   { role: 'ai', text: 'Encontré varias opciones, si me proporcionas la altura puedo ajustar más las opciones. Aquí están:\n1. *SELLO VASTAGO K21* – Medidas: 50 x 60 x 6 mm\n2. *SELLO VASTAGO K21* – Medidas: 50 x 60 x 7 mm\n3. *SELLO VASTAGO K21* – Medidas: 50 x 60 x 8 mm\n4. *SELLO VASTAGO K21* – Medidas: 50 x 60 x 10 mm\n5. *SELLO VASTAGO K21* – Medidas: 50 x 60 x 12 mm\n\n¿Cuál de estas alturas o medidas es la que mejor se adapta al alojamiento o ranura de tu equipo?' }
