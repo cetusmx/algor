@@ -29,7 +29,19 @@ const conversation = [
   },
   { role: 'ai', text: '¡Excelente! ¿Cuántas piezas vas a requerir de este producto?' },
   { role: 'user', text: '2 por favor' },
-  { role: 'ai', text: '¡Listo! He agregado 2 piezas a tu carrito:\n\n- *Producto:* SELLO VASTAGO-PISTON PTB 50x60x6 SKF (Clave: PS-PTB05006060P)\n- *Cantidad:* 2 piezas\n- *Precio unitario neto (IVA incluido):* $229.00 MXN\n- *Total neto (IVA incluido):* $458.00 MXN\n\n¿Deseas consultar o agregar algún otro producto, o te gustaría proceder con la cotización / compra?' }
+  { role: 'ai', text: '¡Listo! He agregado 2 piezas a tu carrito:\n\n- *Producto:* SELLO VASTAGO-PISTON PTB 50x60x6 SKF (Clave: PS-PTB05006060P)\n- *Cantidad:* 2 piezas\n- *Precio unitario neto (IVA incluido):* $229.00 MXN\n- *Total neto (IVA incluido):* $458.00 MXN\n\n¿Deseas consultar o agregar algún otro producto, o te gustaría proceder con la cotización / compra?' },
+  { role: 'user', text: 'Cotización e información sobre envíos' },
+  { role: 'ai', text: 'Con gusto te comparto la información de envíos:\n\n- *Tiempos de entrega:* De 24 a 72 horas hábiles a nivel nacional. Una vez despachado tu pedido, te compartimos tu número de guía para su rastreo.\n- *Costo de envío:* Varía dependiendo del volumen de los sellos y de tu código postal.\n\nPara elaborar tu cotización formal, ¿me podrías proporcionar tu RFC? (Si no cuentas con él o prefieres sin datos fiscales, indícamelo para generarla a mostrador / público en general).' },
+  { role: 'user', text: 'Cacx770xxxxx' },
+  { role: 'ai', text: 'No encontré registrado ese RFC en nuestro sistema.\n\nPara poder elaborar tu cotización formal con tus datos fiscales, ¿me podrías compartir tu *Razón Social* (o nombre completo) y tu *Código Postal / Domicilio Fiscal*? (O si lo prefieres, también puedes adjuntar tu Constancia de Situación Fiscal en PDF).' },
+  {
+    role: 'user',
+    type: 'document',
+    isForwarded: true,
+    fileName: 'CONSTANCIA.pdf',
+    fileInfo: '3 páginas • 140 kB • PDF',
+    imgSrc: '/chatsim/csf.jpeg'
+  }
 ];
 
 export default function WhatsAppSimulator() {
@@ -177,6 +189,37 @@ export default function WhatsAppSimulator() {
                     <span className="text-[10px] text-[#8696a0] flex-shrink-0 mb-0.5">
                       {formatTime()} <span className="text-[#53bdeb] font-bold">✓✓</span>
                     </span>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
+          if (msg.type === 'document') {
+            return (
+              <div key={idx} className="flex justify-end mb-2">
+                <div className="w-[240px] rounded-xl rounded-tr-none bg-[#005c4b] text-[#e9edef] shadow-sm flex flex-col p-1 border border-white/10">
+                  {msg.isForwarded && (
+                    <div className="text-slate-300/80 text-xs italic px-2 pt-1 pb-1 flex items-center gap-1">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" /></svg>
+                      Reenviado
+                    </div>
+                  )}
+                  {/* Document Box */}
+                  <div className="bg-[#0b141a] rounded-lg overflow-hidden relative shadow-inner">
+                     {/* Thumbnail - Since the image is a screenshot, we use object-position to focus on the white SAT part */}
+                     <div className="bg-white w-full h-[120px] overflow-hidden flex justify-center p-2 rounded-t-lg">
+                       <img src={msg.imgSrc} alt="Documento" className="w-full h-full object-cover opacity-100 rounded border border-slate-200" style={{ objectPosition: "50% 25%", transform: "scale(1.2)" }} />
+                     </div>
+                     {/* Info Banner */}
+                     <div className="p-3 absolute bottom-0 left-0 right-0 bg-[#025144]/95 backdrop-blur-md border-t border-emerald-900/50 shadow-[0_-4px_10px_rgba(0,0,0,0.1)]">
+                        <h4 className="font-semibold text-sm truncate text-white">{msg.fileName}</h4>
+                        <p className="text-slate-300 text-[10px] mt-0.5 opacity-90">{msg.fileInfo}</p>
+                     </div>
+                  </div>
+                  {/* Footer */}
+                  <div className="text-[10px] text-[#8696a0] flex justify-end gap-1 mt-1.5 pr-1">
+                    {formatTime()} <span className="text-[#53bdeb] font-bold">✓✓</span>
                   </div>
                 </div>
               </div>
