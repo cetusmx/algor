@@ -8,6 +8,8 @@ import Booking from './pages/Booking';
 import Services from './pages/Services';
 
 import CaseSalesFlow from './pages/CaseSalesFlow';
+import LandingSalesFlow from './pages/LandingSalesFlow';
+
 import LogoProposals from './pages/LogoProposals';
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
         <Route path="/inicio2" element={<Home2 />} />
         <Route path="/casos-de-uso" element={<Cases />} />
         <Route path="/casos-de-uso/salesflow" element={<CaseSalesFlow />} />
+        <Route path="/salesflow" element={<LandingSalesFlow />} />
+
         <Route path="/casos-de-uso/:slug" element={<CaseDetail />} />
         <Route path="/contacto/agendar" element={<Booking />} />
         <Route path="/servicios" element={<Services />} />
