@@ -39,7 +39,8 @@ export default function CaseSalesFlow() {
                 </div>
               </div>
 
-              <div className="lg:w-1/2 flex justify-center w-full">
+              <div className="lg:w-1/2 flex flex-col items-center justify-center w-full">
+                <p className="text-sm font-semibold text-brand-orange uppercase tracking-wider mb-6">Interacción real del Agente IA</p>
                 <WhatsAppSimulator />
               </div>
             </div>
