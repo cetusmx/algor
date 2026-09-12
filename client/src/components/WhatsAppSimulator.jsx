@@ -15,7 +15,8 @@ const conversation = [
     priceSufix: ' Neto (IVA Inc.)',
     buttonText: 'Me interesa',
     imgSrc: '/chatsim/seal.jpeg'
-  }
+  },
+  { role: 'ai', text: 'Te he compartido la opción disponible en formato de tarjeta interactiva. ¿Te interesa para agregarla a tu pedido?' }
 ];
 
 export default function WhatsAppSimulator() {
