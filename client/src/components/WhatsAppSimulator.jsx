@@ -85,7 +85,7 @@ export default function WhatsAppSimulator() {
 
   const formatTime = () => {
     const now = new Date();
-    return \`\${now.getHours()}:\${now.getMinutes().toString().padStart(2, '0')}\`;
+    return `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
   };
 
   const renderTextWithBold = (text) => {
