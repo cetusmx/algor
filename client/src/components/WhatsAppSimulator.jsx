@@ -126,7 +126,7 @@ export default function WhatsAppSimulator() {
   };
 
   return (
-    <div className="relative mx-auto border-slate-700 bg-[#0b141a] border-[8px] rounded-[2.5rem] h-[500px] w-[320px] md:w-[360px] shadow-2xl flex flex-col overflow-hidden text-slate-100">
+    <div className="relative mx-auto border-slate-700 bg-[#0b141a] border-[8px] rounded-[2.5rem] h-[650px] w-[320px] md:w-[360px] shadow-2xl flex flex-col overflow-hidden text-slate-100">
       {/* Glow Effect Behind */}
       <div className="absolute -inset-4 bg-brand-orange/20 blur-3xl -z-10 rounded-full opacity-50 animate-pulse"></div>
       
