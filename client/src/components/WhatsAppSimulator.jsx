@@ -16,7 +16,17 @@ const conversation = [
     buttonText: 'Me interesa',
     imgSrc: '/chatsim/seal.jpeg'
   },
-  { role: 'ai', text: 'Te he compartido la opción disponible en formato de tarjeta interactiva. ¿Te interesa para agregarla a tu pedido?' }
+  { role: 'ai', text: 'Te he compartido la opción disponible en formato de tarjeta interactiva. ¿Te interesa para agregarla a tu pedido?' },
+  { 
+    role: 'user', 
+    type: 'reply', 
+    replyTo: {
+      sender: 'Ventas SalesFlow',
+      text: 'Tengo esta opción: PS-PTB05006060P - SELLO...',
+      imgSrc: '/chatsim/seal.jpeg'
+    },
+    text: 'Me interesa'
+  }
 ];
 
 export default function WhatsAppSimulator() {
@@ -50,7 +60,7 @@ export default function WhatsAppSimulator() {
             setMessages(prev => [...prev, msg]);
             scrollToBottom();
           }, currentTime));
-          currentTime += 1000; // wait before ai replies
+          currentTime += 1200; // wait before ai replies
         }
       });
     };
@@ -130,6 +140,37 @@ export default function WhatsAppSimulator() {
               </div>
             );
           }
+          
+          if (msg.type === 'reply') {
+            return (
+              <div key={idx} className="flex justify-end mb-2">
+                <div className="max-w-[85%] p-1.5 rounded-xl rounded-tr-none bg-[#005c4b] text-[#e9edef] shadow-sm leading-snug flex flex-col">
+                  {/* Reply Quotation Box */}
+                  <div className="bg-[#025144] rounded p-1 mb-1 border-l-4 border-[#a688fa] flex justify-between overflow-hidden h-[46px]">
+                    <div className="flex flex-col justify-center px-1 overflow-hidden">
+                      <span className="text-[#a688fa] font-bold text-xs truncate">{msg.replyTo.sender}</span>
+                      <span className="text-slate-300 text-[10px] truncate flex items-center gap-1">
+                        <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        <span className="truncate">{msg.replyTo.text}</span>
+                      </span>
+                    </div>
+                    {msg.replyTo.imgSrc && (
+                      <div className="w-[38px] h-[38px] flex-shrink-0 bg-white ml-2 rounded-sm overflow-hidden flex items-center justify-center">
+                        <img src={msg.replyTo.imgSrc} alt="thumb" className="w-full h-full object-cover opacity-90" />
+                      </div>
+                    )}
+                  </div>
+                  {/* Main Text */}
+                  <div className="px-1.5 pb-0.5 flex justify-between items-end gap-3 text-sm">
+                    <span>{msg.text}</span>
+                    <span className="text-[10px] text-[#8696a0] flex-shrink-0 mb-0.5">
+                      {formatTime()} <span className="text-[#53bdeb] font-bold">✓✓</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            );
+          }
 
           return (
             <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} mb-2`}>
@@ -140,7 +181,7 @@ export default function WhatsAppSimulator() {
               }`}>
                 {msg.text}
                 <span className="text-[10px] text-slate-400 block text-right mt-1">
-                  {formatTime()} {msg.role === 'user' ? '✓✓' : ''}
+                  {formatTime()} {msg.role === 'user' ? <span className="text-[#53bdeb] font-bold">✓✓</span> : ''}
                 </span>
               </div>
             </div>
