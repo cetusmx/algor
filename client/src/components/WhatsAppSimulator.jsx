@@ -33,7 +33,7 @@ const conversation = [
   { role: 'user', text: 'Cotización e información sobre envíos' },
   { role: 'ai', text: 'Con gusto te comparto la información de envíos:\n\n- *Tiempos de entrega:* De 24 a 72 horas hábiles a nivel nacional. Una vez despachado tu pedido, te compartimos tu número de guía para su rastreo.\n- *Costo de envío:* Varía dependiendo del volumen de los sellos y de tu código postal.\n\nPara elaborar tu cotización formal, ¿me podrías proporcionar tu RFC? (Si no cuentas con él o prefieres sin datos fiscales, indícamelo para generarla a mostrador / público en general).' },
   { role: 'user', text: 'Cacx770xxxxx' },
-  { role: 'ai', text: 'No encontré registrado ese RFC en nuestro sistema.\n\nPara poder elaborar tu cotización formal con tus datos fiscales, ¿me podrías compartir tu *Razón Social* (o nombre completo) y tu *Código Postal / Domicilio Fiscal*? (O si lo prefieres, también puedes adjuntar tu Constancia de Situación Fiscal en PDF).' },
+  { role: 'ai', text: '¡He recibido y validado tu Constancia de Situación Fiscal con éxito!\n\nTus datos han quedado registrados a nombre de *CARLOS ALBERTO CARDENAS* (RFC: CACX770XXXXXX), y con estos datos elaboraremos tu cotización.\n\nPara coordinar lo referente al envío, ¿la dirección de entrega sería la misma que tu dirección fiscal (*NAZAS 310, C.P. 35780, Saltillo, Coahuila*)?\n\nAsimismo, ¿requieres consultar o agregar algún otro producto a tu pedido antes de generarte la cotización formal?' },
   {
     role: 'user',
     type: 'document',
@@ -41,7 +41,16 @@ const conversation = [
     fileName: 'CONSTANCIA.pdf',
     fileInfo: '3 páginas • 140 kB • PDF',
     imgSrc: '/chatsim/csf.jpeg'
-  }
+  },
+  { role: 'user', text: 'Es todo' },
+  {
+    role: 'ai',
+    type: 'pdf_document',
+    fileName: 'Cotizacion.pdf',
+    fileInfo: '422 kB • PDF',
+    caption: '📄 *Aquí tienes tu Cotización Formal.*\nSi estás de acuerdo con ella, confírmame para proceder con los datos de envío y pago.'
+  },
+  { role: 'ai', text: 'Te he enviado la cotización formal en formato PDF aquí mismo en el chat.\n\nDentro del documento PDF adjunto encontrarás desglosados los productos cotizados, el total, así como las instrucciones y datos bancarios de la empresa para realizar tu pago.\n\nUn asesor de nuestro equipo dará seguimiento puntual a tu pedido y a los detalles del envío en cuanto realices tu pago. ¡Muchas gracias por tu preferencia y que tengas un excelente día!' }
 ];
 
 export default function WhatsAppSimulator() {
@@ -220,6 +229,33 @@ export default function WhatsAppSimulator() {
                   {/* Footer */}
                   <div className="text-[10px] text-[#8696a0] flex justify-end gap-1 mt-1.5 pr-1">
                     {formatTime()} <span className="text-[#53bdeb] font-bold">✓✓</span>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
+          if (msg.type === 'pdf_document') {
+            return (
+              <div key={idx} className="flex justify-start mb-2">
+                <div className="max-w-[85%] rounded-xl rounded-tl-none bg-[#202c33] text-[#e9edef] shadow-sm flex flex-col p-1.5 border border-white/5">
+                  {/* PDF Attachment Box */}
+                  <div className="bg-[#2a3942] rounded-lg p-2.5 flex items-center gap-3">
+                    <div className="w-9 h-11 bg-red-500 rounded flex flex-col items-center justify-center relative overflow-hidden flex-shrink-0 shadow-sm border border-red-600">
+                       <span className="text-white font-bold text-[9px] absolute bottom-1.5 tracking-wider">PDF</span>
+                       <div className="absolute top-0 right-0 w-3 h-3 bg-[#202c33] border-b border-l border-white/20 rounded-bl-sm"></div>
+                    </div>
+                    <div className="flex flex-col overflow-hidden">
+                      <span className="text-slate-100 text-[15px] font-medium truncate leading-tight">{msg.fileName}</span>
+                      <span className="text-[#8696a0] text-xs mt-0.5">{msg.fileInfo}</span>
+                    </div>
+                  </div>
+                  {/* Caption */}
+                  <div className="px-2 pt-2 pb-1 text-[15px] leading-snug whitespace-pre-line text-slate-100">
+                    {renderTextWithBold(msg.caption)}
+                    <span className="text-[10px] text-[#8696a0] block text-right mt-1.5">
+                      {formatTime()}
+                    </span>
                   </div>
                 </div>
               </div>
