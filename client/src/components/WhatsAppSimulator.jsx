@@ -248,7 +248,10 @@ export default function WhatsAppSimulator() {
               <div key={idx} className="flex justify-start mb-2">
                 <div className="max-w-[85%] rounded-xl rounded-tl-none bg-[#202c33] text-[#e9edef] shadow-sm flex flex-col p-1.5 border border-white/5">
                   {/* PDF Attachment Box */}
-                  <div className="bg-[#2a3942] rounded-lg p-2.5 flex items-center gap-3">
+                  <div 
+                    onClick={() => setIsPreviewOpen(true)}
+                    className="bg-[#2a3942] rounded-lg p-2.5 flex items-center gap-3 cursor-pointer hover:bg-white/5 transition-colors"
+                  >
                     <div className="w-9 h-11 bg-red-500 rounded flex flex-col items-center justify-center relative overflow-hidden flex-shrink-0 shadow-sm border border-red-600">
                        <span className="text-white font-bold text-[9px] absolute bottom-1.5 tracking-wider">PDF</span>
                        <div className="absolute top-0 right-0 w-3 h-3 bg-[#202c33] border-b border-l border-white/20 rounded-bl-sm"></div>
