@@ -14,7 +14,7 @@ const conversation = [
     price: '229.00',
     priceSufix: ' Neto (IVA Inc.)',
     buttonText: 'Me interesa',
-    imgSrc: 'img/pieza-op2119003.webp'
+    imgSrc: '/chatsim/seal.jpeg'
   }
 ];
 
