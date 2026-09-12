@@ -33,7 +33,7 @@ const conversation = [
   { role: 'user', text: 'Cotización e información sobre envíos' },
   { role: 'ai', text: 'Con gusto te comparto la información de envíos:\n\n- *Tiempos de entrega:* De 24 a 72 horas hábiles a nivel nacional. Una vez despachado tu pedido, te compartimos tu número de guía para su rastreo.\n- *Costo de envío:* Varía dependiendo del volumen de los sellos y de tu código postal.\n\nPara elaborar tu cotización formal, ¿me podrías proporcionar tu RFC? (Si no cuentas con él o prefieres sin datos fiscales, indícamelo para generarla a mostrador / público en general).' },
   { role: 'user', text: 'Cacx770xxxxx' },
-  { role: 'ai', text: '¡He recibido y validado tu Constancia de Situación Fiscal con éxito!\n\nTus datos han quedado registrados a nombre de *CARLOS ALBERTO CARDENAS* (RFC: CACX770XXXXXX), y con estos datos elaboraremos tu cotización.\n\nPara coordinar lo referente al envío, ¿la dirección de entrega sería la misma que tu dirección fiscal (*NAZAS 310, C.P. 35780, Saltillo, Coahuila*)?\n\nAsimismo, ¿requieres consultar o agregar algún otro producto a tu pedido antes de generarte la cotización formal?' },
+  { role: 'ai', text: 'No encontré registrado ese RFC en nuestro sistema.\n\nPara poder elaborar tu cotización formal con tus datos fiscales, ¿me podrías compartir tu *Razón Social* (o nombre completo) y tu *Código Postal / Domicilio Fiscal*? (O si lo prefieres, también puedes adjuntar tu Constancia de Situación Fiscal en PDF)' },
   {
     role: 'user',
     type: 'document',
@@ -42,6 +42,7 @@ const conversation = [
     fileInfo: '3 páginas • 140 kB • PDF',
     imgSrc: '/chatsim/csf.jpeg'
   },
+  { role: 'ai', text: '¡He recibido y validado tu Constancia de Situación Fiscal con éxito!\n\nTus datos han quedado registrados a nombre de *CARLOS ALBERTO CARDENAS* (RFC: CACX770XXXXXX), y con estos datos elaboraremos tu cotización.\n\nPara coordinar lo referente al envío, ¿la dirección de entrega sería la misma que tu dirección fiscal (*NAZAS 310, C.P. 35780, Saltillo, Coahuila*)?\n\nAsimismo, ¿requieres consultar o agregar algún otro producto a tu pedido antes de generarte la cotización formal?' },
   { role: 'user', text: 'Es todo' },
   {
     role: 'ai',
