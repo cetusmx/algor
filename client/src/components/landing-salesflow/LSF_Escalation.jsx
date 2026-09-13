@@ -71,7 +71,7 @@ export default function LSF_Escalation() {
         </div>
 
         {/* Large Image Presentation */}
-        <div className="rounded-3xl overflow-hidden border border-slate-700/60 shadow-2xl relative group bg-black">
+        <div className="rounded-3xl overflow-hidden border border-slate-700/60 shadow-2xl relative group bg-black mb-16">
            {/* Image */}
            <img 
              src="/images/escalado.png" 
@@ -79,6 +79,27 @@ export default function LSF_Escalation() {
              className="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-[1.02]" 
            />
            {/* Internal Gradient Overlay */}
+           <div className="absolute inset-0 bg-gradient-to-t from-[#0b141a] via-transparent to-transparent opacity-60 pointer-events-none" />
+        </div>
+
+        {/* Video Presentation */}
+        <div className="text-center mb-10 max-w-3xl mx-auto">
+          <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+            Plataforma Omnicanal
+          </h3>
+          <p className="text-slate-400 text-lg font-light leading-relaxed">
+            Supervisa las conversaciones en tiempo real y asume el control de los leads que la Inteligencia Artificial ya ha preparado para ti.
+          </p>
+        </div>
+        <div className="rounded-3xl overflow-hidden border border-slate-700/60 shadow-2xl relative group bg-black">
+           <video 
+             src="/animaciones/chatcenter.mp4" 
+             autoPlay 
+             loop 
+             muted 
+             playsInline
+             className="w-full h-auto object-cover transform transition-transform duration-1000 group-hover:scale-[1.02]" 
+           />
            <div className="absolute inset-0 bg-gradient-to-t from-[#0b141a] via-transparent to-transparent opacity-60 pointer-events-none" />
         </div>
         
