@@ -51,7 +51,7 @@ const conversation = [
     fileInfo: '422 kB • PDF',
     caption: '📄 *Aquí tienes tu Cotización Formal.*\nSi estás de acuerdo con ella, confírmame para proceder con los datos de envío y pago.'
   },
-  { role: 'ai', text: 'Te he enviado la cotización formal en formato PDF aquí mismo en el chat.\n\nDentro del documento PDF adjunto encontrarás desglosados los productos cotizados, el total, así como las instrucciones y datos bancarios de la empresa para realizar tu pago.\n\nUn asesor de nuestro equipo dará seguimiento puntual a tu pedido y a los detalles del envío en cuanto realices tu pago. ¡Muchas gracias por tu preferencia y que tengas un excelente día!' }
+  { role: 'ai', text: 'Dentro del documento PDF encontrarás los productos, así como los datos bancarios de la empresa para realizar tu pago. Un asesor de nuestro equipo dará seguimiento puntual a tu pedido y a los detalles del envío en cuanto realices tu pago. ¡Muchas gracias por tu preferencia y que tengas un excelente día!' }
 ];
 
 export default function LSF_WhatsAppSimulator() {
