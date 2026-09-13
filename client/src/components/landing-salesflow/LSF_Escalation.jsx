@@ -74,12 +74,36 @@ export default function LSF_Escalation() {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left Side: Text */}
           <div className="lg:w-1/2 w-full">
-            <h3 className="text-2xl md:text-4xl font-bold mb-4 text-white">
-              Plataforma Omnicanal
+            <h3 className="text-2xl md:text-4xl font-bold mb-8 text-white leading-tight">
+              Superpoderes para el Vendedor: <br/>
+              <span className="text-cyan-400">El Catálogo a un Clic</span>
             </h3>
-            <p className="text-slate-400 text-lg font-light leading-relaxed">
-              Supervisa las conversaciones en tiempo real y asume el control de los leads que la Inteligencia Artificial ya ha preparado para ti.
-            </p>
+            
+            <ul className="space-y-6">
+              <li className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold shadow-[0_0_10px_rgba(6,182,212,0.2)]">1</div>
+                <div>
+                  <h4 className="text-white font-semibold text-lg mb-1">Catálogo Integrado</h4>
+                  <p className="text-slate-400 text-sm leading-relaxed">Búsqueda instantánea de piezas sin salir de la conversación ni cambiar de pestaña.</p>
+                </div>
+              </li>
+              
+              <li className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center font-bold shadow-[0_0_10px_rgba(249,115,22,0.2)]">2</div>
+                <div>
+                  <h4 className="text-white font-semibold text-lg mb-1">Sugerencia de 1 Clic</h4>
+                  <p className="text-slate-400 text-sm leading-relaxed">Envío de tarjetas interactivas de producto directo al WhatsApp del cliente.</p>
+                </div>
+              </li>
+              
+              <li className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold shadow-[0_0_10px_rgba(16,185,129,0.2)]">3</div>
+                <div>
+                  <h4 className="text-white font-semibold text-lg mb-1">Autoservicio Guiado</h4>
+                  <p className="text-slate-400 text-sm leading-relaxed">El cliente puede presionar botones en su WhatsApp para agregar mercancía adicional a su pedido de forma autónoma.</p>
+                </div>
+              </li>
+            </ul>
           </div>
 
           {/* Right Side: Video */}
