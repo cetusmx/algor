@@ -42,7 +42,7 @@ const conversation = [
     fileInfo: '3 páginas • 140 kB • PDF',
     imgSrc: '/chatsim/csf.jpeg'
   },
-  { role: 'ai', text: '¡He recibido y validado tu Constancia de Situación Fiscal con éxito!\n\nTus datos han quedado registrados a nombre de *CARLOS ALBERTO CARDENAS* (RFC: CACX770XXXXXX), y con estos datos elaboraremos tu cotización.\n\nPara coordinar lo referente al envío, ¿la dirección de entrega sería la misma que tu dirección fiscal (*NAZAS 310, C.P. 35780, Saltillo, Coahuila*)?\n\nAsimismo, ¿requieres consultar o agregar algún otro producto a tu pedido antes de generarte la cotización formal?' },
+  { role: 'ai', text: '¡He recibido y validado tu Constancia de Situación Fiscal con éxito!\n\nTus datos han quedado registrados a nombre de *CAROLINA ANDREA CAMARENA* (RFC: CACX770XXXXXX), y con estos datos elaboraremos tu cotización.\n\nPara coordinar lo referente al envío, ¿la dirección de entrega sería la misma que tu dirección fiscal (*NAZAS 310, C.P. 35780, Saltillo, Coahuila*)?\n\nAsimismo, ¿requieres consultar o agregar algún otro producto a tu pedido antes de generarte la cotización formal?' },
   { role: 'user', text: 'Es todo' },
   {
     role: 'ai',
