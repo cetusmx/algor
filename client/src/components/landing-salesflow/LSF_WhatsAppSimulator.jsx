@@ -70,23 +70,28 @@ export default function LSF_WhatsAppSimulator() {
       currentTime = 1000;
 
       conversation.forEach((msg, i) => {
+        // Dynamic delays based on message length for a more natural feel
+        const textLength = msg.text ? msg.text.length : (msg.caption ? msg.caption.length : 50);
+        const typingDelay = Math.max(1500, Math.min(textLength * 25, 3500));
+        const readingDelay = Math.max(1200, Math.min(textLength * 15, 2500));
+
         if (msg.role === 'ai') {
           // AI message (appears on the left)
           timeouts.push(setTimeout(() => setIsTyping(true), currentTime));
-          currentTime += 1200; // AI takes time to type
+          currentTime += typingDelay; // AI takes time to type
           timeouts.push(setTimeout(() => {
             setIsTyping(false);
             setMessages(prev => [...prev, msg]);
             scrollToBottom();
           }, currentTime));
-          currentTime += 800; // pause after ai message before next one
+          currentTime += 1200; // pause after AI message before user replies
         } else {
           // User message (appears on the right)
           timeouts.push(setTimeout(() => {
             setMessages(prev => [...prev, msg]);
             scrollToBottom();
           }, currentTime));
-          currentTime += 1200; // wait before ai replies
+          currentTime += readingDelay; // wait before AI starts typing the reply
         }
       });
 
