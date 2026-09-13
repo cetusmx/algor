@@ -12,7 +12,7 @@ export default function LSF_Hero() {
               Transforma tu WhatsApp en un Centro de Ventas impulsado por IA.
             </h1>
             <p className="text-xl text-slate-300 font-light leading-relaxed mb-8">
-              SalesFlow es el Hub Tecnológico de vanguardia que automatiza tus conversaciones para cerrar ventas de manera rápida, efectiva y medible.
+              SalesFlow es el Hub Tecnológico de vanguardia donde la IA especializada impulsa tus ventas, los asesores cierran con eficiencia y los SLAs garantizan que cada interacción sea impecable.
             </p>
             
             <div className="flex flex-wrap gap-3 mt-8">
