@@ -3,7 +3,7 @@ import LSF_WhatsAppSimulator from './LSF_WhatsAppSimulator';
 
 export default function LSF_Hero() {
   return (
-    <section className="bg-brand-slate text-white pt-14 pb-10 relative overflow-hidden">
+    <section className="bg-brand-slate text-white pt-20 pb-0 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-orange/20 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2" />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
