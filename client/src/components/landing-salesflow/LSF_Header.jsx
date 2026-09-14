@@ -1,22 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../Logo';
 import Button from '../Button';
 
 export default function LSF_Header() {
   return (
     <header className="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3" aria-label="algor home">
-          <Logo className="w-40 text-slate-900" />
-          <div className="hidden lg:flex flex-col justify-center border-l-2 border-slate-300 pl-3">
-            <span className="text-[10px] font-bold tracking-widest uppercase leading-tight text-slate-500">
-              Servicios de
-            </span>
-            <span className="text-[10px] font-bold tracking-widest uppercase leading-tight text-slate-500">
-              Ingeniería de Software
-            </span>
-          </div>
+        <Link to="/salesflow" className="flex items-center gap-3" aria-label="SalesFlow home">
+          <img src="/logoSalesFlow.svg" alt="SalesFlow" className="h-8 md:h-10 w-auto" />
         </Link>
         
         <nav className="hidden md:flex items-center gap-8 font-medium text-brand-slate">
