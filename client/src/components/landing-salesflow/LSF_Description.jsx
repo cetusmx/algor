@@ -25,11 +25,30 @@ export default function LSF_Description() {
             Escalabilidad y Precisión
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 text-[#0b141a] tracking-tight leading-tight">
-            Plataforma Estratégica Industrial
+            Qué es SalesFlow
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">
-            SalesFlow es la plataforma estratégica para empresas con grandes equipos de ventas: nuestro <strong className="font-semibold text-brand-orange">Agente IA especializado</strong> guía y asesora a tus clientes con precisión, comunicándose en su misma jerga técnica gracias a su entrenamiento especializado y dominio profundo de los términos específicos del sector. Procesa altos volúmenes de peticiones en simultáneo, liberando a los asesores para cerrar oportunidades con contexto claro, mientras los SLAs garantizan calidad incluso en operaciones masivas.
-          </p>
+          <div className="text-lg md:text-xl text-slate-600 leading-relaxed font-light space-y-6">
+            <p>
+              SalesFlow no es un CRM tradicional ni un simple chatbot. Es el <strong className="font-semibold text-brand-orange">Centro de Operaciones Comerciales Industriales (COI)</strong> que transforma la atención al cliente en una ventaja competitiva:
+            </p>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <span className="text-brand-orange mt-1">✓</span>
+                <span>La IA domina tu jerga técnica para guiar consultas complejas (ej.: especificaciones de maquinaria, plazos de entrega en cadena de suministro).</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-brand-orange mt-1">✓</span>
+                <span>Los asesores reciben oportunidades calificadas, sin perder tiempo en filtros básicos.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-brand-orange mt-1">✓</span>
+                <span>Los coordinadores actúan como 'copilotos' en vivo, corrigiendo rumbo con susurros y asegurando que los SLAs se cumplan incluso en picos de demanda.</span>
+              </li>
+            </ul>
+            <p className="font-medium italic text-slate-700">
+              Porque en la industria, cada mensaje es una oportunidad… o un riesgo si no se gestiona con precisión.
+            </p>
+          </div>
         </div>
 
       </div>
