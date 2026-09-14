@@ -15,15 +15,15 @@ export default function LSF_Header() {
         </Link>
         
         <nav className="hidden md:flex items-center gap-8 font-medium text-brand-slate">
-          <Link to="/casos-de-uso" className="hover:text-brand-orange transition-colors">Casos de Estudio</Link>
-          <Link to="/servicios" className="hover:text-brand-orange transition-colors">Servicios</Link>
-          <Link to="/nosotros" className="hover:text-brand-orange transition-colors">Nosotros</Link>
+          <a href="#como-trabaja" className="hover:text-brand-orange transition-colors">Cómo trabaja</a>
+          <a href="#precios" className="hover:text-brand-orange transition-colors">Precios</a>
+          <a href="#dudas" className="hover:text-brand-orange transition-colors">Dudas Frecuentes</a>
         </nav>
 
         <div className="flex items-center gap-4">
           <Link to="/contacto/agendar">
             <Button variant="primary-light" className="hidden md:inline-flex">
-              Agendar Consulta Técnica
+              Agendar Demo
             </Button>
           </Link>
           <button className="md:hidden p-2 text-brand-slate" aria-label="Menu">
