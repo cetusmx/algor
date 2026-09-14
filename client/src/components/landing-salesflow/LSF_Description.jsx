@@ -29,7 +29,7 @@ export default function LSF_Description() {
           </h2>
           <div className="text-lg md:text-xl text-slate-600 leading-relaxed font-light space-y-6">
             <p>
-              SalesFlow no es un CRM tradicional ni un simple chatbot. Es el <strong className="font-semibold text-brand-orange">Centro de Operaciones Comerciales Industriales (COI)</strong> que transforma la atención al cliente en una ventaja competitiva:
+              SalesFlow no es un CRM tradicional ni un simple chatbot. Es el <strong className="font-semibold text-brand-orange">Centro de Operaciones Comerciales</strong> que transforma la atención al cliente en una ventaja competitiva:
             </p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
