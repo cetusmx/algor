@@ -22,7 +22,7 @@ export default function LSF_Description() {
         {/* Right Side: Text Description */}
         <div className="lg:w-1/2 w-full">
           <div className="inline-block mb-4 px-3 py-1 bg-brand-orange/10 border border-brand-orange/20 rounded-full text-brand-orange text-xs font-bold uppercase tracking-widest">
-            Escalabilidad y Precisión
+            Inteligencia para Ventas Especializadas
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 text-[#0b141a] tracking-tight leading-tight">
             Qué es SalesFlow
