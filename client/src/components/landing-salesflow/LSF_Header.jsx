@@ -7,7 +7,11 @@ export default function LSF_Header() {
     <header className="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link to="/salesflow" className="flex items-center gap-3" aria-label="SalesFlow home">
-          <img src="/logoSalesFlow.svg" alt="SalesFlow" className="h-8 md:h-10 w-auto" />
+          <img src="/logoSalesFlow.svg" alt="SalesFlow Logo" className="h-12 md:h-16 w-auto" />
+          <span className="text-2xl md:text-3xl tracking-tight text-brand-slate">
+            <span className="font-medium">Sales</span>
+            <span className="font-black text-brand-orange">Flow</span>
+          </span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-8 font-medium text-brand-slate">
