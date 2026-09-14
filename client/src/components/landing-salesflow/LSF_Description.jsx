@@ -28,7 +28,7 @@ export default function LSF_Description() {
             Plataforma Estratégica Industrial
           </h2>
           <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">
-            SalesFlow es la plataforma estratégica para empresas con grandes equipos de ventas: nuestro <strong className="font-semibold text-brand-orange">Agente IA especializado</strong> no solo impulsa ventas con sugerencias personalizadas y dominio de la jerga técnica, sino que procesa altos volúmenes de peticiones en simultáneo, liberando a los asesores para cerrar oportunidades con contexto preciso, mientras los SLAs garantizan calidad en cada interacción, incluso bajo la presión de un gran volumen de operaciones.
+            SalesFlow es la plataforma estratégica para empresas con grandes equipos de ventas: nuestro <strong className="font-semibold text-brand-orange">Agente IA especializado</strong> guía y asesora a tus clientes con precisión, comunicándose en su misma jerga técnica gracias a su entrenamiento especializado y dominio profundo de los términos específicos del sector. Procesa altos volúmenes de peticiones en simultáneo, liberando a los asesores para cerrar oportunidades con contexto claro, mientras los SLAs garantizan calidad incluso en operaciones masivas.
           </p>
         </div>
 
