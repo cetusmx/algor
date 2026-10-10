@@ -9,6 +9,7 @@ import Services from './pages/Services';
 
 import CaseSalesFlow from './pages/CaseSalesFlow';
 import LandingSalesFlow from './pages/LandingSalesFlow';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 import LogoProposals from './pages/LogoProposals';
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/contacto/agendar" element={<Booking />} />
         <Route path="/servicios" element={<Services />} />
         <Route path="/logo-proposals" element={<LogoProposals />} />
+        <Route path="/aviso-privacidad" element={<PrivacyPolicy />} />
       </Routes>
     </Router>
   );

@@ -43,7 +43,7 @@ export default function LSF_Footer() {
         <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
           <p>&copy; {new Date().getFullYear()} algor. Todos los derechos reservados.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Aviso de Privacidad</a>
+            <a href="/aviso-privacidad" className="hover:text-white transition-colors">Aviso de Privacidad</a>
             <a href="#" className="hover:text-white transition-colors">Términos de Servicio</a>
           </div>
         </div>
