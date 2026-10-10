@@ -21,7 +21,7 @@ export default function LSF_Architecture() {
           {/* Left Side: Text and Features */}
           <div className="lg:w-1/2 w-full space-y-8">
             <p className="text-xl md:text-2xl text-slate-800 leading-snug font-medium border-l-4 border-brand-orange pl-6 mb-10">
-              SalesFlow está construido para la realidad de tus operaciones. Sincronización perfecta y una experiencia nativa en cada dispositivo para que tu equipo comercial nunca se detenga.
+              Tu operación es única y SalesFlow se adapta a ella. Ya sea que gestiones un centro de conversaciones con decenas de asesores, tengas vendedores en campo o seas un comercio local que gestiona sus ventas por WhatsApp, nuestra plataforma te cubre. Una versión web para gestionar ventas y supervisar operaciones, más una app móvil para cerrar tratos desde cualquier lugar.
             </p>
 
             <div className="space-y-6">
