@@ -44,7 +44,7 @@ export default function LSF_Footer() {
           <p>&copy; {new Date().getFullYear()} algor. Todos los derechos reservados.</p>
           <div className="flex gap-6">
             <a href="/aviso-privacidad" className="hover:text-white transition-colors">Aviso de Privacidad</a>
-            <a href="#" className="hover:text-white transition-colors">Términos de Servicio</a>
+            <a href="/terminos" className="hover:text-white transition-colors">Términos de Servicio</a>
           </div>
         </div>
       </div>
