@@ -34,7 +34,7 @@ export default function LSF_Footer() {
           <div>
             <h4 className="font-bold mb-4 text-white">Contacto</h4>
             <ul className="space-y-3 text-sm text-slate-400">
-              <li>contacto@algor.dev</li>
+              <li>contacto@algor.mx</li>
               <li>+52 (55) 1234 5678</li>
             </ul>
           </div>
