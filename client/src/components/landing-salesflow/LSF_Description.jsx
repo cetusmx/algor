@@ -38,7 +38,7 @@ export default function LSF_Description() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brand-orange mt-1">✓</span>
-                <span>Los asesores reciben oportunidades calificadas, sin perder tiempo en filtros básicos.</span>
+                <span>Los asesores toman el relevo con el pedido ya armado por la IA. Gracias a un catálogo integrado en su interfaz, pueden modificar el carrito al instante (agregar o quitar productos) y cerrar la venta sin fricciones.</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brand-orange mt-1">✓</span>
