@@ -54,18 +54,14 @@ export default function LSF_Architecture() {
             </div>
           </div>
 
-          {/* Right Side: Media Placeholder */}
-          <div className="lg:w-1/2 w-full">
-            <div className="aspect-square md:aspect-video lg:aspect-square bg-slate-200/60 rounded-3xl border border-slate-300 shadow-inner flex flex-col items-center justify-center text-slate-400 relative overflow-hidden group">
-              <RefreshCw size={48} className="mb-4 opacity-40 group-hover:rotate-180 transition-transform duration-700" />
-              <p className="font-medium px-6 text-center text-slate-500">Espacio reservado para imagen o video (Mockup Web + App)</p>
-              
-              {/* Decorative dots to look like a UI window */}
-              <div className="absolute top-4 left-4 flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-slate-300"></div>
-                <div className="w-3 h-3 rounded-full bg-slate-300"></div>
-                <div className="w-3 h-3 rounded-full bg-slate-300"></div>
-              </div>
+          {/* Right Side: Media Container */}
+          <div className="lg:w-1/2 w-full flex justify-center">
+            <div className="rounded-3xl border border-slate-200 shadow-2xl relative overflow-hidden group w-full lg:max-w-md">
+              <img 
+                src="/images/imagenVert.jpg" 
+                alt="Arquitectura Multiplataforma Web y Móvil" 
+                className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-[1.02]" 
+              />
             </div>
           </div>
 
