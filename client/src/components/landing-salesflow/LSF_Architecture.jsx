@@ -57,9 +57,12 @@ export default function LSF_Architecture() {
           {/* Right Side: Media Container */}
           <div className="lg:w-1/2 w-full flex justify-center">
             <div className="rounded-3xl border border-slate-200 shadow-2xl relative overflow-hidden group w-full lg:max-w-md">
-              <img 
-                src="/images/imagenVert.jpg" 
-                alt="Arquitectura Multiplataforma Web y Móvil" 
+              <video 
+                src="/images/multiplataforma.mp4" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
                 className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-[1.02]" 
               />
             </div>
