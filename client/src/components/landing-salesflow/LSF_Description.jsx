@@ -34,7 +34,7 @@ export default function LSF_Description() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <span className="text-brand-orange mt-1">✓</span>
-                <span>La IA domina tu jerga técnica para guiar consultas complejas (ej.: especificaciones de maquinaria, plazos de entrega en cadena de suministro).</span>
+                <span>La IA domina tu jerga técnica para vender, no solo para responder: localiza productos, genera cotizaciones y coloca pedidos directamente en el chat, transformando la asesoría técnica en cierres reales.</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-brand-orange mt-1">✓</span>
