@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
           
           <div className="prose prose-slate max-w-none text-slate-600 space-y-6 leading-relaxed">
             <p>
-              Martha Rosario Enriquez Guerrero (en lo sucesivo, el "Responsable"), operando comercialmente bajo el nombre de Algor, con domicilio para oír y recibir notificaciones en Durango, México, y con correo electrónico de contacto contacto@algor.mx, es el responsable del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:
+              Martha Rosario Enriquez Guerrero (en lo sucesivo, el "Responsable"), operando comercialmente bajo el nombre de Algor, con domicilio para oír y recibir notificaciones en Monterrey, México, y con correo electrónico de contacto contacto@algor.mx, es el responsable del uso y protección de sus datos personales, y al respecto le informamos lo siguiente:
             </p>
 
             <h2 className="text-xl font-bold text-slate-800 mt-10 mb-4">1. Finalidades del tratamiento de datos</h2>
