@@ -20,7 +20,7 @@ export default function LSF_Architecture() {
           
           {/* Left Side: Text and Features */}
           <div className="lg:w-1/2 w-full space-y-8">
-            <p className="text-lg text-slate-600 leading-relaxed font-light">
+            <p className="text-xl md:text-2xl text-slate-800 leading-snug font-medium border-l-4 border-brand-orange pl-6 mb-10">
               SalesFlow está construido para la realidad de tus operaciones. Sincronización perfecta y una experiencia nativa en cada dispositivo para que tu equipo comercial nunca se detenga.
             </p>
 
