@@ -8,7 +8,8 @@ const MOCK_CASES = [
     tag: 'Producto Exclusivo',
     title: 'SalesFlow: Orquestación de Ventas y Retención de Clientes',
     excerpt: 'Cómo protegemos el activo más valioso centralizando la comunicación y potenciando la conversión con Inteligencia Artificial (RAG).',
-    slug: 'salesflow'
+    slug: 'salesflow',
+    link: '/salesflow'
   },
   {
     tag: 'Integración Legacy',
@@ -57,6 +58,7 @@ export default function Cases() {
                 title={caseStudy.title}
                 excerpt={caseStudy.excerpt}
                 slug={caseStudy.slug}
+                link={caseStudy.link}
               />
             ))}
           </div>

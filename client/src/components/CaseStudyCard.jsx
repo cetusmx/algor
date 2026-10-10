@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function CaseStudyCard({ tag, title, excerpt, slug }) {
+export default function CaseStudyCard({ tag, title, excerpt, slug, link }) {
+  const targetPath = link || `/casos-de-uso/${slug}`;
   return (
-    <Link to={`/casos-de-uso/${slug}`} className="block group h-full">
+    <Link to={targetPath} className="block group h-full">
       <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 h-full flex flex-col hover:-translate-y-1 hover:border-orange-500/50 transition-all duration-300">
         <span className="text-orange-400 bg-orange-400/10 px-3 py-1 rounded-full text-xs font-mono inline-block w-fit mb-4">
           {tag}
