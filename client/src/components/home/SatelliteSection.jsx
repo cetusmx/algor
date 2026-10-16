@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Database, 
   BarChart3, 
@@ -18,14 +18,44 @@ import {
   Zap,
   LayoutGrid,
   FolderSync,
-  Columns
+  Columns,
+  ChevronLeft,
+  ChevronRight,
+  Pause,
+  Play
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Button from '../Button';
 
+const CAROUSEL_SLIDES = [
+  { id: 'ALMACEN', category: '📦 Almacén y Logística', badge: 'Bodega Inteligente' },
+  { id: 'COMPRAS', category: '📑 Compras y Proveedores', badge: 'Eficiencia Fiscal' },
+  { id: 'VENTAS', category: '💼 Ventas y Cotizaciones', badge: 'Velocidad Comercial' },
+  { id: 'DIRECCION', category: '📊 Dirección y Métricas', badge: 'Control Total' },
+];
+
 export default function SatelliteSection() {
   const [activeMode, setActiveMode] = useState('ALL'); // 'ALL' | 'PROP_A'
-  const [activeTabHybrid, setActiveTabHybrid] = useState('ALMACEN'); // for Hybrid under Header A
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const activeTabHybrid = CAROUSEL_SLIDES[currentSlideIndex].id;
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % CAROUSEL_SLIDES.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [isPaused, currentSlideIndex]);
+
+  const handlePrevSlide = () => {
+    setCurrentSlideIndex((prev) => (prev - 1 + CAROUSEL_SLIDES.length) % CAROUSEL_SLIDES.length);
+  };
+
+  const handleNextSlide = () => {
+    setCurrentSlideIndex((prev) => (prev + 1) % CAROUSEL_SLIDES.length);
+  };
 
   return (
     <section className="py-20 bg-slate-50 relative z-20 overflow-hidden border-t border-slate-200">
@@ -39,7 +69,7 @@ export default function SatelliteSection() {
               Modo Escultor de Solución:
             </span>
             <span className="text-xs text-brand-orange font-semibold">
-              Propuesta Híbrida (A + Tabs)
+              Propuesta Híbrida (A + Carrusel)
             </span>
           </div>
 
@@ -72,12 +102,12 @@ export default function SatelliteSection() {
         <div className="max-w-7xl mx-auto px-6 mb-24">
           
           {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-orange/10 border border-brand-orange/30 rounded-full text-brand-orange text-xs font-bold uppercase tracking-widest mb-4">
               <Zap className="w-3.5 h-3.5" />
               Propuesta A • Grid de Alto Contraste
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-[#0b141a] tracking-tight leading-tight mb-4">
+            <h2 className="text-2xl md:text-4xl font-extrabold text-[#0b141a] tracking-tight leading-tight mb-4">
               Lo que tu Sistema Administrativo no puede hacer <br />
               <span className="text-brand-orange">(y tu operación necesita hoy)</span>
             </h2>
@@ -86,34 +116,82 @@ export default function SatelliteSection() {
             </p>
           </div>
 
-          {/* Area Tabs (Híbrido) */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
-            {[
-              { id: 'ALMACEN', label: '📦 Almacén y Logística', title: 'Cero Papel y Cero Errores en Bodega' },
-              { id: 'COMPRAS', label: '📑 Compras y Proveedores', title: 'Automatización Fiscal de Facturas XML' },
-              { id: 'VENTAS', label: '💼 Ventas y Cotizaciones', title: 'Velocidad Comercial en la Calle y Web' },
-              { id: 'DIRECCION', label: '📊 Dirección y Métricas', title: 'Visibilidad Ejecutiva en Tiempo Real' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTabHybrid(tab.id)}
-                className={`px-5 py-3 rounded-2xl text-sm font-bold transition-all cursor-pointer ${
-                  activeTabHybrid === tab.id
-                    ? 'bg-slate-900 text-white shadow-xl shadow-slate-900/20 scale-105'
-                    : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+          {/* Autonomous Carousel Container */}
+          <div className="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm mb-16 relative overflow-hidden">
+            
+            {/* Top Bar inside Carousel: Category Indicator + Playback Controls */}
+            <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-slate-100">
+              {/* Slide Indicators / Quick Jump */}
+              <div className="flex flex-wrap items-center gap-2">
+                {CAROUSEL_SLIDES.map((slide, idx) => (
+                  <button
+                    key={slide.id}
+                    onClick={() => setCurrentSlideIndex(idx)}
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                      currentSlideIndex === idx
+                        ? 'bg-slate-900 text-white shadow-sm'
+                        : 'bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700'
+                    }`}
+                  >
+                    {slide.category}
+                  </button>
+                ))}
+              </div>
 
-          {/* Tab Content Cards (Híbrido) */}
-          <div className="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm mb-16">
+              {/* Carousel Controls: Prev, Play/Pause, Next */}
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-slate-400 font-medium mr-1">
+                  {currentSlideIndex + 1} / {CAROUSEL_SLIDES.length}
+                </span>
+                <button
+                  onClick={handlePrevSlide}
+                  title="Anterior"
+                  className="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => setIsPaused((prev) => !prev)}
+                  title={isPaused ? 'Reanudar carrusel' : 'Pausar carrusel'}
+                  className={`px-3 h-9 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer ${
+                    isPaused
+                      ? 'bg-brand-orange text-white shadow-sm'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  }`}
+                >
+                  {isPaused ? (
+                    <>
+                      <Play className="w-3.5 h-3.5 fill-current" />
+                      <span>Reanudar</span>
+                    </>
+                  ) : (
+                    <>
+                      <Pause className="w-3.5 h-3.5" />
+                      <span>Pausar</span>
+                    </>
+                  )}
+                </button>
+                <button
+                  onClick={handleNextSlide}
+                  title="Siguiente"
+                  className="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
             {activeTabHybrid === 'ALMACEN' && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">Bodega Inteligente</span>
+                  <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900 text-white text-xs font-bold">
+                      📦 Almacén y Logística
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">
+                      • Bodega Inteligente
+                    </span>
+                  </div>
                   <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mt-2 mb-4">
                     Recepción con Pistola Láser y Códigos de Barras
                   </h3>
@@ -154,7 +232,14 @@ export default function SatelliteSection() {
             {activeTabHybrid === 'COMPRAS' && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">Eficiencia Fiscal</span>
+                  <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900 text-white text-xs font-bold">
+                      📑 Compras y Proveedores
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">
+                      • Eficiencia Fiscal
+                    </span>
+                  </div>
                   <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mt-2 mb-4">
                     Generador de OCs a partir de XML del SAT
                   </h3>
@@ -190,7 +275,14 @@ export default function SatelliteSection() {
             {activeTabHybrid === 'VENTAS' && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">Velocidad Comercial</span>
+                  <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900 text-white text-xs font-bold">
+                      💼 Ventas y Cotizaciones
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">
+                      • Velocidad Comercial
+                    </span>
+                  </div>
                   <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mt-2 mb-4">
                     Cotizadores Web en Línea con Catálogo en Vivo
                   </h3>
@@ -241,7 +333,14 @@ export default function SatelliteSection() {
             {activeTabHybrid === 'DIRECCION' && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">Control Total</span>
+                  <div className="flex flex-wrap items-center gap-2.5 mb-3">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900 text-white text-xs font-bold">
+                      📊 Dirección y Métricas
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">
+                      • Control Total
+                    </span>
+                  </div>
                   <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mt-2 mb-4">
                     Indicadores y Dashboards Ejecutivos en Tiempo Real
                   </h3>
