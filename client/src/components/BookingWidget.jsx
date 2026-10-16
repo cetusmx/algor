@@ -207,7 +207,7 @@ export default function BookingWidget() {
     const { startDate, endDate } = parseSlotToDates(confirmedBooking.date, confirmedBooking.slot);
     const formatTime = (d) => d.toISOString().replace(/-|:|\.\d\d\d/g, '');
     const title = 'Demostración de SalesFlow & Sesión Estratégica con Algor';
-    const description = `Hola ${confirmedBooking.name},\n\nTu sesión estratégica sobre SalesFlow está programada.\n\nIMPORTANTE: El enlace directo de acceso a la sala virtual te será compartido por WhatsApp (+${confirmedBooking.whatsapp}) y correo 24 horas antes de la reunión, una vez confirmada tu asistencia.\n\n¡Nos vemos pronto!\nEquipo Algor.`;
+    const description = `Hola ${confirmedBooking.name},\n\nTu sesión estratégica sobre SalesFlow está programada.\n\nEl enlace directo de acceso a la sala virtual te será compartido por WhatsApp (+${confirmedBooking.whatsapp}) y correo 24 horas antes de la reunión.\n\n¡Nos vemos pronto!\nEquipo Algor.`;
 
     return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatTime(startDate)}/${formatTime(endDate)}&details=${encodeURIComponent(description)}&location=WhatsApp+%2F+Enlace+se+enviar%C3%A1+24h+antes`;
   };
@@ -590,7 +590,7 @@ export default function BookingWidget() {
                   Acceso a la Sala Virtual
                 </h4>
                 <p className="text-slate-300 text-sm leading-relaxed font-light">
-                  Para garantizar una sesión 1 a 1 de alta calidad y evitar ausencias, te enviaremos el enlace de acceso directo a tu <strong className="text-white font-medium">WhatsApp ({confirmedBooking.whatsapp})</strong> y correo <strong className="text-white font-medium">24 horas antes</strong> de la reunión, previa confirmación de que todo sigue en pie.
+                  Te enviaremos el enlace de acceso directo a tu <strong className="text-white font-medium">WhatsApp ({confirmedBooking.whatsapp})</strong> y correo <strong className="text-white font-medium">24 horas antes</strong> de la reunión.
                 </p>
               </div>
             </div>
