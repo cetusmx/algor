@@ -11,6 +11,7 @@ import CaseSalesFlow from './pages/CaseSalesFlow';
 import LandingSalesFlow from './pages/LandingSalesFlow';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
+import AdminDemos from './pages/AdminDemos';
 
 import LogoProposals from './pages/LogoProposals';
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/logo-proposals" element={<LogoProposals />} />
         <Route path="/aviso-privacidad" element={<PrivacyPolicy />} />
         <Route path="/terminos" element={<Terms />} />
+        <Route path="/admin/demos" element={<AdminDemos />} />
       </Routes>
     </Router>
   );

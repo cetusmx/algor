@@ -106,6 +106,8 @@ app.post('/api/bookings', (req, res) => {
           return res.status(500).json({ error: 'Error al registrar la cita' });
         }
 
+        console.log(`[NUEVA DEMO AGENDADA] ${name} (${company || 'Sin Empresa'}) - Fecha: ${date} @ ${timeSlot} - WA: ${whatsapp} - Correo: ${email}`);
+
         res.json({
           success: true,
           bookingId: this.lastID,
@@ -113,6 +115,63 @@ app.post('/api/bookings', (req, res) => {
         });
       });
       stmt.finalize();
+    }
+  );
+});
+
+// Admin Configuration & Auth
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'algor2026';
+
+app.post('/api/admin/login', (req, res) => {
+  const { password } = req.body;
+  if (password === ADMIN_PASSWORD) {
+    return res.json({ success: true, token: ADMIN_PASSWORD });
+  }
+  return res.status(401).json({ error: 'Contraseña de administrador incorrecta' });
+});
+
+const requireAdmin = (req, res, next) => {
+  const authHeader = req.headers['authorization'] || req.headers['x-admin-key'];
+  const token = authHeader ? authHeader.replace(/^Bearer\s+/i, '') : null;
+  if (token === ADMIN_PASSWORD) {
+    return next();
+  }
+  return res.status(401).json({ error: 'Acceso no autorizado' });
+};
+
+// GET all bookings for admin dashboard
+app.get('/api/admin/bookings', requireAdmin, (req, res) => {
+  db.all(
+    'SELECT * FROM bookings ORDER BY booking_date DESC, time_slot DESC',
+    [],
+    (err, rows) => {
+      if (err) {
+        console.error('Error fetching admin bookings:', err.message);
+        return res.status(500).json({ error: 'Database error' });
+      }
+      res.json({ bookings: rows || [] });
+    }
+  );
+});
+
+// PATCH booking status
+app.patch('/api/admin/bookings/:id/status', requireAdmin, (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+  const validStatuses = ['PENDING_CONFIRMATION', 'CONFIRMED', 'COMPLETED', 'CANCELLED'];
+  if (!validStatuses.includes(status)) {
+    return res.status(400).json({ error: 'Estado no válido' });
+  }
+
+  db.run(
+    'UPDATE bookings SET status = ? WHERE id = ?',
+    [status, id],
+    function(err) {
+      if (err) {
+        console.error('Error updating booking status:', err.message);
+        return res.status(500).json({ error: 'Database error' });
+      }
+      res.json({ success: true, changes: this.changes });
     }
   );
 });
