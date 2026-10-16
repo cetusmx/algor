@@ -6,6 +6,7 @@ import LSF_Description from '../components/landing-salesflow/LSF_Description';
 import LSF_Architecture from '../components/landing-salesflow/LSF_Architecture';
 // import LSF_Escalation from '../components/landing-salesflow/LSF_Escalation';
 import LSF_Susurro from '../components/landing-salesflow/LSF_Susurro';
+import LSF_Pricing from '../components/landing-salesflow/LSF_Pricing';
 
 export default function LandingSalesFlow() {
   return (
@@ -17,6 +18,7 @@ export default function LandingSalesFlow() {
         <LSF_Architecture />
         {/* <LSF_Escalation /> */}
         <LSF_Susurro />
+        <LSF_Pricing />
       </main>
       <LSF_Footer />
     </div>
