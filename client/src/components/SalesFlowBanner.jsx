@@ -24,7 +24,7 @@ export default function SalesFlowBanner() {
             </p>
           </div>
           <div className="flex-shrink-0 w-full lg:w-auto">
-            <Link to="/casos-de-uso/salesflow">
+            <Link to="/salesflow">
               <Button variant="primary-dark" className="w-full lg:w-auto px-8 py-4 text-lg shadow-lg shadow-brand-orange/20">
                 Ver Arquitectura del Producto
               </Button>
