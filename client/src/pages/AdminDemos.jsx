@@ -37,6 +37,8 @@ export default function AdminDemos() {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('ALL');
   const [meetingLink, setMeetingLink] = useState(() => localStorage.getItem('salesflow_meeting_link') || DEFAULT_MEETING_LINK);
+  const [savingLink, setSavingLink] = useState(false);
+  const [saveSuccess, setSaveSuccess] = useState(false);
   const [expandedNotesId, setExpandedNotesId] = useState(null);
 
   // Authenticate
@@ -71,7 +73,7 @@ export default function AdminDemos() {
     setBookings([]);
   };
 
-  // Fetch Bookings
+  // Fetch Bookings & Settings
   const fetchBookings = async () => {
     if (!authToken) return;
     setLoading(true);
@@ -99,9 +101,28 @@ export default function AdminDemos() {
     }
   };
 
+  const fetchSettings = async () => {
+    if (!authToken) return;
+    try {
+      const res = await fetch('/api/admin/settings', {
+        headers: { Authorization: `Bearer ${authToken}` }
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.settings && data.settings.meeting_link) {
+          setMeetingLink(data.settings.meeting_link);
+          localStorage.setItem('salesflow_meeting_link', data.settings.meeting_link);
+        }
+      }
+    } catch (e) {
+      console.warn('Fallback al link local:', e.message);
+    }
+  };
+
   useEffect(() => {
     if (authToken) {
       fetchBookings();
+      fetchSettings();
     }
   }, [authToken]);
 
@@ -126,10 +147,32 @@ export default function AdminDemos() {
     }
   };
 
-  const handleSaveMeetingLink = (e) => {
-    const newLink = e.target.value;
-    setMeetingLink(newLink);
-    localStorage.setItem('salesflow_meeting_link', newLink);
+  const handleSaveMeetingLink = async (e) => {
+    if (e && e.preventDefault) e.preventDefault();
+    setSavingLink(true);
+    setSaveSuccess(false);
+
+    try {
+      const res = await fetch('/api/admin/settings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authToken}`
+        },
+        body: JSON.stringify({ meetingLink })
+      });
+      if (res.ok) {
+        localStorage.setItem('salesflow_meeting_link', meetingLink);
+        setSaveSuccess(true);
+        setTimeout(() => setSaveSuccess(false), 3000);
+      }
+    } catch (err) {
+      localStorage.setItem('salesflow_meeting_link', meetingLink);
+      setSaveSuccess(true);
+      setTimeout(() => setSaveSuccess(false), 3000);
+    } finally {
+      setSavingLink(false);
+    }
   };
 
   // WhatsApp Message Generator
@@ -294,19 +337,49 @@ export default function AdminDemos() {
             </p>
           </div>
 
-          <div className="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-3.5 max-w-md w-full">
-            <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
-              <ExternalLink className="w-3.5 h-3.5 text-orange-400" />
-              Enlace de Sala Virtual (Link Fijo):
-            </label>
-            <input
-              type="text"
-              value={meetingLink}
-              onChange={handleSaveMeetingLink}
-              placeholder="https://meet.google.com/..."
-              className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-orange-400 font-mono focus:outline-none focus:border-orange-500"
-            />
-          </div>
+          <form onSubmit={handleSaveMeetingLink} className="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-4 max-w-lg w-full space-y-2">
+            <div className="flex items-center justify-between">
+              <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                <ExternalLink className="w-3.5 h-3.5 text-orange-400" />
+                Sala Virtual (Link Fijo Compartido)
+              </label>
+              {saveSuccess && (
+                <span className="text-[11px] font-semibold text-emerald-400 flex items-center gap-1 animate-fadeIn">
+                  <CheckCircle2 className="w-3.5 h-3.5" /> ¡Guardado en servidor!
+                </span>
+              )}
+            </div>
+
+            <div className="flex items-center gap-2">
+              <input
+                type="url"
+                value={meetingLink}
+                onChange={(e) => setMeetingLink(e.target.value)}
+                placeholder="https://meet.google.com/..."
+                required
+                className="flex-grow bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-xs text-orange-400 font-mono focus:outline-none focus:border-orange-500 transition-colors"
+              />
+              <button
+                type="submit"
+                disabled={savingLink}
+                className="px-3.5 py-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-semibold text-xs transition-all shadow-md shadow-orange-500/20 disabled:opacity-50 cursor-pointer whitespace-nowrap"
+              >
+                {savingLink ? 'Guardando...' : 'Guardar'}
+              </button>
+              <a
+                href={meetingLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-300 transition-colors cursor-pointer"
+                title="Probar y abrir sala en nueva pestaña"
+              >
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+            <p className="text-[11px] text-slate-500 font-light">
+              Este link se guarda en la base de datos para todo tu equipo y se inyecta en los mensajes de WhatsApp.
+            </p>
+          </form>
         </div>
 
         {/* Metrics Row */}

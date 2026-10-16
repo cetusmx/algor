@@ -45,6 +45,12 @@ const db = new sqlite3.Database(dbPath, (err) => {
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
       )
     `);
+    db.run(`
+      CREATE TABLE IF NOT EXISTS settings (
+        key TEXT PRIMARY KEY,
+        value TEXT
+      )
+    `);
   }
 });
 
@@ -172,6 +178,41 @@ app.patch('/api/admin/bookings/:id/status', requireAdmin, (req, res) => {
         return res.status(500).json({ error: 'Database error' });
       }
       res.json({ success: true, changes: this.changes });
+    }
+  );
+});
+
+// GET admin settings (e.g. meeting_link)
+app.get('/api/admin/settings', requireAdmin, (req, res) => {
+  db.all('SELECT key, value FROM settings', [], (err, rows) => {
+    if (err) {
+      console.error('Error fetching settings:', err.message);
+      return res.status(500).json({ error: 'Database error' });
+    }
+    const settings = {};
+    (rows || []).forEach((r) => {
+      settings[r.key] = r.value;
+    });
+    res.json({ settings });
+  });
+});
+
+// POST admin settings (upsert meeting_link)
+app.post('/api/admin/settings', requireAdmin, (req, res) => {
+  const { meetingLink } = req.body;
+  if (!meetingLink) {
+    return res.status(400).json({ error: 'meetingLink es requerido' });
+  }
+
+  db.run(
+    'INSERT INTO settings (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value',
+    ['meeting_link', meetingLink.trim()],
+    function (err) {
+      if (err) {
+        console.error('Error updating settings:', err.message);
+        return res.status(500).json({ error: 'Database error' });
+      }
+      res.json({ success: true, meetingLink: meetingLink.trim() });
     }
   );
 });
