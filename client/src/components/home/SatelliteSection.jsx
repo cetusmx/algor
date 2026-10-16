@@ -161,12 +161,12 @@ export default function SatelliteSection() {
                     Generador de OCs a partir de XML del SAT
                   </h3>
                   <p className="text-slate-600 text-base font-light leading-relaxed mb-6">
-                    Arrastra la factura XML de tu proveedor y nuestra herramienta satélite extrae los conceptos, detecta códigos del SAT, coteja precios con tu lista autorizada y genera el formato de Orden de Compra listo para autorizar.
+                    Arrastra la factura XML de tu proveedor y nuestra herramienta extrae los conceptos, detecta códigos del SAT, coteja precios con tu lista autorizada y genera formatos.
                   </p>
                   <ul className="space-y-3 text-sm text-slate-700">
                     <li className="flex items-center gap-2.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      <span>Cero horas de captura manual de facturas y notas de compra.</span>
+                      <span>Cero horas de captura manual de facturas y órdenes de compra.</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
@@ -174,7 +174,7 @@ export default function SatelliteSection() {
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      <span>Exportación directa o inyección controlada en la base de datos de tu ERP.</span>
+                      <span>Exportación directa mediante formatos a tu Sistema Administrativo, cero riesgos.</span>
                     </li>
                   </ul>
                 </div>
@@ -248,7 +248,7 @@ export default function SatelliteSection() {
                     Indicadores y Dashboards Ejecutivos en Tiempo Real
                   </h3>
                   <p className="text-slate-600 text-base font-light leading-relaxed mb-6">
-                    Deja de esperar al final de mes para saber si cumpliste las metas. Construimos paneles ejecutivos visuales que extraen los datos de tu ERP y te los presentan en métricas accionables: ventas por asesor, productos sin rotación y ticket promedio.
+                    Deja de esperar al final de mes para saber si cumpliste las metas. Construimos paneles ejecutivos visuales que extraen los datos de tu Sistema Administrativo.
                   </p>
                   <ul className="space-y-3 text-sm text-slate-700">
                     <li className="flex items-center gap-2.5">
@@ -257,11 +257,11 @@ export default function SatelliteSection() {
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      <span>Detección de productos de baja rotación para evitar capital estancado.</span>
+                      <span>Monitoreo de la cartera de crédito de clientes relevantes.</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      <span>Alertas directas a Telegram o correo ante caídas de facturación.</span>
+                      <span>Resultados cuantitativos y cualitativos de inventarios cíclicos.</span>
                     </li>
                   </ul>
                 </div>
@@ -536,12 +536,12 @@ export default function SatelliteSection() {
                     Generador de OCs a partir de XML del SAT
                   </h3>
                   <p className="text-slate-600 text-base font-light leading-relaxed mb-6">
-                    Arrastra la factura XML de tu proveedor y nuestra herramienta satélite extrae los conceptos, detecta códigos del SAT, coteja precios con tu lista autorizada y genera el formato de Orden de Compra listo para autorizar.
+                    Arrastra la factura XML de tu proveedor y nuestra herramienta extrae los conceptos, detecta códigos del SAT, coteja precios con tu lista autorizada y genera formatos.
                   </p>
                   <ul className="space-y-3 text-sm text-slate-700">
                     <li className="flex items-center gap-2.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      <span>Cero horas de captura manual de facturas y notas de compra.</span>
+                      <span>Cero horas de captura manual de facturas y órdenes de compra.</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
@@ -549,7 +549,7 @@ export default function SatelliteSection() {
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      <span>Exportación directa o inyección controlada en la base de datos de tu ERP.</span>
+                      <span>Exportación directa mediante formatos a tu Sistema Administrativo, cero riesgos.</span>
                     </li>
                   </ul>
                 </div>
@@ -623,7 +623,7 @@ export default function SatelliteSection() {
                     Indicadores y Dashboards Ejecutivos en Tiempo Real
                   </h3>
                   <p className="text-slate-600 text-base font-light leading-relaxed mb-6">
-                    Deja de esperar al final de mes para saber si cumpliste las metas. Construimos paneles ejecutivos visuales que extraen los datos de tu ERP y te los presentan en métricas accionables: ventas por asesor, productos sin rotación y ticket promedio.
+                    Deja de esperar al final de mes para saber si cumpliste las metas. Construimos paneles ejecutivos visuales que extraen los datos de tu Sistema Administrativo.
                   </p>
                   <ul className="space-y-3 text-sm text-slate-700">
                     <li className="flex items-center gap-2.5">
@@ -632,11 +632,11 @@ export default function SatelliteSection() {
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      <span>Detección de productos de baja rotación para evitar capital estancado.</span>
+                      <span>Monitoreo de la cartera de crédito de clientes relevantes.</span>
                     </li>
                     <li className="flex items-center gap-2.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      <span>Alertas directas a Telegram o correo ante caídas de facturación.</span>
+                      <span>Resultados cuantitativos y cualitativos de inventarios cíclicos.</span>
                     </li>
                   </ul>
                 </div>
