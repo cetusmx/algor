@@ -120,7 +120,7 @@ export default function SatelliteSection() {
                     Recepción con Pistola Láser y Códigos de Barras
                   </h3>
                   <p className="text-slate-600 text-base font-light leading-relaxed mb-6">
-                    Elimina las bitácoras en papel y la doble captura. Creamos interfaces web ultraligeras optimizadas para terminales móviles y lectores de código de barras. El almacenista escanea la tarima y el sistema valida instantáneamente contra la orden de compra.
+                    Elimina las bitácoras en papel y la doble captura. Creamos interfaces web ultraligeras optimizadas para terminales móviles y lectores de código de barras.
                   </p>
                   <ul className="space-y-3 text-sm text-slate-700">
                     <li className="flex items-center gap-2.5">
@@ -495,7 +495,7 @@ export default function SatelliteSection() {
                     Recepción con Pistola Láser y Códigos de Barras
                   </h3>
                   <p className="text-slate-600 text-base font-light leading-relaxed mb-6">
-                    Elimina las bitácoras en papel y la doble captura. Creamos interfaces web ultraligeras optimizadas para terminales móviles y lectores de código de barras. El almacenista escanea la tarima y el sistema valida instantáneamente contra la orden de compra.
+                    Elimina las bitácoras en papel y la doble captura. Creamos interfaces web ultraligeras optimizadas para terminales móviles y lectores de código de barras.
                   </p>
                   <ul className="space-y-3 text-sm text-slate-700">
                     <li className="flex items-center gap-2.5">
