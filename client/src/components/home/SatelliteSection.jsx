@@ -285,6 +285,21 @@ export default function SatelliteSection() {
             )}
           </div>
 
+          {/* CALL TO ACTION AFTER HYBRID TABS */}
+          <div className="max-w-4xl mx-auto px-6 text-center mb-16">
+            <h3 className="text-2xl font-bold text-slate-900 mb-3">
+              ¿Tienes un proceso administrativo que te cuesta tiempo y dinero todos los días?
+            </h3>
+            <p className="text-slate-600 text-sm md:text-base font-light mb-6">
+              Cuéntanos cómo opera tu empresa hoy y te mostramos cómo una herramienta satélite puede destrabarla en menos de un mes.
+            </p>
+            <Link to="/contacto/agendar">
+              <Button variant="primary" className="px-8 py-3.5 text-base font-bold shadow-lg shadow-brand-orange/25">
+                Hablemos de tu Operación
+              </Button>
+            </Link>
+          </div>
+
           {/* Divider between Tabs and Grid */}
           <div className="text-center mb-10">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400 bg-slate-100 px-4 py-2 rounded-full border border-slate-200">
