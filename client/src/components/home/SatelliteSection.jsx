@@ -45,10 +45,9 @@ export default function SatelliteSection() {
 
           <div className="flex flex-wrap items-center gap-2">
             {[
-              { id: 'ALL', label: 'Ver las 3 Apiladas', icon: <Layers className="w-3.5 h-3.5" /> },
+              { id: 'ALL', label: 'Ver Ambas (A + B)', icon: <Layers className="w-3.5 h-3.5" /> },
               { id: 'PROP_A', label: 'A: Grid 6 Tarjetas', icon: <LayoutGrid className="w-3.5 h-3.5" /> },
               { id: 'PROP_B', label: 'B: Tabs por Área', icon: <FolderSync className="w-3.5 h-3.5" /> },
-              { id: 'PROP_C', label: 'C: Split Comparativo', icon: <Columns className="w-3.5 h-3.5" /> },
             ].map((btn) => (
               <button
                 key={btn.id}
@@ -460,112 +459,7 @@ export default function SatelliteSection() {
         </div>
       )}
 
-      {/* =========================================================================
-          PROPUESTA C: Split Comparativo "El Límite del ERP vs El Ecosistema Satélite"
-         ========================================================================= */}
-      {(activeMode === 'ALL' || activeMode === 'PROP_C') && (
-        <div className="max-w-7xl mx-auto px-6 mb-16 pt-12 border-t border-slate-300">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-600 text-xs font-bold uppercase tracking-widest mb-4">
-              <Columns className="w-3.5 h-3.5" />
-              Propuesta C • Comparativa Visual (Antes vs Después)
-            </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-[#0b141a] tracking-tight leading-tight mb-4">
-              El Elefante Blanco vs. La Velocidad Satélite
-            </h2>
-            <p className="text-slate-600 text-lg font-light leading-relaxed">
-              Tu ERP sirve para timbrar facturas y cumplir con hacienda. Nuestras herramientas satélite sirven para que tu operación diaria nunca se detenga.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
-            {/* Left: The Pain of Traditional ERP */}
-            <div className="bg-slate-900 text-white rounded-3xl p-8 md:p-10 border border-slate-800 shadow-xl relative overflow-hidden">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center">
-                  <AlertTriangle className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">La Realidad del ERP Tradicional</h3>
-                  <span className="text-xs text-red-400 font-semibold">Rígido, costoso y desconectado del piso de venta</span>
-                </div>
-              </div>
-
-              <div className="space-y-4 text-sm text-slate-300">
-                <div className="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/50">
-                  <p className="font-semibold text-red-300 mb-1">❌ El laberinto de Excel</p>
-                  <p className="text-xs text-slate-400 leading-relaxed font-light">
-                    Terminas parchando el sistema con 15 hojas de cálculo que se desincronizan y nadie sabe cuál es la versión final.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/50">
-                  <p className="font-semibold text-red-300 mb-1">❌ Cotizaciones de consultoría exorbitantes</p>
-                  <p className="text-xs text-slate-400 leading-relaxed font-light">
-                    Pedirle un reporte nuevo o un ajuste al proveedor del ERP cuesta miles de dólares y tarda meses en entregarse.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/50">
-                  <p className="font-semibold text-red-300 mb-1">❌ Ceguera en almacenes y piso de venta</p>
-                  <p className="text-xs text-slate-400 leading-relaxed font-light">
-                    Bodegas contando en papel, vendedores sin catálogo actualizado y directores tomando decisiones con reportes atrasados.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: The Algor Satellite Solution */}
-            <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-brand-slate text-white rounded-3xl p-8 md:p-10 border-2 border-brand-orange shadow-2xl relative overflow-hidden">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center">
-                  <Sparkles className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">El Ecosistema Satélite Algor</h3>
-                  <span className="text-xs text-brand-orange font-semibold">Micro-herramientas ágiles conectadas a tu base de datos</span>
-                </div>
-              </div>
-
-              <div className="space-y-4 text-sm text-slate-200">
-                <div className="p-4 rounded-2xl bg-brand-orange/10 border border-brand-orange/20">
-                  <p className="font-semibold text-brand-orange mb-1">⚡ Conexión limpia y no invasiva</p>
-                  <p className="text-xs text-slate-300 leading-relaxed font-light">
-                    Nos conectamos a tu base de datos actual (SQL Server, PostgreSQL, Firebird de Aspel, MySQL) sin alterar tu contabilidad.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-brand-orange/10 border border-brand-orange/20">
-                  <p className="font-semibold text-brand-orange mb-1">⚡ Despliegue en semanas, no en años</p>
-                  <p className="text-xs text-slate-300 leading-relaxed font-light">
-                    Herramientas específicas que resuelven exactamente tu cuello de botella: lectores XML, pistolas láser o cotizadores.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-brand-orange/10 border border-brand-orange/20">
-                  <p className="font-semibold text-brand-orange mb-1">⚡ Diseñadas para humanos</p>
-                  <p className="text-xs text-slate-300 leading-relaxed font-light">
-                    Interfaces táctiles, modernas y rápidas que tu equipo de almacén y ventas adopta en el primer día sin manuales aburridos.
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-slate-800">
-                <Link to="/contacto/agendar">
-                  <Button variant="primary" className="w-full py-4 text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-brand-orange/20">
-                    <span>Agendar Diagnóstico Operativo (30 min)</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      )}
 
       {/* FINAL CALL TO ACTION */}
       <div className="max-w-4xl mx-auto px-6 text-center mt-12">
