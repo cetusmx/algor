@@ -82,10 +82,10 @@ export default function SatelliteSection() {
                   <button
                     key={slide.id}
                     onClick={() => setCurrentSlideIndex(idx)}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ease-out cursor-pointer ${
                       currentSlideIndex === idx
-                        ? 'bg-slate-900 text-white shadow-sm'
-                        : 'bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700'
+                        ? 'bg-slate-900 text-white shadow-sm scale-[1.03]'
+                        : 'bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700 scale-100'
                     }`}
                   >
                     {slide.category}
@@ -136,8 +136,17 @@ export default function SatelliteSection() {
               </div>
             </div>
 
-            {activeTabHybrid === 'ALMACEN' && (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            {/* Stacked Slides with Smooth Cross-Fade & Subtle Glide Transition */}
+            <div className="grid grid-cols-1 grid-rows-1 relative">
+              {/* Slide 1: ALMACEN */}
+              <div
+                aria-hidden={activeTabHybrid !== 'ALMACEN'}
+                className={`col-start-1 row-start-1 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  activeTabHybrid === 'ALMACEN'
+                    ? 'opacity-100 translate-y-0 scale-100 z-10 pointer-events-auto'
+                    : 'opacity-0 translate-y-3 scale-[0.985] z-0 pointer-events-none select-none'
+                }`}
+              >
                 <div>
                   <div className="flex flex-wrap items-center gap-2.5 mb-3">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900 text-white text-xs font-bold">
@@ -182,10 +191,16 @@ export default function SatelliteSection() {
                   </div>
                 </div>
               </div>
-            )}
 
-            {activeTabHybrid === 'COMPRAS' && (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              {/* Slide 2: COMPRAS */}
+              <div
+                aria-hidden={activeTabHybrid !== 'COMPRAS'}
+                className={`col-start-1 row-start-1 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  activeTabHybrid === 'COMPRAS'
+                    ? 'opacity-100 translate-y-0 scale-100 z-10 pointer-events-auto'
+                    : 'opacity-0 translate-y-3 scale-[0.985] z-0 pointer-events-none select-none'
+                }`}
+              >
                 <div>
                   <div className="flex flex-wrap items-center gap-2.5 mb-3">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900 text-white text-xs font-bold">
@@ -225,10 +240,16 @@ export default function SatelliteSection() {
                   </span>
                 </div>
               </div>
-            )}
 
-            {activeTabHybrid === 'VENTAS' && (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              {/* Slide 3: VENTAS */}
+              <div
+                aria-hidden={activeTabHybrid !== 'VENTAS'}
+                className={`col-start-1 row-start-1 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  activeTabHybrid === 'VENTAS'
+                    ? 'opacity-100 translate-y-0 scale-100 z-10 pointer-events-auto'
+                    : 'opacity-0 translate-y-3 scale-[0.985] z-0 pointer-events-none select-none'
+                }`}
+              >
                 <div>
                   <div className="flex flex-wrap items-center gap-2.5 mb-3">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900 text-white text-xs font-bold">
@@ -283,10 +304,16 @@ export default function SatelliteSection() {
                   </div>
                 </div>
               </div>
-            )}
 
-            {activeTabHybrid === 'DIRECCION' && (
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              {/* Slide 4: DIRECCION */}
+              <div
+                aria-hidden={activeTabHybrid !== 'DIRECCION'}
+                className={`col-start-1 row-start-1 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  activeTabHybrid === 'DIRECCION'
+                    ? 'opacity-100 translate-y-0 scale-100 z-10 pointer-events-auto'
+                    : 'opacity-0 translate-y-3 scale-[0.985] z-0 pointer-events-none select-none'
+                }`}
+              >
                 <div>
                   <div className="flex flex-wrap items-center gap-2.5 mb-3">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900 text-white text-xs font-bold">
@@ -334,7 +361,7 @@ export default function SatelliteSection() {
                   </div>
                 </div>
               </div>
-            )}
+            </div>
           </div>
 
           {/* CALL TO ACTION AFTER HYBRID TABS */}
