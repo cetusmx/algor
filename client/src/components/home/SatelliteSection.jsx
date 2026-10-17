@@ -35,7 +35,6 @@ const CAROUSEL_SLIDES = [
 ];
 
 export default function SatelliteSection() {
-  const [activeMode, setActiveMode] = useState('ALL'); // 'ALL' | 'PROP_A'
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -59,62 +58,18 @@ export default function SatelliteSection() {
 
   return (
     <section className="py-20 bg-slate-50 relative z-20 overflow-hidden border-t border-slate-200">
-      
-      {/* SCULPTOR BAR: Floating interactive switcher */}
-      <div className="max-w-7xl mx-auto px-6 mb-12">
-        <div className="bg-slate-900 text-white p-4 rounded-2xl border border-slate-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5">
-            <span className="w-3 h-3 rounded-full bg-brand-orange animate-ping" />
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
-              Modo Escultor de Solución:
-            </span>
-            <span className="text-xs text-brand-orange font-semibold">
-              Propuesta Híbrida (A + Carrusel)
-            </span>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2">
-            {[
-              { id: 'ALL', label: 'Vista Completa', icon: <Layers className="w-3.5 h-3.5" /> },
-              { id: 'PROP_A', label: 'A: Híbrido + Grid 6 Tarjetas', icon: <LayoutGrid className="w-3.5 h-3.5" /> },
-            ].map((btn) => (
-              <button
-                key={btn.id}
-                onClick={() => setActiveMode(btn.id)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
-                  activeMode === btn.id
-                    ? 'bg-brand-orange text-white shadow-md shadow-brand-orange/25'
-                    : 'bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700'
-                }`}
-              >
-                {btn.icon}
-                <span>{btn.label}</span>
-              </button>
-            ))}
-          </div>
+      <div className="max-w-7xl mx-auto px-6 mb-24">
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-2xl md:text-4xl font-extrabold text-[#0b141a] tracking-tight leading-tight mb-4">
+            Lo que tu Sistema Administrativo no puede hacer <br />
+            <span className="text-brand-orange">(y tu operación necesita hoy)</span>
+          </h2>
+          <p className="text-slate-600 text-lg font-light leading-relaxed">
+            Desarrollamos herramientas de software a la medida que se conectan a tu sistema, para agilizar tus operaciones diarias. Toma de decisiones, acelerar tus ventas, control de inventarios, automatizaciones.
+          </p>
         </div>
-      </div>
-
-      {/* =========================================================================
-          PROPUESTA A: Grid de 6 Tarjetas "Dolor del ERP vs Solución Satélite"
-         ========================================================================= */}
-      {(activeMode === 'ALL' || activeMode === 'PROP_A') && (
-        <div className="max-w-7xl mx-auto px-6 mb-24">
-          
-          {/* Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-orange/10 border border-brand-orange/30 rounded-full text-brand-orange text-xs font-bold uppercase tracking-widest mb-4">
-              <Zap className="w-3.5 h-3.5" />
-              Propuesta A • Grid de Alto Contraste
-            </div>
-            <h2 className="text-2xl md:text-4xl font-extrabold text-[#0b141a] tracking-tight leading-tight mb-4">
-              Lo que tu Sistema Administrativo no puede hacer <br />
-              <span className="text-brand-orange">(y tu operación necesita hoy)</span>
-            </h2>
-            <p className="text-slate-600 text-lg font-light leading-relaxed">
-              Desarrollamos herramientas de software a la medida que se conectan a tu sistema, para agilizar tus operaciones diarias. Toma de decisiones, acelerar tus ventas, control de inventarios, automatizaciones.
-            </p>
-          </div>
 
           {/* Autonomous Carousel Container */}
           <div className="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm mb-16 relative overflow-hidden">
@@ -554,7 +509,6 @@ export default function SatelliteSection() {
 
           </div>
         </div>
-      )}
 
       {/* FINAL CALL TO ACTION */}
       <div className="max-w-4xl mx-auto px-6 text-center mt-12">
