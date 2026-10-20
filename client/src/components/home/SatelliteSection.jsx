@@ -74,22 +74,21 @@ export default function SatelliteSection() {
           {/* Autonomous Carousel Container */}
           <div className="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm mb-16 relative overflow-hidden">
             
-            {/* Top Bar inside Carousel: Category Indicator + Playback Controls */}
-            <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-slate-100">
-              {/* Slide Indicators / Quick Jump */}
-              <div className="flex flex-wrap items-center gap-2">
+            {/* Top Bar inside Carousel: Minimal Progress Dots + Playback Controls */}
+            <div className="flex items-center justify-between gap-4 pb-5 mb-8 border-b border-slate-100">
+              {/* Minimal Progress Dots */}
+              <div className="flex items-center gap-2">
                 {CAROUSEL_SLIDES.map((slide, idx) => (
                   <button
                     key={slide.id}
                     onClick={() => setCurrentSlideIndex(idx)}
-                    className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ease-out cursor-pointer ${
+                    aria-label={`Ir a diapositiva ${idx + 1}`}
+                    className={`h-2 rounded-full transition-all duration-500 cursor-pointer ${
                       currentSlideIndex === idx
-                        ? 'bg-slate-900 text-white shadow-sm scale-[1.03]'
-                        : 'bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700 scale-100'
+                        ? 'w-8 bg-brand-orange'
+                        : 'w-2 bg-slate-200 hover:bg-slate-300'
                     }`}
-                  >
-                    {slide.category}
-                  </button>
+                  />
                 ))}
               </div>
 
