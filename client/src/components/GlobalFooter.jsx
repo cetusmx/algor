@@ -1,51 +1,96 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
+import Button from './Button';
+
+const COLUMNS = [
+  {
+    title: 'Empresa',
+    links: [
+      { to: '/casos-de-uso', label: 'Casos de estudio' },
+      { to: '/servicios', label: 'Servicios' },
+      { to: '/salesflow', label: 'SalesFlow' },
+      { to: '/contacto/agendar', label: 'Agendar una llamada' }
+    ]
+  },
+  {
+    title: 'Legal',
+    links: [
+      { to: '/aviso-privacidad', label: 'Aviso de privacidad' },
+      { to: '/terminos', label: 'Términos de servicio' }
+    ]
+  }
+];
 
 export default function GlobalFooter() {
   return (
-    <footer className="bg-brand-slate border-t border-slate-800 pt-16 pb-8 mt-24 text-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div className="md:col-span-1">
-            <Logo className="w-36 text-white mb-4" />
-            <p className="text-sm text-slate-400 mt-4 leading-relaxed">
-              Tu próximo gran salto empieza con una mejor base digital. Construimos los cimientos tecnológicos de tu empresa para un éxito futuro continuo y escalable.
+    <footer className="bg-ink text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-dark mask-fade-b opacity-60 pointer-events-none" aria-hidden="true" />
+
+      <div className="wrap relative">
+        {/* Cierre */}
+        <div className="py-20 md:py-28 border-b border-white/10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+          <div className="lg:col-span-8">
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/50 mb-6">
+              Siguiente paso
+            </p>
+            <h2 className="text-3xl md:text-5xl font-extrabold leading-[1.05] max-w-3xl">
+              Platícanos el proceso que hoy te quita tiempo. En una llamada te decimos cómo lo resolveríamos.
+            </h2>
+          </div>
+          <div className="lg:col-span-4 lg:justify-self-end">
+            <Link to="/contacto/agendar">
+              <Button variant="accent" size="lg" arrow>
+                Agendar una llamada
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        {/* Enlaces */}
+        <div className="py-14 grid grid-cols-2 md:grid-cols-12 gap-10">
+          <div className="col-span-2 md:col-span-5">
+            <Logo className="w-28 text-white" />
+            <p className="text-white/60 text-sm leading-relaxed mt-6 max-w-xs">
+              Software a la medida e inteligencia artificial para los procesos que hacen funcionar tu empresa.
             </p>
           </div>
-          
-          <div>
-            <h4 className="font-bold mb-4 text-white">Servicios</h4>
-            <ul className="space-y-3 text-sm text-slate-400">
-              <li><a href="#" className="hover:text-brand-orange">Modernización Legacy</a></li>
-              <li><a href="#" className="hover:text-brand-orange">Integración de Sistemas</a></li>
-              <li><a href="#" className="hover:text-brand-orange">Optimización Cloud</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-bold mb-4 text-white">Compañía</h4>
-            <ul className="space-y-3 text-sm text-slate-400">
-              <li><a href="#" className="hover:text-brand-orange">Casos de Estudio</a></li>
-              <li><a href="#" className="hover:text-brand-orange">Nosotros</a></li>
-              <li><a href="#" className="hover:text-brand-orange">Contacto</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-bold mb-4 text-white">Contacto</h4>
-            <ul className="space-y-3 text-sm text-slate-400">
-              <li>contacto@algor.mx</li>
-              <li>+52 (55) 1234 5678</li>
+
+          {COLUMNS.map((col) => (
+            <div key={col.title} className="md:col-span-2">
+              <h4 className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/50 mb-5">
+                {col.title}
+              </h4>
+              <ul className="space-y-3 text-sm">
+                {col.links.map((l) => (
+                  <li key={l.to}>
+                    <Link to={l.to} className="text-white/80 hover:text-brand-orange transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          <div className="col-span-2 md:col-span-3">
+            <h4 className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/50 mb-5">
+              Contacto
+            </h4>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <a href="mailto:contacto@algor.mx" className="text-white/80 hover:text-brand-orange transition-colors">
+                  contacto@algor.mx
+                </a>
+              </li>
+              <li className="text-white/80">+52 (55) 1234 5678</li>
             </ul>
           </div>
         </div>
-        
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
-          <p>&copy; {new Date().getFullYear()} algor. Todos los derechos reservados.</p>
-          <div className="flex gap-6">
-            <a href="/aviso-privacidad" className="hover:text-white transition-colors">Aviso de Privacidad</a>
-            <a href="/terminos" className="hover:text-white transition-colors">Términos de Servicio</a>
-          </div>
+
+        <div className="py-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-3 font-mono text-[11px] uppercase tracking-[0.14em] text-white/40">
+          <p>© {new Date().getFullYear()} algor. Todos los derechos reservados.</p>
+          <p>Ingeniería de software · México</p>
         </div>
       </div>
     </footer>

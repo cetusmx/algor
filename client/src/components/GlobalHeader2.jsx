@@ -1,41 +1,109 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
 import Button from './Button';
 
+const NAV = [
+  { to: '/casos-de-uso', label: 'Casos de estudio' },
+  { to: '/servicios', label: 'Servicios' },
+  { to: '/salesflow', label: 'SalesFlow' }
+];
+
 export default function GlobalHeader2() {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
   return (
-    <header className="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3" aria-label="algor home">
-          <Logo className="w-40 text-slate-900" />
-          <div className="hidden lg:flex flex-col justify-center border-l-2 border-slate-300 pl-3">
-            <span className="text-[10px] font-bold tracking-widest uppercase leading-tight text-slate-500">
-              Servicios de
-            </span>
-            <span className="text-[10px] font-bold tracking-widest uppercase leading-tight text-slate-500">
-              Ingeniería de Software
-            </span>
-          </div>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        scrolled || open ? 'bg-paper/90 backdrop-blur-md border-b border-line' : 'bg-transparent border-b border-transparent'
+      }`}
+    >
+      <div className="h-[2px] w-full bg-brand-orange" aria-hidden="true" />
+      <div className="wrap h-[72px] flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-4" aria-label="algor, inicio">
+          <Logo className="w-28 text-ink" />
+          <span className="hidden lg:block font-mono text-[10px] uppercase tracking-[0.18em] text-muted border-l border-line pl-4 leading-tight">
+            Software a la medida<br />e inteligencia artificial
+          </span>
         </Link>
-        
-        <nav className="hidden md:flex items-center gap-8 font-medium text-brand-slate">
-          <Link to="/casos-de-uso" className="hover:text-brand-orange transition-colors">Casos de Estudio</Link>
-          <Link to="/servicios" className="hover:text-brand-orange transition-colors">Servicios</Link>
-          <Link to="/nosotros" className="hover:text-brand-orange transition-colors">Nosotros</Link>
+
+        <nav className="hidden md:flex items-center gap-9 text-[15px] font-medium text-ink">
+          {NAV.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className={`relative py-1 transition-colors hover:text-brand-orange ${
+                location.pathname.startsWith(item.to) ? 'text-brand-orange' : ''
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
 
-        <div className="flex items-center gap-4">
-          <Link to="/contacto/agendar">
-            <Button variant="primary-light" className="hidden md:inline-flex">
-              Agendar Consulta Técnica
-            </Button>
+        <div className="flex items-center gap-3">
+          <Link to="/contacto/agendar" className="hidden md:block">
+            <Button size="sm">Agendar una llamada</Button>
           </Link>
-          <button className="md:hidden p-2 text-brand-slate" aria-label="Menu">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden w-11 h-11 -mr-2 flex items-center justify-center text-ink"
+            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={open}
+          >
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
+
+      {open && (
+        <div className="md:hidden absolute top-full inset-x-0 h-[calc(100dvh-74px)] bg-paper border-t border-line flex flex-col overflow-y-auto">
+          <nav className="wrap flex flex-col divide-y divide-line">
+            {NAV.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="py-5 text-2xl font-display font-bold text-ink flex items-center justify-between"
+              >
+                {item.label}
+                <span className="font-mono text-xs text-muted">→</span>
+              </Link>
+            ))}
+          </nav>
+          <div className="wrap mt-auto pb-10">
+            <Link to="/contacto/agendar" className="block">
+              <Button size="lg" className="w-full" arrow>
+                Agendar una llamada
+              </Button>
+            </Link>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted mt-6">
+              contacto@algor.mx
+            </p>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

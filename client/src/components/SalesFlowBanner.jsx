@@ -1,36 +1,51 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
+import Eyebrow from './ui/Eyebrow';
+import Reveal from './ui/Reveal';
+
+const HIGHLIGHTS = [
+  'Atiende y cotiza por WhatsApp las 24 horas',
+  'Entrenado con tu catálogo y tus políticas',
+  'Entrega la venta a tu equipo con todo el contexto'
+];
 
 export default function SalesFlowBanner() {
   return (
-    <section className="bg-brand-slate py-16 border-y border-white/10 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-96 h-96 bg-brand-orange/20 rounded-full blur-3xl opacity-50 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/3 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl opacity-50 pointer-events-none" />
-      
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
-          <div className="flex-1">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
-              <span className="text-xs font-bold tracking-widest uppercase text-brand-orange">Lanzamiento Exclusivo</span>
+    <section className="relative bg-paper border-t border-line">
+      <div className="wrap py-20 md:py-28">
+        <Reveal className="relative overflow-hidden bg-surface border border-line rounded-lg shadow-[var(--shadow-panel)]">
+          <div className="absolute top-0 inset-x-0 h-[3px] bg-brand-orange" aria-hidden="true" />
+          <div className="absolute -right-32 -top-32 w-96 h-96 bg-brand-orange/10 blur-3xl rounded-full pointer-events-none" aria-hidden="true" />
+
+          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-10 p-8 md:p-12 lg:p-14">
+            <div className="lg:col-span-7">
+              <Eyebrow className="mb-6">Producto · SalesFlow</Eyebrow>
+              <h2 className="text-3xl md:text-5xl font-extrabold leading-[1.05] text-ink mb-5">
+                Un centro de ventas por WhatsApp con inteligencia artificial, listo para operar.
+              </h2>
+              <p className="text-lg text-body leading-relaxed max-w-xl">
+                Todo lo que explicamos arriba, aplicado al proceso de ventas y empaquetado como producto. SalesFlow atiende, encuentra el producto, cotiza y pasa la conversación a tu asesor cuando toca cerrar.
+              </p>
             </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-              Centro de Ventas de Alto Rendimiento impulsado por IA
-            </h2>
-            <p className="text-slate-300 text-lg max-w-2xl">
-              SalesFlow es el Hub Tecnológico que automatiza tus conversaciones para cerrar ventas de manera rápida, efectiva y medible.
-            </p>
+
+            <div className="lg:col-span-5 flex flex-col justify-between gap-8 lg:border-l border-line lg:pl-12">
+              <ul className="space-y-4">
+                {HIGHLIGHTS.map((h, idx) => (
+                  <li key={h} className="flex items-start gap-4">
+                    <span className="font-mono text-[11px] text-brand-orange pt-1">{String(idx + 1).padStart(2, '0')}</span>
+                    <span className="text-ink font-medium leading-snug">{h}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link to="/salesflow">
+                <Button variant="accent" size="lg" arrow className="w-full lg:w-auto">
+                  Conocer SalesFlow
+                </Button>
+              </Link>
+            </div>
           </div>
-          <div className="flex-shrink-0 w-full lg:w-auto">
-            <Link to="/salesflow">
-              <Button variant="primary-dark" className="w-full lg:w-auto px-8 py-4 text-lg shadow-lg shadow-brand-orange/20">
-                Ver Arquitectura del Producto
-              </Button>
-            </Link>
-          </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

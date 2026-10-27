@@ -4,11 +4,11 @@ import {
   Calculator,
   ShoppingCart,
   SearchCheck,
-  BookOpenCheck,
-  Workflow,
-  ShieldCheck,
   Sparkles
 } from 'lucide-react';
+import Eyebrow from '../ui/Eyebrow';
+import Section from '../ui/Section';
+import Reveal from '../ui/Reveal';
 
 const AI_PROCESSES = [
   {
@@ -35,17 +35,14 @@ const AI_PROCESSES = [
 
 const AI_PRINCIPLES = [
   {
-    icon: BookOpenCheck,
     title: 'Aprende de tu información.',
     desc: 'Catálogos, políticas, manuales, historial de ventas. El agente se entrena con lo que tu empresa ya sabe.'
   },
   {
-    icon: Workflow,
     title: 'Vive dentro del proceso.',
     desc: 'Se conecta a tu sistema, a WhatsApp o al canal que ya usas. Consulta existencias, genera documentos y deja registro de lo que hizo.'
   },
   {
-    icon: ShieldCheck,
     title: 'Sabe cuándo pasar la mano.',
     desc: 'Cuando el caso lo requiere, entrega la conversación a una persona de tu equipo con todo el contexto recopilado.'
   }
@@ -105,49 +102,54 @@ function AgentDemo() {
 
   return (
     <div className="relative">
-      <div className="absolute -inset-6 bg-brand-orange/15 blur-3xl rounded-full pointer-events-none" />
-      <div className="relative bg-white border border-slate-200 rounded-3xl shadow-xl overflow-hidden">
-        <div className="flex items-center gap-3 px-5 py-4 border-b border-slate-100 bg-slate-50">
-          <div className="w-9 h-9 rounded-full bg-brand-slate text-white flex items-center justify-center">
-            <Sparkles className="w-4 h-4" />
+      <div className="absolute -inset-10 bg-brand-orange/10 blur-3xl rounded-full pointer-events-none" aria-hidden="true" />
+      <div className="relative bg-surface border border-line rounded-lg shadow-[var(--shadow-panel)] overflow-hidden">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-line">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-md bg-ink text-white flex items-center justify-center">
+              <Sparkles className="w-4 h-4" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-ink leading-tight">Asistente de ventas</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted mt-0.5">
+                Entrenado con el catálogo
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="text-sm font-bold text-brand-slate leading-tight">Asistente de ventas</p>
-            <p className="text-[11px] text-emerald-600 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              Entrenado con el catálogo de la empresa
-            </p>
-          </div>
+          <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-emerald-600">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            En línea
+          </span>
         </div>
 
         <div
           ref={containerRef}
-          className="h-[380px] overflow-y-auto p-5 space-y-3 scroll-smooth"
+          className="h-[380px] overflow-y-auto p-5 space-y-3 scroll-smooth bg-paper/60"
           style={{ scrollbarWidth: 'none' }}
         >
           {messages.map((msg, idx) => {
             if (msg.type === 'file') {
               return (
-                <div key={idx} className="flex justify-start">
-                  <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-slate-100 px-3 py-2.5 flex items-center gap-3">
-                    <div className="w-8 h-10 bg-red-500 rounded flex items-end justify-center pb-1 flex-shrink-0">
-                      <span className="text-white font-bold text-[8px] tracking-wider">PDF</span>
+                <div key={idx} className="flex justify-start animate-feed-in">
+                  <div className="max-w-[85%] rounded-md border border-line bg-surface px-3 py-2.5 flex items-center gap-3">
+                    <div className="w-8 h-10 bg-ink rounded-sm flex items-end justify-center pb-1 flex-shrink-0">
+                      <span className="text-white font-mono text-[8px] tracking-wider">PDF</span>
                     </div>
                     <div className="min-w-0">
-                      <p className="text-sm font-semibold text-brand-slate truncate">{msg.text}</p>
-                      <p className="text-[11px] text-slate-500">Cotización formal · 2 partidas</p>
+                      <p className="text-sm font-semibold text-ink truncate">{msg.text}</p>
+                      <p className="font-mono text-[10px] text-muted mt-0.5">Cotización formal · 2 partidas</p>
                     </div>
                   </div>
                 </div>
               );
             }
             return (
-              <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+              <div key={idx} className={`flex animate-feed-in ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div
-                  className={`max-w-[85%] px-4 py-3 text-sm leading-relaxed rounded-2xl ${
+                  className={`max-w-[85%] px-4 py-3 text-sm leading-relaxed rounded-md ${
                     msg.role === 'user'
-                      ? 'bg-brand-slate text-white rounded-tr-sm'
-                      : 'bg-slate-100 text-slate-800 rounded-tl-sm'
+                      ? 'bg-ink text-white'
+                      : 'bg-surface border border-line text-ink'
                   }`}
                 >
                   {msg.text}
@@ -158,19 +160,19 @@ function AgentDemo() {
 
           {isTyping && (
             <div className="flex justify-start">
-              <div className="px-4 py-3 rounded-2xl rounded-tl-sm bg-slate-100">
+              <div className="px-4 py-3 rounded-md bg-surface border border-line">
                 <span className="flex gap-1 items-center h-4">
-                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" />
-                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.15s' }} />
-                  <span className="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }} />
+                  <span className="w-1.5 h-1.5 bg-muted rounded-full animate-bounce" />
+                  <span className="w-1.5 h-1.5 bg-muted rounded-full animate-bounce" style={{ animationDelay: '0.15s' }} />
+                  <span className="w-1.5 h-1.5 bg-muted rounded-full animate-bounce" style={{ animationDelay: '0.3s' }} />
                 </span>
               </div>
             </div>
           )}
         </div>
 
-        <div className="px-5 py-3 border-t border-slate-100 bg-slate-50">
-          <div className="bg-white border border-slate-200 rounded-full px-4 py-2.5 text-sm text-slate-400">
+        <div className="px-5 py-3 border-t border-line">
+          <div className="border border-line rounded-md px-4 py-2.5 text-sm text-muted">
             Escribe un mensaje...
           </div>
         </div>
@@ -181,78 +183,83 @@ function AgentDemo() {
 
 export default function AISection() {
   return (
-    <section className="bg-white relative z-20 border-t border-slate-200">
-
+    <>
       {/* Encabezado + demo */}
-      <div className="max-w-7xl mx-auto px-6 pt-24 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">
-              Inteligencia artificial aplicada
-            </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-brand-slate tracking-tight leading-tight mt-4 mb-6">
-              Y cuando el proceso lo amerita, la herramienta también piensa.
-            </h2>
-            <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed mb-6">
-              Hay procesos en los que la herramienta no basta porque alguien tiene que leer, interpretar y decidir. Atender a un cliente, entender qué producto está buscando, preparar una cotización o decidir qué conviene comprar este mes. Para esos casos entrenamos agentes de inteligencia artificial con la información de tu empresa y los ponemos a trabajar dentro del proceso, conectados a tus sistemas y bajo tus reglas.
-            </p>
-            <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed">
-              No se trata de un chatbot genérico. Cada agente conoce tu catálogo, tus políticas y tu forma de atender, y deja registro de todo lo que hace.
-            </p>
+      <Section id="ia" className="border-t border-line" innerClassName="pt-24 md:pt-32 pb-20 md:pb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-10 items-center">
+          <div className="lg:col-span-6">
+            <Reveal>
+              <Eyebrow index="02" className="mb-8">Inteligencia artificial aplicada</Eyebrow>
+              <h2 className="text-4xl md:text-6xl font-extrabold leading-[1.02] text-ink mb-8">
+                Y cuando el proceso lo amerita, la herramienta también piensa.
+              </h2>
+            </Reveal>
+            <Reveal delay={120}>
+              <p className="text-lg text-body leading-relaxed mb-5">
+                Hay procesos en los que la herramienta no basta porque alguien tiene que leer, interpretar y decidir. Atender a un cliente, entender qué producto está buscando, preparar una cotización o decidir qué conviene comprar este mes. Para esos casos entrenamos agentes de inteligencia artificial con la información de tu empresa y los ponemos a trabajar dentro del proceso, conectados a tus sistemas y bajo tus reglas.
+              </p>
+              <p className="text-lg text-body leading-relaxed">
+                No se trata de un chatbot genérico. Cada agente conoce tu catálogo, tus políticas y tu forma de atender, y deja registro de todo lo que hace.
+              </p>
+            </Reveal>
           </div>
-          <AgentDemo />
+          <Reveal delay={200} className="lg:col-span-6 lg:pl-6">
+            <AgentDemo />
+          </Reveal>
         </div>
-      </div>
+      </Section>
 
       {/* Procesos con IA */}
-      <div className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="max-w-3xl mb-10">
-          <h3 className="text-2xl md:text-3xl font-extrabold text-brand-slate leading-tight">
+      <Section marks={false} innerClassName="pb-24 md:pb-32">
+        <Reveal>
+          <h3 className="text-2xl md:text-3xl font-extrabold leading-tight text-ink mb-10">
             Procesos donde ya trabajan agentes que entrenamos
           </h3>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {AI_PROCESSES.map(({ icon: Icon, area, desc }) => (
-            <div
+        </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-line bg-surface">
+          {AI_PROCESSES.map(({ icon: Icon, area, desc }, idx) => (
+            <Reveal
               key={area}
-              className="rounded-2xl border border-slate-200 bg-slate-50 p-6 flex gap-5 hover:border-brand-orange/50 transition-colors"
+              delay={idx * 80}
+              className="p-8 border-r border-b border-line flex flex-col"
             >
-              <div className="w-11 h-11 rounded-xl bg-white border border-slate-200 text-brand-orange flex items-center justify-center flex-shrink-0">
-                <Icon className="w-5 h-5" />
+              <div className="flex items-center justify-between mb-8">
+                <Icon className="w-5 h-5 text-brand-orange" strokeWidth={1.75} />
+                <span className="font-mono text-[11px] text-muted">{String(idx + 1).padStart(2, '0')}</span>
               </div>
-              <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-1.5">
-                  {area}
-                </span>
-                <p className="text-slate-700 leading-relaxed">{desc}</p>
-              </div>
-            </div>
+              <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink block mb-3">
+                {area}
+              </span>
+              <p className="text-sm text-body leading-relaxed">{desc}</p>
+            </Reveal>
           ))}
         </div>
-      </div>
+      </Section>
 
-      {/* Cómo trabajan los agentes */}
-      <div className="bg-slate-50 border-t border-slate-200 py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-3xl mb-10">
-            <h3 className="text-2xl md:text-3xl font-extrabold text-brand-slate leading-tight">
-              Lo que distingue a un agente bien entrenado
-            </h3>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {AI_PRINCIPLES.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
-                <div className="w-12 h-12 rounded-2xl bg-orange-50 text-brand-orange flex items-center justify-center mb-6">
-                  <Icon className="w-6 h-6" />
-                </div>
-                <h4 className="text-lg font-bold text-brand-slate mb-2">{title}</h4>
-                <p className="text-slate-600 leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
+      {/* Principios */}
+      <Section dark innerClassName="py-24 md:py-32">
+        <Reveal>
+          <Eyebrow dark className="mb-6">Criterio</Eyebrow>
+          <h3 className="text-3xl md:text-5xl font-extrabold leading-[1.05] max-w-3xl mb-14">
+            Lo que distingue a un agente bien entrenado
+          </h3>
+        </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-white/10">
+          {AI_PRINCIPLES.map(({ title, desc }, idx) => (
+            <Reveal
+              key={title}
+              delay={idx * 100}
+              className={`pt-8 pb-10 md:pr-10 ${idx > 0 ? 'md:pl-10 md:border-l border-white/10' : ''} border-b md:border-b-0 border-white/10`}
+            >
+              <span className="font-display text-5xl font-extrabold text-white/10 leading-none block mb-8">
+                {String(idx + 1).padStart(2, '0')}
+              </span>
+              <h4 className="text-xl font-bold mb-3">{title}</h4>
+              <p className="text-white/65 leading-relaxed">{desc}</p>
+            </Reveal>
+          ))}
         </div>
-      </div>
-
-    </section>
+      </Section>
+    </>
   );
 }
