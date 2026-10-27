@@ -124,7 +124,7 @@ function AgentDemo() {
 
         <div
           ref={containerRef}
-          className="h-[380px] overflow-y-auto p-5 space-y-3 scroll-smooth bg-paper/60"
+          className="h-[380px] overflow-hidden md:overflow-y-auto p-5 space-y-3 scroll-smooth bg-paper/60"
           style={{ scrollbarWidth: 'none' }}
         >
           {messages.map((msg, idx) => {

@@ -151,7 +151,7 @@ export default function LSF_WhatsAppSimulator() {
       {/* Chat Container */}
       <div 
         ref={containerRef}
-        className="flex-1 p-4 overflow-y-auto space-y-4 scroll-smooth relative"
+        className="flex-1 p-4 overflow-hidden md:overflow-y-auto space-y-4 scroll-smooth relative"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {messages.map((msg, idx) => {

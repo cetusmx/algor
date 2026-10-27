@@ -13,7 +13,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`relative ${dark ? 'bg-ink text-white' : 'bg-paper text-ink'} ${grid ? (dark ? 'bg-grid-dark' : 'bg-grid') : ''} ${className}`}
+      className={`relative overflow-x-clip ${dark ? 'bg-ink text-white' : 'bg-paper text-ink'} ${grid ? (dark ? 'bg-grid-dark' : 'bg-grid') : ''} ${className}`}
     >
       <div className={`wrap relative ${innerClassName}`}>
         {marks && (

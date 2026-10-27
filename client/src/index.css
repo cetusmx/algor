@@ -30,9 +30,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
+    overflow-x: clip;
     font-family: var(--font-sans);
     background-color: var(--color-paper);
     color: var(--color-ink);
