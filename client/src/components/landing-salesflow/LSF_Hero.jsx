@@ -27,7 +27,7 @@ export default function LSF_Hero() {
               Un agente de inteligencia artificial atiende a tus clientes, encuentra el producto que buscan, arma el pedido y cotiza. Cuando toca cobrar, le entrega la conversación a tu vendedor con todo listo. Y tu coordinador lo ve todo en tiempo real.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mb-12">
-              <Link to="/contacto/agendar">
+              <Link to="/contacto/agendar?tema=salesflow">
                 <Button variant="accent" size="lg" arrow className="w-full sm:w-auto">
                   Agendar una demo
                 </Button>

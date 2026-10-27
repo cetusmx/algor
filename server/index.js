@@ -45,6 +45,17 @@ const db = new sqlite3.Database(dbPath, (err) => {
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
       )
     `);
+    // Migración: columnas de contexto para bases de datos ya existentes
+    db.all('PRAGMA table_info(bookings)', (pragmaErr, columns) => {
+      if (pragmaErr) return;
+      const names = (columns || []).map((c) => c.name);
+      if (!names.includes('context')) {
+        db.run("ALTER TABLE bookings ADD COLUMN context TEXT DEFAULT 'general'");
+      }
+      if (!names.includes('topic')) {
+        db.run("ALTER TABLE bookings ADD COLUMN topic TEXT DEFAULT ''");
+      }
+    });
     db.run(`
       CREATE TABLE IF NOT EXISTS settings (
         key TEXT PRIMARY KEY,
@@ -82,7 +93,8 @@ app.get('/api/bookings/busy', (req, res) => {
 
 // POST a new booking
 app.post('/api/bookings', (req, res) => {
-  const { name, email, company, whatsapp, date, timeSlot, notes } = req.body;
+  const { name, email, company, whatsapp, date, timeSlot, notes, context, topic } = req.body;
+  const bookingContext = context === 'salesflow' ? 'salesflow' : 'general';
 
   if (!name || !email || !whatsapp || !date || !timeSlot) {
     return res.status(400).json({ error: 'Faltan campos obligatorios' });
@@ -102,17 +114,18 @@ app.post('/api/bookings', (req, res) => {
       }
 
       const stmt = db.prepare(`
-        INSERT INTO bookings (name, email, company, whatsapp, booking_date, time_slot, notes, status)
-        VALUES (?, ?, ?, ?, ?, ?, ?, 'PENDING_CONFIRMATION')
+        INSERT INTO bookings (name, email, company, whatsapp, booking_date, time_slot, notes, context, topic, status)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'PENDING_CONFIRMATION')
       `);
 
-      stmt.run([name, email, company || '', whatsapp, date, timeSlot, notes || ''], function(insertErr) {
+      stmt.run([name, email, company || '', whatsapp, date, timeSlot, notes || '', bookingContext, topic || ''], function(insertErr) {
         if (insertErr) {
           console.error('Error creating booking:', insertErr.message);
           return res.status(500).json({ error: 'Error al registrar la cita' });
         }
 
-        console.log(`[NUEVA DEMO AGENDADA] ${name} (${company || 'Sin Empresa'}) - Fecha: ${date} @ ${timeSlot} - WA: ${whatsapp} - Correo: ${email}`);
+        const label = bookingContext === 'salesflow' ? 'DEMO SALESFLOW' : `LLAMADA PROCESOS${topic ? ' · ' + topic : ''}`;
+        console.log(`[NUEVA CITA · ${label}] ${name} (${company || 'Sin Empresa'}) - Fecha: ${date} @ ${timeSlot} - WA: ${whatsapp} - Correo: ${email}`);
 
         res.json({
           success: true,

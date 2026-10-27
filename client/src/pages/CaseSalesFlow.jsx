@@ -512,7 +512,7 @@ export default function CaseSalesFlow() {
                 Descubre cómo SalesFlow puede integrarse en tu operación crítica para erradicar puntos ciegos y maximizar tu productividad.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <Link to="/contacto/agendar" className="w-full sm:w-auto">
+                <Link to="/contacto/agendar?tema=salesflow" className="w-full sm:w-auto">
                   <Button variant="primary" className="px-8 py-4 w-full text-center text-lg bg-brand-orange text-white hover:bg-[#d95d18] border-none shadow-lg shadow-brand-orange/20">
                     Agendar demo
                   </Button>
@@ -695,7 +695,7 @@ export default function CaseSalesFlow() {
                 Descubre cómo SalesFlow puede integrarse en tu operación crítica para erradicar puntos ciegos y maximizar tu productividad.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <Link to="/contacto/agendar" className="w-full sm:w-auto">
+                <Link to="/contacto/agendar?tema=salesflow" className="w-full sm:w-auto">
                   <Button variant="primary" className="px-8 py-4 w-full text-center text-lg bg-brand-orange text-white hover:bg-[#d95d18] border-none shadow-lg shadow-brand-orange/20">
                     Agendar demo
                   </Button>
@@ -817,7 +817,7 @@ export default function CaseSalesFlow() {
                 Descubre cómo SalesFlow puede integrarse en tu operación crítica para erradicar puntos ciegos y maximizar tu productividad.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                <Link to="/contacto/agendar" className="w-full sm:w-auto">
+                <Link to="/contacto/agendar?tema=salesflow" className="w-full sm:w-auto">
                   <Button variant="primary" className="px-8 py-4 w-full text-center text-lg bg-brand-orange text-white hover:bg-[#d95d18] border-none shadow-lg shadow-brand-orange/20">
                     Agendar demo
                   </Button>

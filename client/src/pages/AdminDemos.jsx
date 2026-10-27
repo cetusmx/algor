@@ -480,6 +480,13 @@ export default function AdminDemos() {
                               {b.company}
                             </span>
                           )}
+                          <span className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-md border ${
+                            b.context === 'salesflow'
+                              ? 'bg-orange-500/10 text-orange-400 border-orange-500/30'
+                              : 'bg-sky-500/10 text-sky-400 border-sky-500/30'
+                          }`}>
+                            {b.context === 'salesflow' ? 'Demo SalesFlow' : `Procesos${b.topic ? ` · ${b.topic}` : ''}`}
+                          </span>
                           {getStatusBadge(b.status)}
                         </div>
 

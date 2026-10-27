@@ -15,7 +15,7 @@ const FOOTER_CTA = {
   eyebrow: 'Siguiente paso',
   title: 'Agenda una demo de 30 minutos y mira a SalesFlow trabajar con tu propio catálogo.',
   label: 'Agendar una demo',
-  to: '/contacto/agendar'
+  to: '/contacto/agendar?tema=salesflow'
 };
 
 export default function LandingSalesFlow() {

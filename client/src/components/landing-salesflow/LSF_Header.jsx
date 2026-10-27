@@ -73,7 +73,7 @@ export default function LSF_Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link to="/contacto/agendar" className="hidden md:block">
+          <Link to="/contacto/agendar?tema=salesflow" className="hidden md:block">
             <Button size="sm" variant={solid ? 'primary' : 'accent'}>Agendar demo</Button>
           </Link>
           <button
@@ -104,7 +104,7 @@ export default function LSF_Header() {
             ))}
           </nav>
           <div className="wrap mt-auto pb-10">
-            <Link to="/contacto/agendar" className="block">
+            <Link to="/contacto/agendar?tema=salesflow" className="block">
               <Button size="lg" className="w-full" arrow>
                 Agendar demo
               </Button>

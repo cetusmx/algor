@@ -215,7 +215,7 @@ export default function ProcessSection() {
               ¿Tienes un proceso que podría funcionar mejor?
             </h3>
             <p className="text-body text-lg leading-relaxed">
-              Platícanos cómo lo llevan hoy. En una llamada de 20 minutos te decimos cómo lo resolveríamos, en cuánto tiempo y con qué inversión aproximada.
+              Platícanos cómo lo llevan hoy. En una llamada de 30 minutos te decimos cómo lo resolveríamos, en cuánto tiempo y con qué inversión aproximada.
             </p>
           </div>
           <Link to="/contacto/agendar" className="flex-shrink-0">

@@ -120,7 +120,7 @@ export default function LSF_Pricing() {
               ))}
             </ul>
 
-            <Link to="/contacto/agendar" className="block">
+            <Link to="/contacto/agendar?tema=salesflow" className="block">
               <Button variant={p.featured ? 'accent' : 'outline-light'} className="w-full" arrow>
                 {p.cta}
               </Button>
@@ -136,7 +136,7 @@ export default function LSF_Pricing() {
             En una sesión de 30 minutos revisamos el volumen de tus conversaciones y la complejidad de tu catálogo, y te entregamos una propuesta concreta con el retorno proyectado. Sin compromiso.
           </p>
         </div>
-        <Link to="/contacto/agendar" className="flex-shrink-0">
+        <Link to="/contacto/agendar?tema=salesflow" className="flex-shrink-0">
           <Button variant="outline-light" size="lg" arrow className="w-full lg:w-auto">
             Agendar diagnóstico
           </Button>
