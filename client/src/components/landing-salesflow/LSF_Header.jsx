@@ -1,36 +1,120 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import Button from '../Button';
 
-export default function LSF_Header() {
+const NAV = [
+  { href: '#como-funciona', label: 'Cómo funciona' },
+  { href: '#vendedor', label: 'Para tu equipo' },
+  { href: '#precios', label: 'Planes' },
+  { href: '#preguntas', label: 'Preguntas' }
+];
+
+function SalesFlowBrand({ light = false }) {
   return (
-    <header className="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link to="/salesflow" className="flex items-center gap-3" aria-label="SalesFlow home">
-          <img src="/logoSalesFlow.svg" alt="SalesFlow Logo" className="h-12 md:h-16 w-auto" />
-          <span className="text-2xl md:text-3xl tracking-tight text-brand-slate">
-            <span className="font-medium">Sales</span>
-            <span className="font-black text-brand-orange">Flow</span>
-          </span>
-        </Link>
-        
-        <nav className="hidden md:flex items-center gap-8 font-medium text-brand-slate">
-          <a href="#como-trabaja" className="hover:text-brand-orange transition-colors">Cómo trabaja</a>
-          <a href="#precios" className="hover:text-brand-orange transition-colors">Precios</a>
-          <a href="#dudas" className="hover:text-brand-orange transition-colors">Dudas Frecuentes</a>
+    <span className="flex items-center gap-3">
+      <img src="/logoSalesFlow.svg" alt="" className="h-9 w-auto" />
+      <span className={`font-display text-xl tracking-tight ${light ? 'text-white' : 'text-ink'}`}>
+        <span className="font-medium">Sales</span>
+        <span className="font-extrabold text-brand-orange">Flow</span>
+      </span>
+    </span>
+  );
+}
+
+export default function LSF_Header() {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
+  const solid = scrolled || open;
+
+  return (
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        solid ? 'bg-paper/90 backdrop-blur-md border-b border-line' : 'bg-transparent border-b border-transparent'
+      }`}
+    >
+      <div className="h-[2px] w-full bg-brand-orange" aria-hidden="true" />
+      <div className="wrap h-[72px] flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <Link to="/salesflow" aria-label="SalesFlow, inicio">
+            <SalesFlowBrand light={!solid} />
+          </Link>
+          <Link
+            to="/"
+            className={`hidden lg:block font-mono text-[10px] uppercase tracking-[0.18em] border-l pl-4 leading-tight transition-colors ${
+              solid ? 'text-muted border-line hover:text-ink' : 'text-white/50 border-white/15 hover:text-white'
+            }`}
+          >
+            Un producto<br />de algor
+          </Link>
+        </div>
+
+        <nav className={`hidden md:flex items-center gap-9 text-[15px] font-medium ${solid ? 'text-ink' : 'text-white/85'}`}>
+          {NAV.map((item) => (
+            <a key={item.href} href={item.href} className="transition-colors hover:text-brand-orange">
+              {item.label}
+            </a>
+          ))}
         </nav>
 
-        <div className="flex items-center gap-4">
-          <Link to="/contacto/agendar">
-            <Button variant="primary-light" className="hidden md:inline-flex">
-              Agendar Demo
-            </Button>
+        <div className="flex items-center gap-3">
+          <Link to="/contacto/agendar" className="hidden md:block">
+            <Button size="sm" variant={solid ? 'primary' : 'accent'}>Agendar demo</Button>
           </Link>
-          <button className="md:hidden p-2 text-brand-slate" aria-label="Menu">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className={`md:hidden w-11 h-11 -mr-2 flex items-center justify-center ${solid ? 'text-ink' : 'text-white'}`}
+            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={open}
+          >
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
+
+      {open && (
+        <div className="md:hidden absolute top-full inset-x-0 h-[calc(100dvh-74px)] bg-paper border-t border-line flex flex-col overflow-y-auto">
+          <nav className="wrap flex flex-col divide-y divide-line">
+            {NAV.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="py-5 text-2xl font-display font-bold text-ink flex items-center justify-between"
+              >
+                {item.label}
+                <span className="font-mono text-xs text-muted">→</span>
+              </a>
+            ))}
+          </nav>
+          <div className="wrap mt-auto pb-10">
+            <Link to="/contacto/agendar" className="block">
+              <Button size="lg" className="w-full" arrow>
+                Agendar demo
+              </Button>
+            </Link>
+            <Link to="/" className="block font-mono text-[11px] uppercase tracking-[0.18em] text-muted mt-6">
+              ← Volver a algor
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

@@ -22,7 +22,15 @@ const COLUMNS = [
   }
 ];
 
-export default function GlobalFooter() {
+const DEFAULT_CTA = {
+  eyebrow: 'Siguiente paso',
+  title: 'Platícanos el proceso que hoy te quita tiempo. En una llamada te decimos cómo lo resolveríamos.',
+  label: 'Agendar una llamada',
+  to: '/contacto/agendar'
+};
+
+export default function GlobalFooter({ cta: ctaProp }) {
+  const cta = { ...DEFAULT_CTA, ...ctaProp };
   return (
     <footer className="bg-ink text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-dark mask-fade-b opacity-60 pointer-events-none" aria-hidden="true" />
@@ -32,16 +40,16 @@ export default function GlobalFooter() {
         <div className="py-20 md:py-28 border-b border-white/10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-8">
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/50 mb-6">
-              Siguiente paso
+              {cta.eyebrow}
             </p>
             <h2 className="text-3xl md:text-5xl font-extrabold leading-[1.05] max-w-3xl">
-              Platícanos el proceso que hoy te quita tiempo. En una llamada te decimos cómo lo resolveríamos.
+              {cta.title}
             </h2>
           </div>
           <div className="lg:col-span-4 lg:justify-self-end">
-            <Link to="/contacto/agendar">
+            <Link to={cta.to}>
               <Button variant="accent" size="lg" arrow>
-                Agendar una llamada
+                {cta.label}
               </Button>
             </Link>
           </div>

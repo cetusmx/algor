@@ -1,72 +1,113 @@
 import React from 'react';
+import { EyeOff, Lock, Paperclip } from 'lucide-react';
+import Section from '../ui/Section';
+import Eyebrow from '../ui/Eyebrow';
+import Reveal from '../ui/Reveal';
+
+const THREAD = [
+  { kind: 'client', text: 'Si me llevo 20 piezas, ¿me pueden mejorar el precio?' },
+  { kind: 'whisper', who: 'Luis (vendedor) → @Rocío', text: 'Pide descuento por volumen, 20 pzas del PTB 50x60. ¿Puedo ofrecer 8%?' },
+  { kind: 'whisper', who: 'Rocío (coordinadora)', text: 'Autorizado hasta 10% si confirma hoy. Te adjunto la ficha por si pregunta por el material.', file: 'Ficha técnica · PTB-SKF.pdf' },
+  { kind: 'vendor', text: 'Con gusto. Por 20 piezas te puedo dejar el precio con un 10% de descuento si confirmamos hoy. ¿Te envío la cotización actualizada?' },
+  { kind: 'client', text: 'Perfecto, mándamela.' }
+];
+
+function WhisperThread() {
+  return (
+    <div className="relative">
+      <div className="absolute -inset-px rounded-lg bg-gradient-to-b from-white/10 to-transparent pointer-events-none" aria-hidden="true" />
+      <div className="relative bg-ink-2 border border-white/10 rounded-lg shadow-[var(--shadow-panel-dark)] overflow-hidden text-[13px]">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+          <div>
+            <p className="font-semibold text-white text-xs">Refacciones del Norte</p>
+            <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-white/40">Atiende Luis Martínez · Rocío Peña observando</p>
+          </div>
+          <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-white/50 flex items-center gap-1.5">
+            <EyeOff className="w-3 h-3 text-brand-orange" /> Notas internas activas
+          </span>
+        </div>
+
+        <div className="p-4 space-y-3">
+          {THREAD.map((m, idx) => {
+            if (m.kind === 'whisper') {
+              return (
+                <div key={idx} className="flex justify-end">
+                  <div className="max-w-[88%] rounded-md border border-dashed border-brand-orange/60 bg-brand-orange/[0.07] px-3 py-2.5">
+                    <div className="flex items-center justify-between gap-4 mb-1">
+                      <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-brand-orange flex items-center gap-1.5">
+                        <Lock className="w-3 h-3" /> Nota interna
+                      </span>
+                      <span className="font-mono text-[9px] text-white/40">{m.who}</span>
+                    </div>
+                    <p className="text-white/85 leading-relaxed">{m.text}</p>
+                    {m.file && (
+                      <div className="mt-2 inline-flex items-center gap-2 rounded-sm bg-white/5 border border-white/10 px-2 py-1 text-[11px] text-white/70">
+                        <Paperclip className="w-3 h-3" /> {m.file}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            }
+            const isVendor = m.kind === 'vendor';
+            return (
+              <div key={idx} className={`flex ${isVendor ? 'justify-end' : 'justify-start'}`}>
+                <div className={`max-w-[80%] rounded-md px-3 py-2 leading-relaxed ${isVendor ? 'bg-white text-ink' : 'bg-white/10 text-white'}`}>
+                  {m.text}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="px-4 py-3 border-t border-white/10 flex items-center gap-2">
+          <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-white/50 border border-white/15 px-2 py-1 rounded-sm">Cliente</span>
+          <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-brand-orange border border-brand-orange/50 bg-brand-orange/10 px-2 py-1 rounded-sm flex items-center gap-1"><Lock className="w-3 h-3" /> Interno</span>
+          <div className="flex-1 border border-white/10 rounded-md px-3 py-1.5 text-white/40 text-xs">Escribe una nota para tu equipo…</div>
+        </div>
+      </div>
+
+      <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-white/40 flex items-center gap-2">
+        <EyeOff className="w-3.5 h-3.5 text-brand-orange" />
+        Lo marcado en naranja nunca llega al WhatsApp del cliente
+      </p>
+    </div>
+  );
+}
 
 export default function LSF_Susurro() {
   return (
-    <section className="bg-slate-50 text-slate-900 py-24 px-6 border-t border-slate-200 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto relative z-10">
-        
-        {/* Header Section */}
-        <div className="text-center mb-16 max-w-4xl mx-auto">
-          <span className="text-brand-orange font-bold tracking-widest uppercase text-xs mb-4 block border border-brand-orange/30 px-3 py-1 rounded-full inline-block bg-brand-orange/10">
-            Comunicación Interna
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 tracking-tight text-brand-slate">
-            El "Susurro": Colaboración Oculta en Tiempo Real
-          </h2>
-          <p className="text-slate-600 text-lg md:text-xl font-light leading-relaxed">
-            Un <strong className="font-semibold text-brand-orange">subcanal privado</strong> incrustado en la misma conversación. Permite a coordinadores guiar al vendedor, autorizar descuentos o compartir archivos técnicos sin ensuciar la comunicación externa.
-          </p>
-        </div>
-
-        {/* Content Layout */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          
-          {/* Left Side: Features/Points */}
-          <div className="lg:w-1/2 w-full flex flex-col gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-md transition-shadow">
-              <div className="absolute top-0 left-0 w-1 h-full bg-indigo-500" />
-              <h3 className="text-xl font-bold mb-3 text-brand-slate flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
-                </span>
-                Capa de Supervisión Privada
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                <strong>Vendedor / Coordinador:</strong> Solicita ayuda técnica o aprobación en el mismo chat. Todo queda registrado internamente como notas ocultas, manteniendo el historial del equipo en un solo lugar.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-md transition-shadow">
-              <div className="absolute top-0 left-0 w-1 h-full bg-emerald-500" />
-              <h3 className="text-xl font-bold mb-3 text-brand-slate flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </span>
-                Conversación Pública
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                <strong>Cliente Final:</strong> Solo ve la atención impecable en WhatsApp. Nunca nota la coordinación tras bambalinas, manteniendo la percepción de un servicio perfecto, unificado y sin fricciones.
-              </p>
-            </div>
-          </div>
-
-          {/* Right Side: Image Placeholder & Caption */}
-          <div className="lg:w-1/2 w-full flex flex-col gap-6">
-            <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-xl relative group bg-white">
-              <img 
-                src="/images/susurro.png" 
-                alt="Demostración de la función Susurro" 
-                className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-[1.02]" 
-              />
-            </div>
-            
-            <p className="text-slate-600 text-center text-sm md:text-base leading-relaxed px-4">
-              Los coordinadores pueden asesorar al vendedor en vivo, o los vendedores pueden dejarse notas y archivos técnicos (fichas técnicas) en el mismo hilo del chat. Todo esto es 100% invisible para el cliente final.
+    <Section id="susurro" dark grid innerClassName="py-24 md:py-32">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-12 items-center">
+        <div className="lg:col-span-5">
+          <Reveal>
+            <Eyebrow dark index="04" className="mb-8">Función estrella · El Susurro</Eyebrow>
+            <h2 className="text-4xl md:text-5xl font-extrabold leading-[1.02] mb-6">
+              Tu coordinador, dentro de la misma conversación. Invisible para el cliente.
+            </h2>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="text-lg text-white/65 leading-relaxed mb-8">
+              Cuando un vendedor se topa con un cliente difícil o necesita autorizar un descuento, no tiene que salir del chat ni abrir otro canal. Etiqueta a su coordinador y escribe una nota interna en el mismo hilo. El coordinador responde ahí mismo, con instrucciones o archivos.
             </p>
-          </div>
-
+            <ul className="space-y-4 border-t border-white/10 pt-6">
+              {[
+                'Asistencia en tiempo real sin cambiar de pantalla.',
+                'Autorizaciones, fichas técnicas y notas quedan registradas con la conversación.',
+                'El cliente solo ve una atención fluida y sin pausas.'
+              ].map((t, idx) => (
+                <li key={t} className="flex items-start gap-4">
+                  <span className="font-mono text-[11px] text-brand-orange pt-1">{String(idx + 1).padStart(2, '0')}</span>
+                  <span className="text-white/85 leading-snug">{t}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
+        <Reveal delay={200} className="lg:col-span-7">
+          <WhisperThread />
+        </Reveal>
       </div>
-    </section>
+    </Section>
   );
 }
