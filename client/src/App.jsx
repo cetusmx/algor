@@ -14,10 +14,12 @@ import Terms from './pages/Terms';
 import AdminDemos from './pages/AdminDemos';
 
 import LogoProposals from './pages/LogoProposals';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home2 />} />
         <Route path="/inicio2" element={<Home2 />} />
