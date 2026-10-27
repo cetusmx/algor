@@ -2,13 +2,18 @@ import React from 'react';
 import GlobalHeader from '../components/GlobalHeader';
 import GlobalFooter from '../components/GlobalFooter';
 import ServicePillarCard from '../components/ServicePillarCard';
-import { MonitorSmartphone, Server, Wrench, Lightbulb } from 'lucide-react';
+import { MonitorSmartphone, Sparkles, Server, Wrench, Lightbulb } from 'lucide-react';
 
 const SERVICES = [
   {
     icon: MonitorSmartphone,
     title: 'Software a la medida',
     description: 'Desarrollo web, aplicaciones móviles y arquitecturas cloud escalables diseñadas para resolver tus cuellos de botella operativos.'
+  },
+  {
+    icon: Sparkles,
+    title: 'Inteligencia artificial aplicada',
+    description: 'Agentes entrenados con la información de tu empresa para atención a clientes, cotizaciones, búsqueda de productos y decisiones de compra, integrados a tus procesos y sistemas.'
   },
   {
     icon: Server,
@@ -46,7 +51,7 @@ export default function Services() {
 
         {/* Pillars Grid */}
         <section className="max-w-7xl mx-auto px-6 pb-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES.map((svc, i) => (
               <ServicePillarCard 
                 key={i}
