@@ -53,6 +53,10 @@ const SOLVED_PROCESSES = [
     desc: 'Recepción de mercancía con lector de códigos y actualización inmediata de existencias.'
   },
   {
+    area: 'Inventarios',
+    desc: 'Suite para inventarios cíclicos y generales: conteo con terminales Zebra y plataforma web para gestionar mermas y ajustes, con el balance en tiempo real para decidir en el momento.'
+  },
+  {
     area: 'Compras',
     desc: 'Órdenes de compra generadas directamente desde la factura XML del proveedor.'
   },

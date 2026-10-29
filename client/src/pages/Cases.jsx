@@ -60,6 +60,16 @@ const CASES = [
       'La captura ocurre una sola vez, en el piso del almacén. Las existencias que consulta ventas son las reales y las diferencias se detectan al instante, no en el inventario de fin de mes.'
   },
   {
+    area: 'Almacén · Inventarios',
+    title: 'Suite para inventarios cíclicos y generales',
+    situation:
+      'Los inventarios cíclicos y los generales se levantaban en hojas impresas y se capturaban después. Cuadrar las diferencias tomaba días y, para cuando la dirección conocía el resultado, ya no había manera de actuar sobre él.',
+    built:
+      'Una suite de dos piezas. Una aplicación móvil para terminales Zebra con la que el personal cuenta leyendo códigos de barras, y una plataforma web desde la que el almacén gestiona los movimientos resultantes, mermas y ajustes. La misma plataforma muestra indicadores en tiempo real conforme avanza el conteo, incluido el balance de ajustes menos mermas.',
+    changed:
+      'El inventario se cuadra durante el conteo, no días después. La dirección ve el balance al momento y decide con información del día, y cada merma y cada ajuste quedan registrados con su responsable.'
+  },
+  {
     area: 'Compras',
     title: 'Órdenes de compra generadas desde la factura XML del proveedor',
     situation:
@@ -144,7 +154,7 @@ export default function Cases() {
               </div>
               <div className="lg:col-span-4">
                 <p className="text-lg text-body leading-relaxed">
-                  Once casos contados completos: la situación que encontramos, lo que construimos y lo que cambió. Sin páginas aparte.
+                  Doce casos contados completos: la situación que encontramos, lo que construimos y lo que cambió. Sin páginas aparte.
                 </p>
               </div>
             </div>
