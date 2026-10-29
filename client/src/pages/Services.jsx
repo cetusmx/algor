@@ -20,8 +20,8 @@ const SERVICES = [
       'Reportes y tableros que se actualizan solos, sin capturas adicionales.'
     ],
     example: {
-      text: 'Vales de entrega con código QR que el mensajero valida al momento y que registran todo su ciclo, desde que se emiten hasta que se aplican.',
-      link: null
+      text: 'Suite para inventarios cíclicos y generales: aplicación móvil en terminales Zebra para contar con códigos de barras y plataforma web para gestionar mermas y ajustes, con el balance en tiempo real para decidir en el momento.',
+      link: { to: '/casos-de-uso', label: 'Ver casos de estudio' }
     }
   },
   {
