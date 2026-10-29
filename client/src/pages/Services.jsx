@@ -21,7 +21,7 @@ const SERVICES = [
     ],
     example: {
       text: 'Vales de entrega con código QR que el mensajero valida al momento y que registran todo su ciclo, desde que se emiten hasta que se aplican.',
-      link: { to: '/#procesos', label: 'Ver más procesos resueltos' }
+      link: null
     }
   },
   {
@@ -46,7 +46,7 @@ const SERVICES = [
     solve:
       'La doble captura y la información desincronizada entre lo que ocurre en la operación y lo que registra el sistema administrativo.',
     deliver: [
-      'Conexión con Aspel, SAP y bases de datos propias, en los dos sentidos.',
+      'Conexión en los dos sentidos con los sistemas administrativos y ERP más usados en México, y con bases de datos propias.',
       'Lectura y generación de documentos fiscales: facturas XML del SAT, constancias de situación fiscal.',
       'Integración con lectores de códigos, impresoras de etiquetas, WhatsApp y correo.',
       'Validaciones para que nada se duplique ni se pierda en el camino.'
@@ -68,7 +68,7 @@ const SERVICES = [
       'Documentación para que el conocimiento deje de vivir en una sola cabeza.'
     ],
     example: {
-      text: 'Extracción en tiempo real de datos de Aspel hacia herramientas modernas, sin interrumpir el sistema que la empresa sigue usando.',
+      text: 'Capa de integración en tiempo real sobre un ERP comercial, para alimentar herramientas modernas sin interrumpir el sistema que la empresa sigue usando.',
       link: { to: '/casos-de-uso', label: 'Ver casos de estudio' }
     }
   },
@@ -84,7 +84,7 @@ const SERVICES = [
       'Entornos de prueba separados de producción para cambiar sin riesgo.'
     ],
     example: {
-      text: 'Reducción del 40% en costos de infraestructura en AWS reorganizando servicios mal dimensionados.',
+      text: 'Optimización de costos de infraestructura en la nube redimensionando servicios y automatizando los despliegues.',
       link: { to: '/casos-de-uso', label: 'Ver casos de estudio' }
     }
   },
@@ -114,7 +114,7 @@ const METHOD = [
 const FAQS = [
   {
     q: '¿Trabajan con el sistema administrativo que ya tenemos?',
-    a: 'Sí. No pedimos que lo cambies. Construimos alrededor de él y lo conectamos para que la información se capture una sola vez. Tenemos experiencia con Aspel, SAP y bases de datos propias, y cuando el sistema no tiene una vía de integración directa buscamos una que funcione.'
+    a: 'Sí. No pedimos que lo cambies. Construimos alrededor de él y lo conectamos para que la información se capture una sola vez. Tenemos experiencia con los sistemas administrativos y ERP más comunes en México y con bases de datos propias, y cuando el sistema no tiene una vía de integración directa buscamos una que funcione.'
   },
   {
     q: '¿De quién es el código y la información?',

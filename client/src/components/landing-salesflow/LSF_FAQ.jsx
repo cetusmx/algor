@@ -27,7 +27,7 @@ const FAQS = [
   },
   {
     q: '¿Se conecta con mi sistema administrativo?',
-    a: 'En el Plan Industrial integramos SalesFlow con tu ERP, ya sea Aspel, SAP o una base de datos propia, para que existencias, precios y clientes estén sincronizados.'
+    a: 'En el Plan Industrial integramos SalesFlow con tu ERP o sistema administrativo, o con una base de datos propia, para que existencias, precios y clientes estén sincronizados.'
   }
 ];
 

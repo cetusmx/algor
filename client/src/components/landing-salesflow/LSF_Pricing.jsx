@@ -57,7 +57,7 @@ const PLANS = [
     note: 'Diseñado según los requerimientos de tu empresa.',
     features: [
       'Asesores y sucursales sin límite',
-      'Integración con ERP: Aspel, SAP o bases de datos propias',
+      'Integración con tu ERP o sistema administrativo, o con bases de datos propias',
       'Entrenamiento de la IA con manuales técnicos y fichas de ingeniería',
       'Servidor dedicado o despliegue en nube privada',
       'SLA contractual y soporte técnico 24/7'
