@@ -30,6 +30,16 @@ const CASES = [
       'Se eliminaron el formato impreso y la doble captura. Recursos humanos y el área de servicio consultan en tiempo real quién está en campo y el historial completo por técnico.'
   },
   {
+    area: 'Dirección tecnológica · CTO como servicio',
+    title: 'Fundación del área de TI de una pyme con un CTO como servicio',
+    situation:
+      'Una empresa mediana había crecido sin área de sistemas. Los equipos se compraban según la urgencia, nadie sabía cuántas licencias estaban en uso ni cuáles vencían, y el soporte a los usuarios recaía en quien tuviera más paciencia ese día. Contratar un director de TI de tiempo completo no tenía sentido para su tamaño.',
+    built:
+      'Asumimos la dirección tecnológica por horas y fundamos el área desde cero, tomando de ITIL solo lo que la empresa necesitaba: una mesa de soporte interno con registro y seguimiento de cada solicitud, gestión de licenciamiento con responsables y vencimientos, inventario de activos de hardware y software, y políticas básicas de accesos, respaldos y altas y bajas de personal. Pequeño, documentado y con bases para crecer.',
+    changed:
+      'La empresa tiene criterio técnico en las decisiones sin cargar el sueldo de un director de tiempo completo: paga por las horas que necesita, el conocimiento queda documentado en la empresa y no en una persona, y el área puede escalar o internalizarse cuando el volumen lo justifique. Los usuarios saben a dónde acudir y la dirección sabe qué tiene, qué paga y qué sigue.'
+  },
+  {
     area: 'Tecnología',
     title: 'Control de activos de TI',
     situation:
@@ -134,7 +144,7 @@ export default function Cases() {
               </div>
               <div className="lg:col-span-4">
                 <p className="text-lg text-body leading-relaxed">
-                  Diez casos contados completos: la situación que encontramos, lo que construimos y lo que cambió. Sin páginas aparte.
+                  Once casos contados completos: la situación que encontramos, lo que construimos y lo que cambió. Sin páginas aparte.
                 </p>
               </div>
             </div>
