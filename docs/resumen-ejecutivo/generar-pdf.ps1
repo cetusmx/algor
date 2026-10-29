@@ -20,4 +20,10 @@ Remove-Item $pdf -ErrorAction SilentlyContinue
 $deadline = (Get-Date).AddSeconds(30)
 while (-not (Test-Path $pdf) -and (Get-Date) -lt $deadline) { Start-Sleep -Milliseconds 500 }
 
-if (Test-Path $pdf) { Write-Host "PDF generado: $pdf" } else { Write-Error 'No se generó el PDF.' }
+if (-not (Test-Path $pdf)) { Write-Error 'No se generó el PDF.'; exit 1 }
+Write-Host "PDF generado: $pdf"
+
+# Copia publicada en el sitio (liga no enlazada): /docs/algor-resumen-ejecutivo-2026-10.pdf
+$public = Join-Path $here '..\..\client\public\docs\algor-resumen-ejecutivo-2026-10.pdf'
+Copy-Item $pdf $public -Force
+Write-Host "Copiado a: $public"

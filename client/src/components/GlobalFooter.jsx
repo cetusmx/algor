@@ -91,7 +91,6 @@ export default function GlobalFooter({ cta: ctaProp }) {
                   contacto@algor.mx
                 </a>
               </li>
-              <li className="text-white/80">+52 (55) 1234 5678</li>
             </ul>
           </div>
         </div>
