@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>algor · Resumen ejecutivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #0A0E17;
+    --ink-2: #121826;
+    --paper: #F6F6F3;
+    --line: #E2E2DC;
+    --line-dark: rgba(255,255,255,0.14);
+    --body: #3C4250;
+    --muted: #6E7482;
+    --orange: #FF5100;
+    --orange-tint: #FFF1E9;
+    --sans: "Inter", system-ui, sans-serif;
+    --display: "Manrope", "Inter", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  @page { size: letter; margin: 0; }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: #999;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+  h1, h2, h3, h4 { font-family: var(--display); letter-spacing: -0.02em; margin: 0; line-height: 1.05; }
+  p { margin: 0; }
+  ul, ol { margin: 0; padding: 0; list-style: none; }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    background: #fff;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    padding: 0.7in 0.75in 0.75in;
+    display: flex;
+    flex-direction: column;
+    page-break-after: always;
+    break-after: page;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+  @media screen { .page { margin: 24px auto; box-shadow: 0 20px 60px rgba(0,0,0,0.25); } }
+  .page.dark { background: var(--ink); color: #fff; }
+  .page::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--orange); }
+
+  .grid-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(to right, var(--line) 1px, transparent 1px), linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: 0.5in 0.5in;
+    -webkit-mask-image: radial-gradient(ellipse at top left, black 20%, transparent 70%);
+    mask-image: radial-gradient(ellipse at top left, black 20%, transparent 70%);
+    opacity: 0.8;
+  }
+  .page.dark .grid-bg {
+    background-image: linear-gradient(to right, rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.07) 1px, transparent 1px);
+  }
+
+  /* Cabecera y pie de página interiores */
+  .running { position: relative; display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 7.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); padding-bottom: 10px; border-bottom: 1px solid var(--line); margin-bottom: 0.38in; }
+  .page.dark .running { color: rgba(255,255,255,0.5); border-color: var(--line-dark); }
+  .running .n { color: var(--orange); }
+  .footer { position: relative; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font-family: var(--mono); font-size: 7pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .page.dark .footer { border-color: var(--line-dark); color: rgba(255,255,255,0.45); }
+
+  .eyebrow { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 7.5pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+  .eyebrow::before { content: ""; width: 7px; height: 7px; background: var(--orange); }
+  .page.dark .eyebrow { color: rgba(255,255,255,0.6); }
+  .eyebrow .idx { color: var(--orange); }
+
+  .title { font-size: 26pt; font-weight: 800; margin: 14px 0 12px; max-width: 6.4in; }
+  .lead { font-size: 11.5pt; color: var(--body); max-width: 5.9in; line-height: 1.55; }
+  .page.dark .lead { color: rgba(255,255,255,0.7); }
+
+  .label { font-family: var(--mono); font-size: 7.5pt; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+  .page.dark .label { color: rgba(255,255,255,0.5); }
+  .num { font-family: var(--mono); font-size: 7.5pt; color: var(--orange); }
+
+  .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.3in 0.4in; }
+  .cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.3in 0.3in; }
+
+  .rule-list > li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  .rule-list { border-top: 1px solid var(--line); }
+  .page.dark .rule-list, .page.dark .rule-list > li { border-color: var(--line-dark); }
+
+  .block h3 { font-size: 12.5pt; font-weight: 700; margin: 8px 0 6px; }
+  .block p { color: var(--body); font-size: 9.5pt; }
+  .page.dark .block p { color: rgba(255,255,255,0.7); }
+
+  .box { border: 1px solid var(--line); padding: 14px 16px; }
+  .box.tint { background: var(--orange-tint); border-color: rgba(255,81,0,0.25); }
+  .page.dark .box { border-color: var(--line-dark); background: rgba(255,255,255,0.03); }
+
+  .big-num { font-family: var(--display); font-size: 30pt; font-weight: 800; color: rgba(10,14,23,0.1); line-height: 1; }
+  .page.dark .big-num { color: rgba(255,255,255,0.12); }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 6px 18px; font-family: var(--mono); font-size: 8pt; color: var(--body); }
+  .chip-row li { display: flex; align-items: center; gap: 7px; }
+  .chip-row li::before { content: ""; width: 4px; height: 4px; background: var(--orange); }
+  .page.dark .chip-row { color: rgba(255,255,255,0.75); }
+
+  .logo { display: flex; align-items: center; gap: 10px; }
+  .logo svg { height: 34px; width: auto; }
+
+  /* Portada */
+  .cover { justify-content: flex-start; padding-top: 0.9in; }
+  .cover .middle { margin: auto 0; }
+  .cover .footer { margin-top: 0; }
+  .cover .logo svg { height: 48px; }
+  .cover h1 { font-size: 40pt; font-weight: 800; max-width: 6.6in; margin-top: 18px; }
+  .cover .lead { font-size: 13pt; max-width: 5.8in; margin-top: 18px; }
+  .cover .meta { display: grid; grid-template-columns: 1.4in 1fr; gap: 8px 16px; font-size: 9.5pt; margin-top: 0.4in; padding-top: 16px; border-top: 1px solid var(--line-dark); }
+  .cover .meta dt { font-family: var(--mono); font-size: 7.5pt; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); padding-top: 3px; }
+  .cover .meta dd { margin: 0; color: #fff; }
+
+  /* Servicios */
+  .svc { padding: 12px 0 14px; border-bottom: 1px solid var(--line); }
+  .svc .top { display: flex; align-items: baseline; gap: 10px; }
+  .svc h3 { font-size: 12pt; font-weight: 700; }
+  .svc .solve { color: var(--body); font-size: 9.2pt; margin: 5px 0 7px; }
+  .svc ul li { font-size: 8.8pt; color: var(--ink); padding: 2px 0 2px 12px; position: relative; }
+  .svc ul li::before { content: ""; position: absolute; left: 0; top: 9px; width: 4px; height: 4px; background: var(--orange); }
+
+  /* Casos */
+  .case { padding: 9px 0 10px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 2.1in 1fr; gap: 14px; }
+  .case h3 { font-size: 10.5pt; font-weight: 700; margin-top: 3px; }
+  .case .area { display: block; margin-bottom: 2px; }
+  .case p { font-size: 8.8pt; color: var(--body); }
+  .case p strong { color: var(--ink); font-weight: 600; }
+
+  /* Pasos */
+  .steps { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--line); }
+  .steps li { padding: 14px 12px 14px 0; border-right: 1px solid var(--line); margin-right: 12px; }
+  .steps li:last-child { border-right: 0; margin-right: 0; }
+  .steps h4 { font-size: 10pt; font-weight: 700; margin: 10px 0 5px; }
+  .steps p { font-size: 8.5pt; color: var(--body); }
+
+  /* Planes */
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line-dark); }
+  .plans > div { padding: 14px; border-right: 1px solid var(--line-dark); }
+  .plans > div:last-child { border-right: 0; }
+  .plans h4 { font-size: 11pt; font-weight: 700; margin: 6px 0 4px; }
+  .plans p { font-size: 8.6pt; color: rgba(255,255,255,0.7); }
+  .plans .featured { background: #fff; color: var(--ink); position: relative; }
+  .plans .featured::before { content: ""; position: absolute; top: -1px; left: -1px; right: -1px; height: 3px; background: var(--orange); }
+  .plans .featured p { color: var(--body); }
+  .plans .featured .label { color: var(--muted); }
+
+  .faq dt { font-weight: 700; font-size: 10pt; margin-top: 10px; }
+  .faq dd { margin: 3px 0 0; color: var(--body); font-size: 9.2pt; }
+
+  .cta { font-size: 28pt; font-weight: 800; max-width: 6.4in; }
+</style>
+</head>
+<body>
+
+<!-- ======================= PORTADA ======================= -->
+<section class="page dark cover">
+  <div class="grid-bg"></div>
+  <div style="position:relative">
+    <div class="logo">
+      <svg viewBox="10 10 170 40" xmlns="http://www.w3.org/2000/svg" aria-label="algor">
+        <polygon points="12,48 30,12 42,12 24,48" fill="#fff"/>
+        <polygon points="38,12 50,12 68,48 56,48" fill="#FF5100"/>
+        <text x="80" y="42" font-family="Inter, sans-serif" font-weight="800" font-size="34" letter-spacing="-1.5" fill="#fff">algor</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="middle" style="position:relative">
+    <div class="eyebrow">Resumen ejecutivo · Software a la medida e inteligencia artificial</div>
+    <h1>Software hecho a la forma en que trabaja tu empresa.</h1>
+    <p class="lead">Desarrollamos herramientas a la medida y agentes de inteligencia artificial para los procesos que tu sistema actual no cubre, desde el almacén hasta la dirección. Conectados a lo que ya usas y listos en semanas.</p>
+
+    <dl class="meta">
+      <dt>Empresa</dt><dd>algor · Ingeniería de software · México</dd>
+      <dt>Contacto</dt><dd>contacto@algor.mx · algor.mx</dd>
+      <dt>Edición</dt><dd>Octubre de 2026</dd>
+    </dl>
+  </div>
+
+  <div class="footer">
+    <span>algor.mx</span>
+    <span>contacto@algor.mx</span>
+  </div>
+</section>
+
+<!-- ======================= 01 QUÉ HACEMOS ======================= -->
+<section class="page">
+  <div class="running"><span><span class="n">01</span>&nbsp;&nbsp;Qué hacemos</span><span>algor</span></div>
+
+  <div class="eyebrow"><span class="idx">01</span> Qué hacemos</div>
+  <h2 class="title">Hay procesos que solo existen en tu empresa. Nosotros construimos el software que los hace funcionar.</h2>
+  <p class="lead">Con el tiempo, toda empresa va definiendo su propia manera de trabajar. Aparecen controles, autorizaciones, registros y acuerdos con clientes que no vienen en ningún sistema comercial, porque nacieron de tu experiencia y no de la de un proveedor. Desarrollamos la herramienta de software que cada uno de esos procesos necesita, y cuando se trata de los procesos administrativos de siempre, también entramos ahí si el sistema que ya tienes se queda corto.</p>
+
+  <div class="cols-2" style="margin-top:0.38in">
+    <div>
+      <p class="label" style="margin-bottom:8px">Mientras tanto, la operación no se detiene</p>
+      <p style="font-size:9.5pt;color:var(--body);margin-bottom:10px">Cuando un proceso no tiene herramienta, la gente lo resuelve con lo que tiene a la mano. Funciona, hasta que el volumen crece, llega una auditoría o la persona que lo controlaba cambia de puesto.</p>
+      <ul class="rule-list">
+        <li><span class="num">01</span><div><strong>Hojas de cálculo compartidas.</strong> <span style="color:var(--body)">Cada quien termina con su versión y nadie está seguro de cuál es la buena.</span></div></li>
+        <li><span class="num">02</span><div><strong>Formatos impresos y bitácoras.</strong> <span style="color:var(--body)">Alguien tiene que capturarlos después, y ahí se pierde tiempo y se cuelan errores.</span></div></li>
+        <li><span class="num">03</span><div><strong>Cadenas de mensajes.</strong> <span style="color:var(--body)">Las autorizaciones quedan enterradas en una conversación que nadie vuelve a leer.</span></div></li>
+        <li><span class="num">04</span><div><strong>Aplicaciones en plataformas genéricas.</strong> <span style="color:var(--body)">Pensadas para pruebas o uso educativo; en la operación diaria se vuelven lentas, fallan y no permiten crecer.</span></div></li>
+      </ul>
+    </div>
+    <div>
+      <p class="label" style="margin-bottom:8px">Partimos del proceso, no de un software</p>
+      <ul class="rule-list">
+        <li><span class="num">01</span><div><strong>Lo conocemos con quien lo opera.</strong> <span style="color:var(--body)">Nos sentamos con las personas que lo llevan día a día para entender cómo funciona en la práctica.</span></div></li>
+        <li><span class="num">02</span><div><strong>Construimos lo necesario.</strong> <span style="color:var(--body)">Una herramienta ligera y clara para quien la usa, sin pantallas ni funciones que nadie pidió.</span></div></li>
+        <li><span class="num">03</span><div><strong>La conectamos con lo que ya usas.</strong> <span style="color:var(--body)">Tu sistema administrativo, el correo, WhatsApp, lectores de código, impresoras de etiquetas o cualquier otra fuente con la que el proceso tenga que hablar.</span></div></li>
+      </ul>
+      <div class="box tint" style="margin-top:14px">
+        <p class="label" style="color:var(--orange);margin-bottom:4px">Áreas donde ya operan nuestras herramientas</p>
+        <ul class="chip-row">
+          <li>Recursos humanos</li><li>Entregas</li><li>Tecnología</li><li>Almacén</li><li>Compras</li><li>Ventas</li><li>Dirección</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer"><span>algor · Resumen ejecutivo</span><span>01</span></div>
+</section>
+
+<!-- ======================= 02 SERVICIOS ======================= -->
+<section class="page">
+  <div class="running"><span><span class="n">02</span>&nbsp;&nbsp;Servicios</span><span>algor</span></div>
+
+  <div class="eyebrow"><span class="idx">02</span> Servicios</div>
+  <h2 class="title" style="font-size:22pt">Construimos, conectamos y mantenemos el software que tu empresa necesita.</h2>
+  <p class="lead" style="font-size:10pt;margin-bottom:6px">Seis servicios que se combinan según el problema. Casi siempre empezamos por un proceso concreto y, a partir de ahí, se ve qué más hace falta.</p>
+
+  <div class="cols-2" style="gap:0 0.4in">
+    <div>
+      <div class="svc">
+        <div class="top"><span class="num">01</span><h3>Software a la medida para procesos</h3></div>
+        <p class="solve">Para los procesos que tu sistema no cubre y que hoy viven en hojas de cálculo, papel, mensajes o aplicaciones genéricas.</p>
+        <ul>
+          <li>Aplicaciones web y móviles ligeras, pensadas para quien las usa todos los días.</li>
+          <li>Flujos de autorización, registro y control con trazabilidad completa.</li>
+          <li>Documentos: PDF, etiquetas, códigos QR y de barras.</li>
+          <li>Reportes y tableros que se actualizan solos.</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="top"><span class="num">02</span><h3>Inteligencia artificial aplicada</h3></div>
+        <p class="solve">Para los puntos del proceso donde alguien tiene que leer, interpretar y decidir.</p>
+        <ul>
+          <li>Agentes entrenados con tus catálogos, políticas y documentos.</li>
+          <li>Integración al canal real (WhatsApp, web, correo) y a tus sistemas.</li>
+          <li>Reglas de comportamiento escritas por ti, con registro de cada acción.</li>
+          <li>Relevo a una persona de tu equipo cuando el caso lo requiere.</li>
+        </ul>
+      </div>
+      <div class="svc" style="border-bottom:0">
+        <div class="top"><span class="num">03</span><h3>Integración con tu sistema administrativo</h3></div>
+        <p class="solve">Para acabar con la doble captura y la información desincronizada entre la operación y el sistema.</p>
+        <ul>
+          <li>Conexión en los dos sentidos con los sistemas administrativos y ERP más usados en México, y con bases de datos propias.</li>
+          <li>Lectura y generación de documentos fiscales: facturas XML del SAT, constancias de situación fiscal.</li>
+          <li>Integración con lectores de códigos, impresoras de etiquetas, WhatsApp y correo.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="svc">
+        <div class="top"><span class="num">04</span><h3>Modernización de sistemas heredados</h3></div>
+        <p class="solve">Para sistemas que sostienen la operación pero que ya nadie quiere tocar.</p>
+        <ul>
+          <li>Diagnóstico de lo que existe y de lo que de verdad se usa.</li>
+          <li>Nuevas herramientas que conviven con el sistema actual durante la transición.</li>
+          <li>Migración de datos y funciones por etapas, sin detener la operación.</li>
+          <li>Documentación para que el conocimiento no viva en una sola cabeza.</li>
+        </ul>
+      </div>
+      <div class="svc">
+        <div class="top"><span class="num">05</span><h3>Infraestructura y nube</h3></div>
+        <p class="solve">Para que el software esté disponible, respaldado y seguro, sin costar más de lo necesario.</p>
+        <ul>
+          <li>Despliegue en la nube o en servidores propios, según convenga.</li>
+          <li>Respaldos, monitoreo y plan de recuperación ante fallas.</li>
+          <li>Revisión y optimización de costos de servicios en la nube.</li>
+          <li>Entornos de prueba separados de producción.</li>
+        </ul>
+      </div>
+      <div class="svc" style="border-bottom:0">
+        <div class="top"><span class="num">06</span><h3>Consultoría y dirección tecnológica</h3></div>
+        <p class="solve">Para las decisiones de tecnología que hoy se toman sin alguien técnico del lado de la empresa.</p>
+        <ul>
+          <li>Auditoría de los sistemas y la arquitectura actual.</li>
+          <li>Mapa de prioridades: qué resolver primero y por qué.</li>
+          <li>Acompañamiento en la evaluación y negociación con proveedores.</li>
+          <li>Dirección tecnológica por horas (CTO como servicio) para empresas sin área de sistemas.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer"><span>algor · Resumen ejecutivo</span><span>02</span></div>
+</section>
+
+<!-- ======================= 03 IA ======================= -->
+<section class="page">
+  <div class="running"><span><span class="n">03</span>&nbsp;&nbsp;Inteligencia artificial aplicada</span><span>algor</span></div>
+
+  <div class="eyebrow"><span class="idx">03</span> Inteligencia artificial aplicada</div>
+  <h2 class="title">Y cuando el proceso lo amerita, la herramienta también piensa.</h2>
+  <p class="lead">Hay procesos en los que la herramienta no basta porque alguien tiene que leer, interpretar y decidir. Para esos casos entrenamos agentes de inteligencia artificial con la información de tu empresa y los ponemos a trabajar dentro del proceso, conectados a tus sistemas y bajo tus reglas. No se trata de un chatbot genérico: cada agente conoce tu catálogo, tus políticas y tu forma de atender, y deja registro de todo lo que hace.</p>
+
+  <div class="cols-3" style="margin-top:0.22in">
+    <div class="block">
+      <span class="big-num" style="font-size:22pt">01</span>
+      <h3>Aprende de tu información.</h3>
+      <p>Catálogos, políticas, manuales, historial de ventas. El agente se entrena con lo que tu empresa ya sabe, no con lo que encuentra en internet.</p>
+    </div>
+    <div class="block">
+      <span class="big-num" style="font-size:22pt">02</span>
+      <h3>Vive dentro del proceso.</h3>
+      <p>Se conecta a tu sistema, a WhatsApp o al canal que ya usas. Consulta existencias, genera documentos y deja registro de lo que hizo.</p>
+    </div>
+    <div class="block">
+      <span class="big-num" style="font-size:22pt">03</span>
+      <h3>Sabe cuándo pasar la mano.</h3>
+      <p>Cuando el caso lo requiere, entrega la conversación a una persona de tu equipo con todo el contexto recopilado.</p>
+    </div>
+  </div>
+
+  <p class="label" style="margin:0.25in 0 8px">Procesos donde ya trabajan agentes que entrenamos</p>
+  <div class="cols-2" style="gap:0 0.4in">
+    <ul class="rule-list">
+      <li><span class="num">01</span><div><strong>Atención a clientes.</strong> <span style="color:var(--body)">Agentes entrenados con la documentación de la empresa, que responden con tu información.</span></div></li>
+      <li><span class="num">02</span><div><strong>Búsqueda de productos.</strong> <span style="color:var(--body)">El cliente describe lo que necesita, aunque no conozca la clave, y el agente encuentra la pieza correcta en el catálogo.</span></div></li>
+    </ul>
+    <ul class="rule-list">
+      <li><span class="num">03</span><div><strong>Cotizaciones.</strong> <span style="color:var(--body)">Agentes que arman la cotización completa, con precios y existencias reales, y la entregan en PDF en la misma conversación.</span></div></li>
+      <li><span class="num">04</span><div><strong>Compras e inventarios.</strong> <span style="color:var(--body)">Sugerencias de reabastecimiento calculadas a partir del comportamiento real de ventas y existencias.</span></div></li>
+    </ul>
+  </div>
+
+  <div class="box" style="margin-top:0.22in;display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:12px 14px">
+    <div>
+      <p class="label" style="margin-bottom:6px">Un ejemplo de conversación</p>
+      <p style="font-size:9pt;color:var(--body)"><strong style="color:var(--ink)">Cliente:</strong> Necesito un sello para un cilindro hidráulico, va en el vástago, mide como 50 por 60.</p>
+      <p style="font-size:9pt;color:var(--body);margin-top:6px"><strong style="color:var(--ink)">Agente:</strong> Por la posición y las medidas corresponde a la familia PTB. Tengo en existencia el sello de vástago 50×60×6, a $229.00 con IVA. ¿Cuántas piezas necesitas?</p>
+    </div>
+    <div>
+      <p style="font-size:9pt;color:var(--body)"><strong style="color:var(--ink)">Cliente:</strong> Dos. ¿Me lo cotizas a nombre de la empresa?</p>
+      <p style="font-size:9pt;color:var(--body);margin-top:6px"><strong style="color:var(--ink)">Agente:</strong> Listo. Encontré tus datos fiscales registrados. Te envío la cotización formal en PDF por aquí mismo y le aviso a tu asesor para que dé seguimiento al envío.</p>
+    </div>
+  </div>
+
+  <div class="footer"><span>algor · Resumen ejecutivo</span><span>03</span></div>
+</section>
+
+<!-- ======================= 04 SALESFLOW ======================= -->
+<section class="page dark">
+  <div class="grid-bg"></div>
+  <div class="running"><span><span class="n">04</span>&nbsp;&nbsp;Producto · SalesFlow</span><span>algor</span></div>
+
+  <div class="eyebrow" style="position:relative"><span class="idx">04</span> Producto · SalesFlow</div>
+  <h2 class="title" style="position:relative">Transforma tu WhatsApp en un centro de ventas impulsado por IA.</h2>
+  <p class="lead" style="position:relative">Todo lo anterior, aplicado al proceso de ventas y empaquetado como producto. Un agente de inteligencia artificial atiende a tus clientes, encuentra el producto, arma el pedido y cotiza. Cuando toca cobrar, le entrega la conversación a tu vendedor con todo listo. Y tu coordinador lo ve todo en tiempo real.</p>
+
+  <p class="label" style="position:relative;margin:0.35in 0 10px">Tres relevos, un solo hilo de conversación</p>
+  <div class="cols-3" style="position:relative">
+    <div class="block">
+      <span class="big-num">01</span>
+      <p class="label" style="color:var(--orange);margin-top:4px">El agente de IA</p>
+      <h3>Atiende y deja el pedido armado.</h3>
+      <p>Responde a cualquier hora y a varios clientes a la vez. Entiende lo que piden en lenguaje natural, arma el carrito, cotiza al momento y lee la constancia de situación fiscal para capturar los datos de facturación.</p>
+    </div>
+    <div class="block">
+      <span class="big-num">02</span>
+      <p class="label" style="color:var(--orange);margin-top:4px">Tu vendedor</p>
+      <h3>Toma el relevo para cerrar.</h3>
+      <p>Recibe la conversación con el carrito lleno y el resumen. Tiene el catálogo dentro del chat, envía tarjetas que el cliente acepta con un botón, genera la cotización en PDF con tu marca a un clic y consulta a la IA en privado.</p>
+    </div>
+    <div class="block">
+      <span class="big-num">03</span>
+      <p class="label" style="color:var(--orange);margin-top:4px">Tu coordinador</p>
+      <h3>Lo ve todo sin estar encima.</h3>
+      <p>Observa las conversaciones en vivo, interviene con notas internas que el cliente nunca ve (el Susurro), y deja que los SLA automáticos reasignen lo que se enfría. Métricas del embudo y productividad por vendedor.</p>
+    </div>
+  </div>
+
+  <div class="box" style="position:relative;margin-top:0.3in;display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+    <div><p class="label" style="margin-bottom:3px">Con tu marca</p><p style="font-size:8.6pt;color:rgba(255,255,255,0.7)">Logo y colores en cotizaciones y correos.</p></div>
+    <div><p class="label" style="margin-bottom:3px">Tus reglas de IA</p><p style="font-size:8.6pt;color:rgba(255,255,255,0.7)">Tono, devoluciones y garantías definidos por ti.</p></div>
+    <div><p class="label" style="margin-bottom:3px">Tu información</p><p style="font-size:8.6pt;color:rgba(255,255,255,0.7)">Historial y clientes se quedan en la empresa, no en el teléfono del asesor.</p></div>
+    <div><p class="label" style="margin-bottom:3px">En el celular</p><p style="font-size:8.6pt;color:rgba(255,255,255,0.7)">Funciona como app, sin instalar nada.</p></div>
+  </div>
+
+  <p class="label" style="position:relative;margin:0.3in 0 10px">Planes</p>
+  <div class="plans" style="position:relative">
+    <div>
+      <p class="label">Comercio y ventas ágiles</p>
+      <h4>Plan Ágil</h4>
+      <p>Para comercios locales o equipos que arrancan. De uno a tres asesores, agente con catálogo estándar y soporte por WhatsApp y correo.</p>
+    </div>
+    <div class="featured">
+      <p class="label">Operación en crecimiento</p>
+      <h4>Plan Operación Pro</h4>
+      <p>Para distribuidores con equipo de ventas activo. De cuatro a diez asesores, Susurro, supervisión en vivo, métricas de SLA y acompañamiento.</p>
+    </div>
+    <div>
+      <p class="label">Gran escala y manufactura</p>
+      <h4>Plan Industrial</h4>
+      <p>Para catálogos masivos y operación crítica. Asesores sin límite, integración con tu ERP, IA entrenada con manuales técnicos, nube privada y SLA contractual.</p>
+    </div>
+  </div>
+
+  <div class="footer"><span>algor · Resumen ejecutivo</span><span>04</span></div>
+</section>
+
+<!-- ======================= 05 CASOS ======================= -->
+<section class="page">
+  <div class="running"><span><span class="n">05</span>&nbsp;&nbsp;Casos</span><span>algor</span></div>
+
+  <div class="eyebrow"><span class="idx">05</span> Casos</div>
+  <h2 class="title" style="font-size:22pt;margin-bottom:6px">Procesos reales, resueltos con software.</h2>
+
+  <div class="case"><div><span class="label area">Ventas · Producto</span><h3>SalesFlow: ventas por WhatsApp con IA</h3></div><p>Una distribuidora de refacciones industriales atendía ventas desde los teléfonos de cada vendedor, sin visibilidad y sin respuesta fuera de horario. <strong>Hoy un agente atiende, cotiza y transfiere pedidos armados; la gerencia ve la operación completa.</strong></p></div>
+  <div class="case"><div><span class="label area">Recursos humanos</span><h3>Permisos de entrada y salida para técnicos de garantías</h3></div><p>Permisos en papel firmados por un supervisor; nadie sabía quién estaba fuera ni con qué cliente. <strong>Solicitud, autorización desde el celular y validación en vigilancia, con historial completo por técnico.</strong></p></div>
+  <div class="case"><div><span class="label area">Dirección tecnológica</span><h3>Fundación del área de TI de una pyme con un CTO como servicio</h3></div><p>Una empresa mediana sin área de sistemas: compras por urgencia, licencias sin control, soporte improvisado. <strong>Área fundada desde cero con lo necesario de ITIL (mesa de soporte, licenciamiento, inventario de activos, políticas básicas), pagando solo las horas de dirección que necesita.</strong></p></div>
+  <div class="case"><div><span class="label area">Tecnología</span><h3>Control de activos de TI</h3></div><p>Inventario en una hoja de cálculo que se desactualizaba con cada cambio de puesto. <strong>Resguardos por persona, ubicación, historial y vencimientos; una auditoría se resuelve con un reporte.</strong></p></div>
+  <div class="case"><div><span class="label area">Almacén y logística</span><h3>Procesamiento de mercancía mediante códigos de barras</h3></div><p>Movimientos anotados en bitácoras y capturados después, con diferencias de existencias inexplicables. <strong>Captura única en el piso del almacén con terminales móviles; las existencias que ve ventas son las reales.</strong></p></div>
+  <div class="case"><div><span class="label area">Compras</span><h3>Órdenes de compra desde la factura XML del proveedor</h3></div><p>Captura manual de cada factura, sin forma práctica de detectar incrementos de precio. <strong>El XML se convierte en orden de compra cotejada contra la lista autorizada; las desviaciones se ven antes de pagar.</strong></p></div>
+  <div class="case"><div><span class="label area">Ventas</span><h3>Cotizador con precios y existencias en vivo</h3></div><p>Vendedores cotizando con PDF viejos y llamadas a la oficina para confirmar existencias. <strong>Cotización en minutos desde el celular, con información real, enviada por WhatsApp.</strong></p></div>
+  <div class="case"><div><span class="label area">Dirección</span><h3>Tableros de dirección en tiempo real</h3></div><p>Ventas, cartera e inventarios conocidos hasta el cierre de mes. <strong>Indicadores que se actualizan durante el día, con acceso seguro desde el celular.</strong></p></div>
+  <div class="case"><div><span class="label area">Integración de sistemas</span><h3>Capa de integración en tiempo real sobre un ERP comercial</h3></div><p>Extracciones nocturnas que sobrecargaban el ERP y reportes siempre de ayer. <strong>Captura de cambios conforme ocurren hacia una base moderna, sin modificar el sistema original ni detener la operación.</strong></p></div>
+  <div class="case"><div><span class="label area">Infraestructura</span><h3>Optimización de costos de infraestructura en la nube</h3></div><p>Clúster sobredimensionado y despliegues manuales propensos a errores. <strong>Servicios dimensionados a la carga real, despliegue continuo y visibilidad del gasto por servicio.</strong></p></div>
+  <div class="case" style="border-bottom:0"><div><span class="label area">Datos</span><h3>Migración de base de datos sin interrupción del servicio</h3></div><p>Un comercio electrónico de alto tráfico que no podía permitirse una ventana de mantenimiento. <strong>Migración en paralelo con captura de cambios; el motor se sustituyó sin perder una transacción.</strong></p></div>
+
+  <div class="footer"><span>algor · Resumen ejecutivo</span><span>05</span></div>
+</section>
+
+<!-- ======================= 06 CÓMO TRABAJAMOS ======================= -->
+<section class="page">
+  <div class="running"><span><span class="n">06</span>&nbsp;&nbsp;Cómo trabajamos</span><span>algor</span></div>
+
+  <div class="eyebrow"><span class="idx">06</span> Cómo trabajamos</div>
+  <h2 class="title">Del primer contacto a la herramienta en uso, en cinco pasos.</h2>
+  <p class="lead">El mismo camino para un proyecto pequeño o uno grande. Lo que cambia es la duración de cada tramo.</p>
+
+  <ol class="steps" style="margin-top:0.3in">
+    <li><span class="big-num">01</span><h4>Primera llamada</h4><p>Treinta minutos para que nos cuentes el proceso o el problema. Salimos con una idea clara de si podemos ayudar y cómo.</p></li>
+    <li><span class="big-num">02</span><h4>Diagnóstico</h4><p>Nos sentamos con quien opera el proceso y revisamos los sistemas involucrados. Lo que vemos en la práctica manda.</p></li>
+    <li><span class="big-num">03</span><h4>Propuesta</h4><p>Alcance, tiempo e inversión por escrito. Sin letras chicas y sin funciones de relleno.</p></li>
+    <li><span class="big-num">04</span><h4>Construcción por entregas</h4><p>Cada entrega se prueba con tu equipo en operación real, para corregir el rumbo temprano.</p></li>
+    <li><span class="big-num">05</span><h4>Puesta en marcha</h4><p>Capacitación, ajustes de los primeros días y acompañamiento hasta que la herramienta sea parte de la rutina.</p></li>
+  </ol>
+
+  <p class="label" style="margin:0.4in 0 4px">Lo que conviene saber antes de la primera llamada</p>
+  <div class="cols-2" style="gap:0 0.4in">
+    <dl class="faq">
+      <dt>¿Trabajan con el sistema administrativo que ya tenemos?</dt>
+      <dd>Sí. No pedimos que lo cambies. Construimos alrededor de él y lo conectamos para que la información se capture una sola vez.</dd>
+      <dt>¿De quién es el código y la información?</dt>
+      <dd>De tu empresa. El código fuente, las bases de datos y los accesos quedan a tu nombre. Si un día decides seguir con otro proveedor, te llevas todo.</dd>
+      <dt>¿Necesitamos tener área de sistemas?</dt>
+      <dd>No. Hablamos en términos de tu operación, no de tecnología, y cuando hace falta criterio técnico del lado de la empresa, lo aportamos nosotros.</dd>
+    </dl>
+    <dl class="faq">
+      <dt>¿Cuánto tarda un proyecto?</dt>
+      <dd>La mayoría de las herramientas para un proceso se entregan en semanas. Los proyectos de modernización o integración más amplios se dividen en etapas con fechas propias.</dd>
+      <dt>¿Qué pasa después de la entrega?</dt>
+      <dd>Acompañamos la puesta en marcha hasta que la herramienta sea parte de la rutina. Después, los ajustes y mejoras se acuerdan según lo que tu operación necesite.</dd>
+      <dt>¿El agente de IA responde con información de internet?</dt>
+      <dd>No. Responde con tu catálogo, tus documentos y las reglas que tú redactes. Si algo no está en lo que le diste, no lo inventa.</dd>
+    </dl>
+  </div>
+
+  <div class="footer"><span>algor · Resumen ejecutivo</span><span>06</span></div>
+</section>
+
+<!-- ======================= CIERRE ======================= -->
+<section class="page dark cover">
+  <div class="grid-bg"></div>
+  <div style="position:relative">
+    <div class="eyebrow">Siguiente paso</div>
+  </div>
+  <div class="middle" style="position:relative">
+    <h2 class="cta">Platícanos el proceso que hoy te quita tiempo. En una llamada de 30 minutos te decimos cómo lo resolveríamos, en cuánto tiempo y con qué inversión aproximada.</h2>
+    <p class="lead" style="margin-top:18px">Sin compromiso. Llegamos con tu proceso leído para aprovechar el tiempo.</p>
+
+    <dl class="meta">
+      <dt>Correo</dt><dd>contacto@algor.mx</dd>
+      <dt>Sitio web</dt><dd>algor.mx</dd>
+      <dt>Agendar</dt><dd>algor.mx/contacto/agendar</dd>
+    </dl>
+  </div>
+  <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-end">
+    <div class="logo">
+      <svg viewBox="10 10 170 40" xmlns="http://www.w3.org/2000/svg" aria-label="algor">
+        <polygon points="12,48 30,12 42,12 24,48" fill="#fff"/>
+        <polygon points="38,12 50,12 68,48 56,48" fill="#FF5100"/>
+        <text x="80" y="42" font-family="Inter, sans-serif" font-weight="800" font-size="34" letter-spacing="-1.5" fill="#fff">algor</text>
+      </svg>
+    </div>
+    <span class="label">Ingeniería de software · México</span>
+  </div>
+</section>
+
+</body>
+</html>
